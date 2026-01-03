@@ -49,6 +49,16 @@ p {
     background-color: #166fe5;
 }
 
+.image-container {
+    margin-bottom: 1.5rem;
+}
+
+#uploaded-image {
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 .language-selector {
     margin-bottom: 1.5rem;
 }

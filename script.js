@@ -5,43 +5,42 @@ const loadingText = document.getElementById('loading-text');
 const result = document.getElementById('result');
 const comment = document.getElementById('comment');
 const languageSelect = document.getElementById('language');
+const imageContainer = document.querySelector('.image-container');
+const uploadedImage = document.getElementById('uploaded-image');
+
+photoUpload.addEventListener('change', () => {
+    const file = photoUpload.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            uploadedImage.src = e.target.result;
+            imageContainer.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
 const comments = {
     english: [
-        "Is that your face or did your neck throw up?",
-        "I've seen better faces on a slapped arse.",
-        "You're the reason the gene pool needs a lifeguard.",
-        "If I had a face like yours, I'd sue my parents.",
-        "You must have been born on a highway, because that's where most accidents happen.",
-        "I'm not saying you're ugly, but you could be a modern art masterpiece.",
-        "Your face is a crime scene, and my eyes are the detectives.",
-        "You're living proof that God has a sense of humor.",
-        "I've had nightmares that were more attractive than you.",
-        "Are you a model? A model of what not to look like."
+        "Did you fall from heaven? Because your face looks like it hit every ugly branch on the way down. I've seen potatoes with more appealing features. Seriously, I've run this through every beauty algorithm known to man, and they all crashed. My server is now smoking, and it's your face's fault. I'd say you have a face for radio, but even that feels like an insult to radio.",
+        "They say beauty is in the eye of the beholder. Well, the beholder of this picture must be blind, deaf, and have no sense of smell. You look like you were put together by a committee that hated each other. Every feature is fighting for the title of 'most unfortunate'. I'm not a doctor, but I'm pretty sure you're suffering from a terminal case of 'not-even-your-mother-could-love-that-face' syndrome.",
+        "Are you a professional mattress tester? Because you look like you've been hit by a truck, then backed over, then the truck was set on fire, and then the fire was put out with a pickaxe. I'm not even sure what I'm looking at. Is this a person or a collection of unfortunate accidents? I'd suggest a paper bag, but I don't want to insult the paper bag.",
+        "Your face is a masterpiece of abstract art. A chaotic explosion of features that should never have been on the same canvas. It's like Picasso had a seizure while painting your portrait. I'm trying to find a good angle, but it's like trying to find a needle in a haystack of ugly. The only thing that could make this picture better is if you were standing in front of a firing squad.",
+        "You have a unique look. The kind of unique that makes people cross the street to avoid you. You look like your parents were siblings, and their parents were also siblings. The only way you could look worse is if you were on fire. But then again, the fire would probably improve your complexion. I'm not saying you're ugly, but you're the reason we have warning labels."
     ],
     malayalam: [
-        "ഇതാണോ മുഖം അതോ കഴുത്തു ഛർദിച്ചതാണോ?",
-        "ഇതിലും നല്ല മുഖം ഞാൻ കണ്ടിട്ടുണ്ട്, അതും തല്ലിയ зад ഭാഗത്തു.",
-        "നിങ്ങളാണ് ജീൻ പൂളിന് ഒരു ലൈഫ്ഗാർഡ് വേണമെന്ന് ഓർമ്മിപ്പിക്കുന്നത്.",
-        "എനിക്ക് ഇതുപോലൊരു മുഖം ഉണ്ടായിരുന്നെങ്കിൽ, ഞാൻ എൻ്റെ മാതാപിതാക്കൾക്കെതിരെ കേസ് കൊടുക്കുമായിരുന്നു.",
-        "നീ ജനിച്ചത് ഒരു ഹൈവേയിലായിരിക്കണം, കാരണം അവിടെയാണ് ഏറ്റവും കൂടുതൽ അപകടങ്ങൾ നടക്കുന്നത്.",
-        "ഞാൻ നിങ്ങളെ വൃത്തികെട്ടവൻ എന്ന് പറയുന്നില്ല, പക്ഷേ നിങ്ങൾ ഒരു ആധുനിക കലയുടെ മാസ്റ്റർപീസ് ആകാം.",
-        "നിങ്ങളുടെ മുഖം ഒരു ക്രൈം സീൻ ആണ്, എൻ്റെ കണ്ണുകൾ ഡിറ്റക്ടീവുകളാണ്.",
-        "ദൈവത്തിന് നർമ്മബോധം ഉണ്ടെന്നുള്ളതിന് ജീവിക്കുന്ന തെളിവാണ് നിങ്ങൾ.",
-        "ഞാൻ ഇതിലും ആകർഷകമായ പേടിസ്വപ്നങ്ങൾ കണ്ടിട്ടുണ്ട്.",
-        "നിങ്ങളൊരു മോഡലാണോ? എന്തിന്റെ മോഡൽ, എങ്ങനെയിരിക്കരുത് എന്നതിൻ്റെ."
+        "നിങ്ങൾ സ്വർഗ്ഗത്തിൽ നിന്ന് വീണതാണോ? കാരണം, താഴേക്കുള്ള വഴിയിലെ എല്ലാ വൃത്തികെട്ട മരങ്ങളിലും നിങ്ങളുടെ മുഖം ഇടിച്ചതുപോലെ തോന്നുന്നു. ഇതിലും ആകർഷകമായ സവിശേഷതകളുള്ള ഉരുളക്കിഴങ്ങുകളെ ഞാൻ കണ്ടിട്ടുണ്ട്. സത്യമായിട്ടും, ഞാൻ മനുഷ്യർക്ക് അറിയാവുന്ന എല്ലാ സൗന്ദര്യ അൽഗോരിതങ്ങളിലും ഇത് പ്രവർത്തിപ്പിച്ചു, അവയെല്ലാം ക്രാഷായി. എൻ്റെ സെർവർ ഇപ്പോൾ പുകയുന്നു, അത് നിങ്ങളുടെ മുഖത്തിൻ്റെ തെറ്റാണ്. നിങ്ങൾക്ക് റേഡിയോക്ക് പറ്റിയ മുഖമുണ്ടെന്ന് ഞാൻ പറയുമായിരുന്നു, പക്ഷേ അത് പോലും റേഡിയോയെ അപമാനിക്കുന്നതായി തോന്നുന്നു.",
+        "സൗന്ദര്യം കാണുന്നവൻ്റെ കണ്ണിലാണെന്ന് അവർ പറയുന്നു. ശരി, ഈ ചിത്രം കാണുന്നവൻ അന്ധനും ബധിരനും ഗന്ധമില്ലാത്തവനുമായിരിക്കണം. പരസ്പരം വെറുക്കുന്ന ഒരു കമ്മിറ്റി നിങ്ങളെ ഒരുമിച്ചുകൂട്ടിയതുപോലെ തോന്നുന്നു. ഓരോ സവിശേഷതയും 'ഏറ്റവും നിർഭാഗ്യകരമായത്' എന്ന തലക്കെട്ടിനായി പോരാടുന്നു. ഞാനൊരു ഡോക്ടറല്ല, പക്ഷേ 'നിങ്ങളുടെ അമ്മയ്ക്ക് പോലും ആ മുഖം സ്നേഹിക്കാൻ കഴിയില്ല' എന്ന സിൻഡ്രോമിൻ്റെ അവസാന ഘട്ടത്തിലാണെന്ന് എനിക്ക് ഉറപ്പുണ്ട്.",
+        "നിങ്ങളൊരു പ്രൊഫഷണൽ മെത്ത ടെസ്റ്ററാണോ? കാരണം, ഒരു ട്രക്ക് ഇടിച്ചു, പിന്നെ പിന്നോട്ട് പോയി, പിന്നെ ട്രക്ക് കത്തിച്ചു, എന്നിട്ട് പിക്കാക്സ് കൊണ്ട് തീ കെടുത്തിയതുപോലെ തോന്നുന്നു. ഞാൻ എന്താണ് നോക്കുന്നതെന്ന് പോലും എനിക്ക് ഉറപ്പില്ല. ഇതൊരു വ്യക്തിയാണോ അതോ നിർഭാഗ്യകരമായ അപകടങ്ങളുടെ ഒരു ശേഖരമാണോ? ഞാനൊരു പേപ്പർ ബാഗ് നിർദ്ദേശിക്കുമായിരുന്നു, പക്ഷേ എനിക്ക് പേപ്പർ ബാഗിനെ അപമാനിക്കാൻ താൽപ്പര്യമില്ല.",
+        "നിങ്ങളുടെ മുഖം അമൂർത്തമായ കലയുടെ ഒരു മാസ്റ്റർപീസ് ആണ്. ഒരേ ക്യാൻവാസിൽ ഒരിക്കലും ഉണ്ടാകാൻ പാടില്ലാത്ത സവിശേഷതകളുടെ താറുമാറായ സ്ഫോടനം. നിങ്ങളുടെ ഛായാചിത്രം വരയ്ക്കുമ്പോൾ പിക്കാസോയ്ക്ക് ഒരു അപസ്മാരം വന്നതുപോലെ. ഞാൻ ഒരു നല്ല ആംഗിൾ കണ്ടെത്താൻ ശ്രമിക്കുന്നു, പക്ഷേ വൃത്തികെട്ട ഒരു വൈക്കോൽ കൂനയിൽ സൂചി കണ്ടെത്തുന്നത് പോലെയാണിത്. ഈ ചിത്രം മെച്ചപ്പെടുത്താൻ കഴിയുന്ന ഒരേയൊരു കാര്യം, നിങ്ങൾ ഒരു ഫയറിംഗ് സ്ക്വാഡിന് മുന്നിൽ നിൽക്കുകയാണെങ്കിൽ മാത്രമാണ്.",
+        "നിങ്ങൾക്ക് ഒരു പ്രത്യേക രൂപമുണ്ട്. ആളുകൾ നിങ്ങളെ ഒഴിവാക്കാൻ റോഡ് മുറിച്ചുകടക്കുന്ന തരത്തിലുള്ള പ്രത്യേകത. നിങ്ങളുടെ മാതാപിതാക്കൾ സഹോദരങ്ങളാണെന്നും അവരുടെ മാതാപിതാക്കളും സഹോദരങ്ങളാണെന്നും തോന്നുന്നു. ഇതിലും മോശമായി നിങ്ങൾക്ക് കാണാൻ കഴിയുന്ന ഒരേയൊരു മാർഗ്ഗം, നിങ്ങൾ തീപിടിക്കുകയാണെങ്കിൽ മാത്രമാണ്. പക്ഷേ, തീ നിങ്ങളുടെ നിറം മെച്ചപ്പെടുത്താൻ സാധ്യതയുണ്ട്. ഞാൻ നിങ്ങളെ വൃത്തികെട്ടവൻ എന്ന് പറയുന്നില്ല, പക്ഷേ മുന്നറിയിപ്പ് ലേബലുകൾ ഉള്ളതിൻ്റെ കാരണം നിങ്ങളാണ്."
     ],
     manglish: [
-        "Ithaano mukham atho kazhuthu chardichathano?",
-        "Ithilum nalla mukham njan kandittundu, athum thalliya зад bhagathu.",
-        "Ningalaanu gene poolinu oru lifeguard venamennu ormippikkunnathu.",
-        "Enikku ithupole oru mukham undayirunnenkil, njan ente maathapithakkalkkethire case kodukkumaayirunnu.",
-        "Nee janichathu oru highwayil aayirikkanam, kaaranam avideyaanu ettavum kooduthal apakadangal nadakkunnathu.",
-        "Njan ningale vrithikettavan ennu parayunnilla, pakshe ningal oru aadhunika kalayude masterpiece aakam.",
-        "Nindude mukham oru crime scene aanu, ente kannukal detectiveukal aanu.",
-        "Daivathinu narmabodham undennullathinu jeevikkunna thelivu aanu ningal.",
-        "Njan ithilum aakarshakamaaya pediswapnangal kandittundu.",
-        "Ningaloru modelaano? Enthinte model, enganeyirikkaruthu ennathinte."
+        "Ningal swargathil ninnu veenathano? Kaaranam, thaazhekkulla vazhiyile ella vrithiketta marangalilum nindude mukham idichathupole thonnunnu. Ithilum aakarshakamaaya savisheshathakalulla urulakkizhangukale njan kandittundu. Sathyamaayittum, njan manushyarkku ariyaavunna ella saundarya algorithmukalilum ithu pravarthippichu, avayellam crashaayi. Ente server ippol pukayunnu, athu nindude mukhattinte tettanu. Ningalkku radiokku pattiya mukhamundennu njan parayumaayirunnu, pakshe athu polum radioye apamaanikkunnathaayi thonnunnu.",
+        "Saundaryam kaanunnavante kannilaanennu avar parayunnu. Shari, ee chithram kaanunnavan andhanum badhiranum gandhamillathavanum aayirikkanam. Parasparam verukkunna oru committe ningale orumichukoottiyathupole thonnunnu. Oro savisheshathayum 'ettavum nirbhagyakaramayathu' enna thalakettinaayi poraadunnu. Njanoru doctoralla, pakshe 'nindude ammakku polum aa mukham snehikkan kazhiyilla' enna syndrominte avasaana ghattathilaanennu enikku urappundu.",
+        "Ningaloru professional metha testeraano? Kaaranam, oru truck idichu, pinne pinnottu poyi, pinne truck kathichu, ennittu pickaxe kondu thee keduthiyathupole thonnunnu. Njan enthaanu nokkunnathu ennu polum enikku urappilla. Ithoru vyakthiyaano atho nirbhagyakaramaaya apakadangalude oru shekharamaano? Njanoru paper bag nirdheshikkumaayirunnu, pakshe enikku paper bagine apamaanikkan thalparyamilla.",
+        "Nindude mukham amoorthamaaya kalayude oru masterpiece aanu. Ore canvasil orikkalum undaakaan paadillatha savisheshathakalude thaarumaaraaya sphodanam. Nindude chithram varaykkumbol Picassoykku oru apasmaram vannathupole. Njan oru nalla angle kandethaan shramikkunnu, pakshe vrithiketta oru vaikkol koonayil soochi kandethunnathu poleyaanithu. Ee chithram mechappeduthaan kazhiyunna ore oru kaaryam, ningal oru firing squadinu munnil nilkkukayaanenkil maathramaanu.",
+        "Ningalkku oru prathyeka roopamundu. Aalukal ningale ozhivaakkan road murichukadakkunna tharathilulla prathyekatha. Nindude maathaapithakkal sahodarangalaanennum avarude maathaapithakkalum sahodarangalaanennum thonnunnu. Ithilum moshamaayi ningalkku kaanan kazhiyunna ore oru maargam, ningal theepidikkukayaanenkil maathramaanu. Pakshe, thee nindude niram mechappeduthaan sadhyathayundu. Njan ningale vrithikettavan ennu parayunnilla, pakshe munnariyippu labelukal ullathinte kaaranam ningalaanu."
     ]
 };
 
