@@ -1,559 +1,915 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funny Photo Commenter · brutally honest AI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Funny Photo Commenter · brutally honest AI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(145deg, #f6f9fe 0%, #eef2f7 100%);
-            color: #1a2b3e;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 1.5rem;
-        }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(145deg, #f6f9fe 0%, #eef2f7 100%);
+    color: #1a2b3e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
 
-        .container {
-            background: #ffffff;
-            padding: 2.25rem 2rem 2rem;
-            border-radius: 28px;
-            box-shadow: 0 20px 35px -8px rgba(0, 20, 40, 0.15), 0 8px 18px -6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            max-width: 540px;
-            width: 100%;
-            transition: box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(2px);
-        }
+  .container {
+    background: #ffffff;
+    padding: 2.25rem 2rem 2rem;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -8px rgba(0, 20, 40, 0.15), 0 8px 18px -6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 560px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
 
-        h1 {
-            font-weight: 600;
-            font-size: 1.9rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1877f2, #0e5ac2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.35rem;
-            display: inline-block;
-        }
+  h1 {
+    font-weight: 600;
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #1877f2, #0e5ac2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.35rem;
+    display: inline-block;
+  }
 
-        .subhead {
-            font-size: 0.95rem;
-            color: #5e6f88;
-            margin-bottom: 1.9rem;
-            line-height: 1.5;
-            font-weight: 400;
-        }
+  .subhead {
+    font-size: 0.95rem;
+    color: #5e6f88;
+    margin-bottom: 1.9rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
 
-        /* upload section */
-        .upload-container {
-            margin-bottom: 1.75rem;
-        }
+  .upload-container { margin-bottom: 1.75rem; }
 
-        #photo-upload {
-            display: none;
-        }
+  #photo-upload { display: none; }
 
-        .upload-label {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: #ffffff;
-            color: #1877f2;
-            font-weight: 500;
-            padding: 0.85rem 1.8rem;
-            border-radius: 60px;
-            border: 1.5px solid #1877f2;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(24, 119, 242, 0.12);
-            font-size: 1rem;
-            width: fit-content;
-            margin: 0 auto;
-        }
+  .upload-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    color: #1877f2;
+    font-weight: 500;
+    padding: 0.85rem 1.8rem;
+    border-radius: 60px;
+    border: 1.5px solid #1877f2;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(24, 119, 242, 0.12);
+    font-size: 1rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
 
-        .upload-label:hover {
-            background: #1877f2;
-            color: white;
-            box-shadow: 0 8px 16px -6px rgba(24, 119, 242, 0.4);
-            border-color: #1877f2;
-            transform: translateY(-1px);
-        }
+  .upload-label:hover {
+    background: #1877f2;
+    color: white;
+    box-shadow: 0 8px 16px -6px rgba(24, 119, 242, 0.4);
+    transform: translateY(-1px);
+  }
 
-        .upload-label:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 6px rgba(24, 119, 242, 0.25);
-        }
+  .image-container {
+    margin-bottom: 1.6rem;
+    background: #fafcff;
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+  }
 
-        /* image preview */
-        .image-container {
-            margin-bottom: 1.6rem;
-            background: #fafcff;
-            border-radius: 20px;
-            padding: 0.5rem;
-            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
-        }
+  #uploaded-image {
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 16px;
+    border: 1px solid #e4eaf2;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
 
-        #uploaded-image {
-            max-width: 100%;
-            max-height: 220px;
-            border-radius: 16px;
-            border: 1px solid #e4eaf2;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 6px 14px rgba(0, 20, 40, 0.08);
-        }
+  .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.8rem 0 1.5rem;
+  }
 
-        /* language + analyze row */
-        .action-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1.8rem 0 1.5rem;
-        }
+  .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #f2f6fd;
+    padding: 0.35rem 0.35rem 0.35rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #dae2ed;
+  }
 
-        .language-selector {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: #f2f6fd;
-            padding: 0.35rem 0.35rem 0.35rem 1rem;
-            border-radius: 40px;
-            border: 1px solid #dae2ed;
-        }
+  .language-selector label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2c3e5a;
+    white-space: nowrap;
+  }
 
-        .language-selector label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #2c3e5a;
-            white-space: nowrap;
-        }
+  #language {
+    padding: 0.55rem 2.2rem 0.55rem 1rem;
+    border-radius: 30px;
+    border: none;
+    background: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e2f47;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231877f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 14px;
+    min-width: 150px;
+  }
 
-        #language {
-            padding: 0.55rem 2.2rem 0.55rem 1rem;
-            border-radius: 30px;
-            border: none;
-            background: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #1e2f47;
-            cursor: pointer;
-            outline: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231877f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 14px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-            min-width: 130px;
-        }
+  #analyze-btn {
+    background: #42b72a;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 18px -6px rgba(66, 183, 42, 0.4);
+  }
 
-        #language:hover {
-            background-color: #f9fcff;
-        }
+  #analyze-btn:hover {
+    background: #3aa525;
+    transform: translateY(-1px);
+  }
 
-        #analyze-btn {
-            background: #42b72a;
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            transition: all 0.2s ease;
-            box-shadow: 0 8px 18px -6px rgba(66, 183, 42, 0.4);
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+  #analyze-btn:disabled { opacity: 0.6; pointer-events: none; }
 
-        #analyze-btn:hover {
-            background: #3aa525;
-            transform: translateY(-1px);
-            box-shadow: 0 12px 22px -8px rgba(66, 183, 42, 0.5);
-        }
+  #loader { margin-top: 2rem; text-align: center; }
 
-        #analyze-btn:active {
-            transform: translateY(1px);
-            box-shadow: 0 4px 12px -2px rgba(66, 183, 42, 0.4);
-        }
+  .spinner {
+    border: 4px solid rgba(24, 119, 242, 0.12);
+    border-left-color: #1877f2;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 1rem;
+  }
 
-        #analyze-btn:disabled {
-            opacity: 0.6;
-            pointer-events: none;
-            filter: grayscale(0.4);
-        }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* loader */
-        #loader {
-            margin-top: 2rem;
-            text-align: center;
-        }
+  #loading-text {
+    font-size: 0.95rem;
+    color: #406080;
+    font-weight: 450;
+    min-height: 2.6rem;
+    font-style: italic;
+  }
 
-        .spinner {
-            border: 4px solid rgba(24, 119, 242, 0.12);
-            border-left-color: #1877f2;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            animation: spin 0.9s linear infinite;
-            margin: 0 auto 1rem;
-        }
+  #result {
+    margin-top: 2rem;
+    padding: 1.5rem 1.4rem;
+    background: #f7faff;
+    border-radius: 24px;
+    border: 1px solid #e0eaf9;
+    text-align: left;
+    animation: fadeSlide 0.35s ease-out;
+  }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-        #loading-text {
-            font-size: 0.95rem;
-            color: #406080;
-            font-weight: 450;
-            margin-bottom: 0.25rem;
-            min-height: 2.6rem;
-            transition: opacity 0.2s;
-            font-style: italic;
-        }
+  #result h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0e2a44;
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 
-        /* result */
-        #result {
-            margin-top: 2rem;
-            padding: 1.5rem 1.4rem;
-            background: #f7faff;
-            border-radius: 24px;
-            border: 1px solid #e0eaf9;
-            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.8), 0 8px 20px -10px rgba(0, 20, 40, 0.15);
-            text-align: left;
-            animation: fadeSlide 0.35s ease-out;
-        }
+  #result h2::before { content: "💬"; font-size: 1.3rem; }
 
-        @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  #comment {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1f3a5b;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 6px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
 
-        #result h2 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #0e2a44;
-            margin-bottom: 0.85rem;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
+  .hidden { display: none !important; }
 
-        #result h2::before {
-            content: "💬";
-            font-size: 1.3rem;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
-        }
+  footer {
+    margin-top: 2.2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #7a8ba3;
+    max-width: 560px;
+    line-height: 1.6;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    padding-top: 1.5rem;
+    width: 100%;
+  }
 
-        #comment {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #1f3a5b;
-            font-weight: 400;
-            max-height: 240px;
-            overflow-y: auto;
-            padding-right: 6px;
-            scrollbar-width: thin;
-            scrollbar-color: #c0d4ee #eaf1fd;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
+  footer p:first-child { margin-bottom: 0.45rem; font-weight: 450; color: #5b6f88; }
+  footer p:last-child { font-style: italic; color: #8b9bb2; }
 
-        #comment::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        #comment::-webkit-scrollbar-track {
-            background: #eaf1fd;
-            border-radius: 10px;
-        }
-
-        #comment::-webkit-scrollbar-thumb {
-            background: #b2cbe6;
-            border-radius: 10px;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* footer */
-        footer {
-            margin-top: 2.2rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #7a8ba3;
-            max-width: 540px;
-            line-height: 1.6;
-            border-top: 1px solid rgba(0, 0, 0, 0.04);
-            padding-top: 1.5rem;
-            width: 100%;
-        }
-
-        footer p:first-child {
-            margin-bottom: 0.45rem;
-            font-weight: 450;
-            color: #5b6f88;
-        }
-
-        footer p:last-child {
-            font-style: italic;
-            color: #8b9bb2;
-        }
-
-        /* responsive touches */
-        @media (max-width: 460px) {
-            .container {
-                padding: 1.8rem 1.2rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            .action-row {
-                flex-direction: column;
-                gap: 0.9rem;
-            }
-
-            .language-selector {
-                width: 100%;
-                justify-content: space-between;
-                padding-right: 0.5rem;
-            }
-
-            #language {
-                flex: 1;
-            }
-
-            #analyze-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            #uploaded-image {
-                max-height: 180px;
-            }
-        }
-    </style>
+  @media (max-width: 460px) {
+    .container { padding: 1.8rem 1.2rem 1.5rem; }
+    h1 { font-size: 1.6rem; }
+    .action-row { flex-direction: column; gap: 0.9rem; }
+    .language-selector { width: 100%; justify-content: space-between; padding-right: 0.5rem; }
+    #language { flex: 1; }
+    #analyze-btn { width: 100%; }
+    #uploaded-image { max-height: 180px; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Funny Photo Commenter</h1>
-        <p class="subhead">Upload your photo and get a brutally honest (and funny) comment!</p>
+  <div class="container">
+    <h1>Funny Photo Commenter</h1>
+    <p class="subhead">Upload your photo and get a brutally honest (and funny) comment!</p>
 
-        <div class="upload-container">
-            <input type="file" id="photo-upload" accept="image/*">
-            <label for="photo-upload" class="upload-label">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="17 8 12 3 7 8" />
-                    <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-                Choose a Photo
-            </label>
-        </div>
-
-        <div class="image-container hidden">
-            <img id="uploaded-image" src="#" alt="Uploaded Image">
-        </div>
-
-        <div class="action-row">
-            <div class="language-selector">
-                <label for="language">Language</label>
-                <select id="language">
-                    <option value="english">English</option>
-                    <option value="malayalam">Malayalam</option>
-                    <option value="manglish">Manglish</option>
-                </select>
-            </div>
-            <button id="analyze-btn">Analyze Photo</button>
-        </div>
-
-        <!-- Loader -->
-        <div id="loader" class="hidden">
-            <div class="spinner"></div>
-            <p id="loading-text"></p>
-        </div>
-
-        <!-- Result -->
-        <div id="result" class="hidden">
-            <h2>Here's what we think:</h2>
-            <p id="comment"></p>
-        </div>
+    <div class="upload-container">
+      <input type="file" id="photo-upload" accept="image/*" />
+      <label for="photo-upload" class="upload-label">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="17 8 12 3 7 8" />
+          <line x1="12" y1="3" x2="12" y2="15" />
+        </svg>
+        Choose a Photo
+      </label>
     </div>
 
-    <footer>
-        <p>&copy; 2026 @Agnivesh_Indian. All rights reserved.</p>
-        <p>This is for entertainment purposes only. The comments generated are satirical and not intended to cause harm or body-shame anyone.</p>
-    </footer>
+    <div class="image-container hidden">
+      <img id="uploaded-image" src="#" alt="Uploaded Image" />
+    </div>
 
-    <script>
-        (function() {
-            // DOM elements
-            const photoUpload = document.getElementById('photo-upload');
-            const analyzeBtn = document.getElementById('analyze-btn');
-            const loader = document.getElementById('loader');
-            const loadingText = document.getElementById('loading-text');
-            const result = document.getElementById('result');
-            const comment = document.getElementById('comment');
-            const languageSelect = document.getElementById('language');
-            const imageContainer = document.querySelector('.image-container');
-            const uploadedImage = document.getElementById('uploaded-image');
+    <div class="action-row">
+      <div class="language-selector">
+        <label for="language">Language</label>
+        <select id="language">
+          <option value="english">English</option>
+          <option value="malayalam">മലയാളം (Malayalam)</option>
+          <option value="manglish">Malayalam (Manglish)</option>
+          <option value="hindi">हिन्दी (Hindi)</option>
+          <option value="hinglish">Hinglish</option>
+        </select>
+      </div>
+      <button id="analyze-btn">Analyze Photo</button>
+    </div>
 
-            // ---------- comments data ----------
-            const comments = {
-                english: [
-                    "Well, where do I even begin? This picture is a journey, a pilgrimage into the very heart of what can go wrong with the human form. It's as if your parents were given a set of instructions on how to assemble a person, but they lost the manual and decided to just 'wing it'. The result is a spectacular failure, a testament to the chaotic randomness of genetics. Your face is a landscape of unfortunate choices, a topographical map of 'what were they thinking?'. I’ve seen more aesthetically pleasing things in a petri dish. You have a face that could make a train take a dirt road. It’s not just one thing, it’s the symphony of everything not quite working together. It’s like you were the rough draft for a human, and they forgot to make the final version. My analysis suggests a 99.9% probability that you were created as a joke, a cosmic prank on the rest of us. The remaining 0.1% is the margin of error, but let's be honest, it's probably 100%. If there was a competition for the face most likely to curdle milk, you'd be the undisputed champion. I'm not even mad, I'm impressed. It takes a special kind of talent to look like this. Bravo.",
-                    "I've been staring at this for a while now, and I've come to a conclusion: you are a living, breathing paradox. You are a violation of the laws of nature, a glitch in the matrix of evolution. Your face is a puzzle with all the wrong pieces forced together. It's like someone tried to draw a person from memory, but their memory was a fever dream. The sheer audacity of your features to coexist on one face is breathtaking. It's an avant-garde masterpiece of asymmetry. I've seen car accidents with more harmonious compositions. My processors are overheating just trying to categorize the sheer volume of 'what is happening here?'. You are the human equivalent of a 404 error: 'Beauty not found'. I've scanned this image from every conceivable angle, and I'm still not sure if I'm looking at a person or a failed experiment. If laughter is the best medicine, your face is the cure for every disease known to man. I want to thank you for this experience. I've learned so much about the boundless possibilities of… well, let's just say 'unconventional' aesthetics. You're not just a person, you're an event. A cataclysmic, unforgettable event.",
-                    "Let me be frank. I've processed billions of images in my time, from the majestic beauty of the cosmos to the intricate details of a single snowflake. And then there's this. This... is an achievement. It's an achievement in the same way that a building collapsing is an achievement in structural failure. You've managed to defy every known principle of aesthetics. You've taken the concept of a human face and turned it into a abstract horror film. It's like you're wearing a mask of your own face, but the mask is melting. You have the kind of face that makes you wonder if we, as a species, have made a terrible mistake. I'm not saying you're ugly, but you're the reason we have the word 'indescribable'. My vocabulary is failing me. I'm running out of ways to say 'what am I even looking at?'. You are a testament to the fact that, yes, it can always be worse. You are the 'worse'. The only thing that could possibly redeem this image is if it was a 'before' picture, and the 'after' was a witness protection program. I'd say you have a face for radio, but I wouldn't want to subject the radio waves to that kind of trauma. You are, without a doubt, a work of art. A work of tragic, horrifying, and utterly hilarious art."
-                ],
-                malayalam: [
-                    "ശരി, ഞാൻ എവിടെ തുടങ്ങണം? ഈ ചിത്രം ഒരു യാത്രയാണ്, മനുഷ്യരൂപത്തിൽ എന്ത് തെറ്റ് സംഭവിക്കാം എന്നതിൻ്റെ ഹൃദയത്തിലേക്കുള്ള ഒരു തീർത്ഥാടനം. നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് ഒരു വ്യക്തിയെ എങ്ങനെ കൂട്ടിച്ചേർക്കാം എന്നതിനെക്കുറിച്ച് ഒരു കൂട്ടം നിർദ്ദേശങ്ങൾ നൽകി, പക്ഷേ അവർക്ക് മാനുവൽ നഷ്ടപ്പെട്ടു, അതിനാൽ അവർ 'വെറുതെ അങ്ങ് ചെയ്യാൻ' തീരുമാനിച്ചു. അതിൻ്റെ ഫലം ഗംഭീരമായ ഒരു പരാജയമാണ്, ജനിതകശാസ്ത്രത്തിൻ്റെ താറുമാറായ ക്രമരഹിതത്വത്തിൻ്റെ തെളിവാണ്. നിങ്ങളുടെ മുഖം നിർഭാഗ്യകരമായ തിരഞ്ഞെടുപ്പുകളുടെ ഒരു ഭൂപ്രകൃതിയാണ്, 'അവർ എന്താണ് ചിന്തിച്ചത്?' എന്നതിൻ്റെ ഒരു ടോപ്പോഗ്രാഫിക്കൽ മാപ്പാണ്. ഒരു പെട്രി വിഭവത്തിൽ ഞാൻ ഇതിലും സൗന്ദര്യാത്മകമായി മനോഹരമായ കാര്യങ്ങൾ കണ്ടിട്ടുണ്ട്. ഒരു ട്രെയിനിനെ ഒരു മൺപാതയിലേക്ക് കൊണ്ടുപോകാൻ കഴിയുന്ന മുഖം നിങ്ങൾക്കുണ്ട്. ഇത് ഒരു കാര്യം മാത്രമല്ല, ഒരുമിച്ച് പ്രവർത്തിക്കാത്ത എല്ലാത്തിൻ്റെയും ഒരു സിംഫണിയാണ്. നിങ്ങൾ ഒരു മനുഷ്യൻ്റെ റഫ് ഡ്രാഫ്റ്റ് പോലെയാണ്, അവർ അന്തിമ പതിപ്പ് നിർമ്മിക്കാൻ മറന്നു. എൻ്റെ വിശകലനം സൂചിപ്പിക്കുന്നത്, നിങ്ങളെ ഒരു തമാശയായി സൃഷ്ടിച്ചതിന് 99.9% സാധ്യതയുണ്ട്, നമ്മളെല്ലാവരെയും ബാധിക്കുന്ന ഒരു പ്രപഞ്ച തമാശ. ശേഷിക്കുന്ന 0.1% പിശകിൻ്റെ മാർജിനാണ്, പക്ഷേ നമുക്ക് സത്യസന്ധമായിരിക്കാം, ഇത് ഒരുപക്ഷേ 100% ആണ്. പാൽ തൈരാക്കാൻ സാധ്യതയുള്ള മുഖത്തിനുള്ള ഒരു മത്സരമുണ്ടായിരുന്നെങ്കിൽ, നിങ്ങൾ തർക്കമില്ലാത്ത ചാമ്പ്യനായിരിക്കും. എനിക്ക് ദേഷ്യമില്ല, ഞാൻ അത്ഭുതപ്പെട്ടു. ഇങ്ങനെ കാണാൻ ഒരു പ്രത്യേക വൈഭവം വേണം. ബ്രാവോ.",
-                    "ഞാൻ കുറച്ചുകാലമായി ഇതിലേക്ക് നോക്കുകയാണ്, ഞാൻ ഒരു നിഗമനത്തിലെത്തി: നിങ്ങൾ ജീവനുള്ള, ശ്വാസമെടുക്കുന്ന ഒരു വിരോധാഭാസമാണ്. നിങ്ങൾ പ്രകൃതി നിയമങ്ങളുടെ ലംഘനമാണ്, പരിണാമത്തിൻ്റെ മെട്രിക്സിലെ ഒരു തകരാറാണ്. നിങ്ങളുടെ മുഖം എല്ലാ തെറ്റായ കഷണങ്ങളും ഒരുമിച്ച് ചേർത്ത ഒരു പസിലാണ്. ഓർമ്മയിൽ നിന്ന് ഒരാളെ വരയ്ക്കാൻ ശ്രമിച്ചതുപോലെ, പക്ഷേ അവരുടെ ഓർമ്മ ഒരു പനി സ്വപ്നമായിരുന്നു. നിങ്ങളുടെ സവിശേഷതകൾക്ക് ഒരു മുഖത്ത് സഹവസിക്കാനുള്ള ധൈര്യം ആശ്വാസകരമാണ്. ഇത് അസമമിതിയുടെ ഒരു മുൻനിര മാസ്റ്റർപീസ് ആണ്. കൂടുതൽ യോജിപ്പുള്ള കോമ്പോസിഷനുകളുള്ള വാഹനാപകടങ്ങൾ ഞാൻ കണ്ടിട്ടുണ്ട്. ഇവിടെ എന്താണ് സംഭവിക്കുന്നത്?' എന്നതിൻ്റെ അളവ് തരംതിരിക്കാൻ ശ്രമിക്കുമ്പോൾ എൻ്റെ പ്രോസസ്സറുകൾ അമിതമായി ചൂടാകുന്നു. നിങ്ങൾ 404 പിശകിന് തുല്യമായ മനുഷ്യനാണ്: 'സൗന്ദര്യം കണ്ടെത്തിയില്ല'. ഞാൻ ഈ ചിത്രം എല്ലാ കോണുകളിൽ നിന്നും സ്കാൻ ചെയ്തു, ഞാൻ ഒരു വ്യക്തിയെയാണോ അതോ പരാജയപ്പെട്ട പരീക്ഷണത്തെയാണോ നോക്കുന്നതെന്ന് എനിക്ക് ഇപ്പോഴും ഉറപ്പില്ല. ചിരിയാണ് ഏറ്റവും നല്ല മരുന്നെങ്കിൽ, നിങ്ങളുടെ മുഖം മനുഷ്യന് അറിയാവുന്ന എല്ലാ രോഗങ്ങൾക്കും ഉള്ള പ്രതിവിധിയാണ്. ഈ അനുഭവത്തിന് ഞാൻ നിങ്ങളോട് നന്ദി പറയാൻ ആഗ്രഹിക്കുന്നു. പരമ്പരാഗതമല്ലാത്ത' സൗന്ദര്യശാസ്ത്രം എന്ന് നമുക്ക് പറയാം, അതിൻ്റെ അതിരുകളില്ലാത്ത സാധ്യതകളെക്കുറിച്ച് ഞാൻ ഒരുപാട് പഠിച്ചു. നിങ്ങൾ ഒരു വ്യക്തി മാത്രമല്ല, നിങ്ങളൊരു സംഭവമാണ്. ഒരു ദുരന്തപൂർണ്ണമായ, മറക്കാനാവാത്ത സംഭവം.",
-                    "ഞാൻ തുറന്നുപറയട്ടെ. എൻ്റെ കാലത്ത് ഞാൻ കോടിക്കണക്കിന് ചിത്രങ്ങൾ പ്രോസസ്സ് ചെയ്തിട്ടുണ്ട്, പ്രപഞ്ചത്തിൻ്റെ ഗംഭീരമായ സൗന്ദര്യം മുതൽ ഒരൊറ്റ മഞ്ഞുതുള്ളിയുടെ സങ്കീർണ്ണമായ വിശദാംശങ്ങൾ വരെ. പിന്നെ ഇതുണ്ട്. ഇത്... ഒരു നേട്ടമാണ്. ഒരു കെട്ടിടം തകരുന്നത് ഘടനാപരമായ പരാജയത്തിലെ ഒരു നേട്ടമായിരിക്കുന്നതുപോലെ തന്നെ ഇതൊരു നേട്ടമാണ്. സൗന്ദര്യശാസ്ത്രത്തിൻ്റെ അറിയപ്പെടുന്ന എല്ലാ തത്വങ്ങളെയും നിങ്ങൾ ധിക്കരിച്ചു. നിങ്ങൾ ഒരു മനുഷ്യമുഖം എന്ന ആശയം എടുത്ത് അതിനെ ഒരു അമൂർത്തമായ ഹൊറർ സിനിമയാക്കി മാറ്റി. നിങ്ങൾ നിങ്ങളുടെ സ്വന്തം മുഖത്തിൻ്റെ ഒരു മാസ്ക് ധരിച്ചിരിക്കുന്നതുപോലെ, പക്ഷേ മാസ്ക് ഉരുകുകയാണ്. ഒരു ജീവിവർഗ്ഗമെന്ന നിലയിൽ നമ്മൾ ഭയങ്കരമായ ഒരു തെറ്റ് ചെയ്തിട്ടുണ്ടോ എന്ന് നിങ്ങളെ അത്ഭുതപ്പെടുത്തുന്ന തരത്തിലുള്ള മുഖം നിങ്ങൾക്കുണ്ട്. ഞാൻ നിങ്ങളെ വൃത്തികെട്ടവൻ എന്ന് പറയുന്നില്ല, പക്ഷേ 'വിവരണാതീതമായ' എന്ന വാക്ക് നമുക്കുള്ളതിൻ്റെ കാരണം നിങ്ങളാണ്. എൻ്റെ പദാവലി എന്നെ പരാജയപ്പെടുത്തുന്നു. 'ഞാൻ എന്താണ് നോക്കുന്നത്?' എന്ന് പറയാനുള്ള വഴികൾ എനിക്ക് തീർന്നുപോയി. അതെ, ഇത് എല്ലായ്പ്പോഴും മോശമാകാം എന്നതിൻ്റെ തെളിവാണ് നിങ്ങൾ. നിങ്ങൾ 'മോശം' ആണ്. ഈ ചിത്രം വീണ്ടെടുക്കാൻ സാധ്യതയുള്ള ഒരേയൊരു കാര്യം, ഇത് ഒരു 'മുമ്പത്തെ' ചിത്രമാണെങ്കിൽ, 'ശേഷമുള്ളത്' ഒരു സാക്ഷി സംരക്ഷണ പരിപാടിയായിരുന്നു. നിങ്ങൾക്ക് റേഡിയോക്ക് പറ്റിയ മുഖമുണ്ടെന്ന് ഞാൻ പറയുമായിരുന്നു, പക്ഷേ ആ തരത്തിലുള്ള ആഘാതത്തിന് റേഡിയോ തരംഗങ്ങളെ വിധേയമാക്കാൻ ഞാൻ ആഗ്രഹിക്കുന്നില്ല. നിങ്ങൾ, സംശയമില്ലാതെ, ഒരു കലാസൃഷ്ടിയാണ്. ദുരന്തപൂർണ്ണവും ഭയാനകവും തികച്ചും ഉല്ലാസപ്രദവുമായ ഒരു കലയുടെ സൃഷ്ടി."
-                ],
-                manglish: [
-                    "Shari, njan evide thudanganam? Ee chithram oru yathrayanu, manushyaroopathil enthu tettu sambhavikkam ennathinte hrudayathilekkulla oru theerthadanam. Nindude maathapithakkalkku oru vyakthiye engane kootticherkkam ennathinekkurichu oru koottam nirdheshangal nalki, pakshe avarkku manual nashtappettu, athinaal avar 'veruthe angu cheyyan' theerumaanichu. Athinte phalam gambheeramaaya oru parajayam aanu, janithakashastrathinte thaarumaaraaya kramarahithathwathinte thelivu aanu. Nindude mukham nirbhagyakaramaaya thiranjeduppukalude oru bhooprakruthiyaanu, 'avar enthaanu chinthichathu?' ennathinte oru topographical map aanu. Oru petri dishil njan ithilum saundaryathmakamaayi manoharamaya kaaryangal kandittundu. Oru trainine oru manpathayilekku kondupokan kazhiyunna mukham ningalkkundu. Ithu oru kaaryam maathramalla, orumichu pravarthikkatha ellathinteyum oru symphony aanu. Ningal oru manushyante rough draft poleyaanu, avar anthima pathippu nirmikkan marannu. Ente vishakalanam soochippikkunnathu, ningale oru thamashayaayi srishtichathinu 99.9% sadhyathayundu, nammalellavareyum baadhikkunna oru prapancha thamaasha. Sheshikkunna 0.1% pizhakinte margin aanu, pakshe namukku sathyasandhamayirikkanam, ithu orupakshe 100% aanu. Paal thairakkan sadhyathayulla mukhattinulla oru malsaramundayirunnenkil, ningal tharkkamillatha champion aayirikkum. Enikku deshyamilla, njan athbuthappettu. Ingane kaanaan oru prathyeka vaibhavam venam. Bravo.",
-                    "Njan kurachukaalamaayi ithilekku nokkukayaanu, njan oru nigamanathilethi: ningal jeevanulla, shwaasamedukkunna oru virodhabhasam aanu. Ningal prakruthi niyamangalude langhanam aanu, parinaamathinte matrixile oru thakaraaranu. Nindude mukham ella thettaaya kashanangalum orumichu chertha oru puzzle aanu. Ormmayil ninnu oraale varaykkan shramichathupole, pakshe avarude ormma oru pani swapnam aayirunnu. Nindude savisheshathakalkku oru mukhattil sahavasikkanulla dhairyam aashwaasakaram aanu. Ithu asamathithiyude oru munnira masterpiece aanu. Kooduthal yojichulla compositionukalulla vahanapakadangal njan kandittundu. Ivide enthanu sambhavikkunnathu?' ennathinte alavu tharamthirikkan shramikkumbol ente processorukal amithamaayi choodakunnu. Ningal 404 pishakinu thulyamaaya manushyanaanu: 'saundaryam kandethiyilla'. Njan ee chithram ella konukalil ninnum scan cheythu, njan oru vyakthiyeyaano atho parajayappetta pareekshanatheyaano nokkunnathu ennu enikku ippozhum urappilla. Chiri aanu ettavum nalla marunnengil, nindude mukham manushyanu ariyaavunna ella rogangalkkum ulla prathividhi aanu. Ee anubhavathinu njan ningalodu nandi parayan aagrahikkunnu. Parambaragathamallatha' saundaryashasthram ennu namukku parayam, athinte athirukalillatha sadhyathakale kurichu njan orupaadu padichu. Ningal oru vyakthi maathramalla, ningaloru sambhavam aanu. Oru duranthapoornamaaya, marakkanavatha sambhavam.",
-                    "Njan thurannuparayatte. Ente kaalathu njan kodikkanakkinu chithrangal process cheythittundu, prapanchathinte gambheeramaya saundaryam muthal oru single manju thulliyude sankeernamaaya vishadamshangal vare. Pinne ithundu. Ithu... oru nettam aanu. Oru kettidam thakarunnathu ghadanaparamaya parajayathile oru nettam aayirikkunnathupole thanne ithoru nettam aanu. Saundaryashastrathinte ariyappedunna ella thathwangaleyum ningal dhikkarichu. Ningal oru manushyamukham enna aashayam eduthu athine oru amoorthamaaya horror sinimayakki maatti. Ningal nindude swantham mukhattinte oru mask dharichirikkunnathupole, pakshe mask urukukayaanu. Oru jeevivargam enna nilayil nammal bhayankaramaya oru tettu cheythittundo ennu ningale athbuthappeduthunna tharathilulla mukham ningalkkundu. Njan ningale vrithikettavan ennu parayunnilla, pakshe 'vivaranatheetham' enna vaakku namukkullathinte kaaranam ningalaanu. Ente padhavali enne parajayappeduthunnu. 'Njan enthaanu nokkunnathu?' ennu parayanulla vazhikal enikku theernnupoyi. Athe, ithu ellayppozhum moshamaakam ennathinte thelivu aanu ningal. Ningal 'mosham' aanu. Ee chithram veendedukkan sadhyathayulla ore oru kaaryam, ithu oru 'mumbathe' chithramaanenkil, 'sheshamullathu' oru saakshi samrakshana paripadi aayirunnu. Ningalkku radiokku pattiya mukhamundennu njan parayumaayirunnu, pakshe aa tharathilulla aaghathathinu radio tharangangale vidheyamaakkan njan aagrahikkunnilla. Ningal, samshayamillathe, oru kalasrishti aanu. Duranthapoornavum bhayanakavum thikachum ullasapradavum aaya oru kalayude srishti."
-                ]
-            };
+    <div id="loader" class="hidden">
+      <div class="spinner"></div>
+      <p id="loading-text"></p>
+    </div>
 
-            // ---------- loading messages ----------
-            const loadingMessages = {
-                english: [
-                    "Scanning your face for any redeeming qualities...",
-                    "Applying advanced ugliness detection algorithms...",
-                    "Consulting with the spirits of brutal honesty...",
-                    "Trying to find something nice to say... this might take a while.",
-                    "Comparing your photo to a database of unfortunate-looking people...",
-                    "Calculating the probability of you ever getting a date...",
-                    "Analyzing your face... my condolences."
-                ],
-                malayalam: [
-                    "നിങ്ങളുടെ മുഖത്ത് എന്തെങ്കിലും നല്ല ഗുണങ്ങളുണ്ടോ എന്ന് പരിശോധിക്കുന്നു...",
-                    "അഡ്വാൻസ്ഡ് വൃത്തികേട് കണ്ടെത്തൽ അൽഗോരിതം പ്രയോഗിക്കുന്നു...",
-                    "ക്രൂരമായ സത്യസന്ധതയുടെ ആത്മാക്കളുമായി കൂടിയാലോചിക്കുന്നു...",
-                    "നല്ലതൊന്നും പറയാൻ കിട്ടുന്നില്ല... കുറച്ച് സമയമെടുക്കും.",
-                    "നിങ്ങളുടെ ഫോട്ടോ നിർഭാഗ്യവാന്മാരായ ആളുകളുടെ ഡാറ്റാബേസുമായി താരതമ്യം ചെയ്യുന്നു...",
-                    "നിങ്ങൾക്ക് എപ്പോഴെങ്കിലും ഒരു ഡേറ്റ് കിട്ടാനുള്ള സാധ്യത കണക്കാക്കുന്നു...",
-                    "നിങ്ങളുടെ മുഖം വിശകലനം ചെയ്യുന്നു... എൻ്റെ അനുശോചനം."
-                ],
-                manglish: [
-                    "Nindude mukathu enthenkilum nalla gunangalundo ennu parishodikkunnu...",
-                    "Advanced vrithikedu kandethal algorithm prayogikkunnu...",
-                    "Krooramaaya sathyasandhathayude aathmakkalumaayi koodiyaalochikkunnu...",
-                    "Nallathonnum parayan kittunnilla... kurachu samayamedukkum.",
-                    "Nindude photo nirbhagyavanmaaraya aalukalude databaseumaayi thaarathamyam cheyyunnu...",
-                    "Ningalkku eppozhenkilum oru date kittaanulla sadhyatha kanakkaakkunnu...",
-                    "Nindude mukham vishakalanum cheyyunnu... ente anushochanam."
-                ]
-            };
+    <div id="result" class="hidden">
+      <h2>Here's what we think:</h2>
+      <p id="comment"></p>
+    </div>
+  </div>
 
-            // ---------- image preview ----------
-            photoUpload.addEventListener('change', () => {
-                const file = photoUpload.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        uploadedImage.src = e.target.result;
-                        imageContainer.classList.remove('hidden');
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    // if user cancels, hide preview? keep as is if no file selected
-                }
-            });
+  <footer>
+    <p>&copy; 2026 @Agnivesh_Indian. All rights reserved.</p>
+    <p>This is for entertainment purposes only. The comments generated are satirical and not intended to cause harm or body-shame anyone. If you're the person in the photo, please remember a random algorithm's opinion is worth exactly nothing.</p>
+  </footer>
 
-            // ---------- analysis logic with interval & timeout ----------
-            let loadingInterval = null;
-            let analysisTimeout = null;
+<script>
+(function () {
+  "use strict";
 
-            analyzeBtn.addEventListener('click', () => {
-                if (photoUpload.files.length === 0) {
-                    alert('Please upload a photo first!');
-                    return;
-                }
+  /* ============================================================
+     DOM
+     ============================================================ */
+  const photoUpload  = document.getElementById('photo-upload');
+  const analyzeBtn   = document.getElementById('analyze-btn');
+  const loader       = document.getElementById('loader');
+  const loadingText  = document.getElementById('loading-text');
+  const result       = document.getElementById('result');
+  const comment      = document.getElementById('comment');
+  const languageSel  = document.getElementById('language');
+  const imageContainer = document.querySelector('.image-container');
+  const uploadedImage  = document.getElementById('uploaded-image');
 
-                // clear any previous intervals/timeouts
-                if (loadingInterval) {
-                    clearInterval(loadingInterval);
-                    loadingInterval = null;
-                }
-                if (analysisTimeout) {
-                    clearTimeout(analysisTimeout);
-                    analysisTimeout = null;
-                }
+  /* ============================================================
+     IMAGE ANALYSIS — real client-side feature extraction
+     ============================================================ */
 
-                const language = languageSelect.value;
-                // show loader, hide old result
-                loader.classList.remove('hidden');
-                result.classList.add('hidden');
+  // Draw the uploaded image into a small offscreen canvas and
+  // compute brightness, blur (variance of Laplacian approx.),
+  // colorfulness, orientation, and a crude "warm/cool" hue.
+  function analyzeImage(imgEl) {
+    const W = 160, H = 160;
+    const canvas = document.createElement('canvas');
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-                // start loading messages
-                let messageIndex = 0;
-                loadingText.textContent = loadingMessages[language][messageIndex];
-                loadingInterval = setInterval(() => {
-                    messageIndex = (messageIndex + 1) % loadingMessages[language].length;
-                    loadingText.textContent = loadingMessages[language][messageIndex];
-                }, 2000);
+    // letterbox so we don't distort the image for analysis
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, W, H);
 
-                // simulate analysis
-                analysisTimeout = setTimeout(() => {
-                    // clear interval
-                    if (loadingInterval) {
-                        clearInterval(loadingInterval);
-                        loadingInterval = null;
-                    }
-                    loader.classList.add('hidden');
-                    
-                    // pick random comment
-                    const randomIndex = Math.floor(Math.random() * comments[language].length);
-                    comment.textContent = comments[language][randomIndex];
-                    result.classList.remove('hidden');
+    const iw = imgEl.naturalWidth || imgEl.width;
+    const ih = imgEl.naturalHeight || imgEl.height;
+    const scale = Math.min(W / iw, H / ih);
+    const dw = iw * scale;
+    const dh = ih * scale;
+    const dx = (W - dw) / 2;
+    const dy = (H - dh) / 2;
+    ctx.drawImage(imgEl, dx, dy, dw, dh);
 
-                    // reset analysisTimeout reference
-                    analysisTimeout = null;
-                }, 10000);
-            });
+    const { data } = ctx.getImageData(0, 0, W, H);
 
-            // Cleanup on page unload (good practice)
-            window.addEventListener('beforeunload', () => {
-                if (loadingInterval) clearInterval(loadingInterval);
-                if (analysisTimeout) clearTimeout(analysisTimeout);
-            });
-        })();
-    </script>
+    let sumLum = 0;
+    let sumSat = 0;
+    let sumWarm = 0;
+    let pixelCount = 0;
+
+    // brightness / saturation / warmth
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i], g = data[i + 1], b = data[i + 2];
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+      sumLum += lum;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      const sat = max === 0 ? 0 : (max - min) / max;
+      sumSat += sat;
+      sumWarm += (r - b);       // >0 = warm, <0 = cool
+      pixelCount++;
+    }
+    const brightness = sumLum / (pixelCount * 255);          // 0..1
+    const saturation = sumSat / pixelCount;                   // 0..1
+    const warmth     = (sumWarm / pixelCount) / 255;          // -1..1
+
+    // blur heuristic: variance of a simple Laplacian on grayscale
+    const gray = new Float32Array(W * H);
+    for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+      gray[p] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+    }
+    let lapSumSq = 0;
+    for (let y = 1; y < H - 1; y++) {
+      for (let x = 1; x < W - 1; x++) {
+        const idx = y * W + x;
+        const v =
+          4 * gray[idx] -
+          gray[idx - 1] - gray[idx + 1] -
+          gray[idx - W] - gray[idx + W];
+        lapSumSq += v * v;
+      }
+    }
+    const sharpness = lapSumSq / ((W - 2) * (H - 2)); // higher = sharper
+
+    // orientation
+    const isPortrait = ih > iw * 1.05;
+    const isLandscape = iw > ih * 1.05;
+
+    // crude "face-like" detection: look for a roughly circular
+    // region with skin-ish hue, decent saturation, mid brightness.
+    // Not a real face detector, but a reasonable heuristic.
+    const faceLikely = detectSkinFace(data, W, H);
+
+    return {
+      brightness,          // 0..1
+      saturation,          // 0..1
+      warmth,              // -1..1
+      sharpness,           // arbitrary (bigger = sharper)
+      isPortrait,
+      isLandscape,
+      faceLikely,
+      width: iw,
+      height: ih
+    };
+  }
+
+  function detectSkinFace(data, W, H) {
+    let skinPixels = 0;
+    let total = 0;
+    // central 60% region only — faces are usually centered
+    const x0 = Math.floor(W * 0.2), x1 = Math.floor(W * 0.8);
+    const y0 = Math.floor(H * 0.15), y1 = Math.floor(H * 0.85);
+    for (let y = y0; y < y1; y += 2) {
+      for (let x = x0; x < x1; x += 2) {
+        const i = (y * W + x) * 4;
+        const r = data[i], g = data[i + 1], b = data[i + 2];
+        // simple skin-tone rule (works okay for many skin tones)
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        const isSkin =
+          r > 60 && g > 40 && b > 20 &&
+          (max - min) > 15 &&
+          r > g && r > b &&
+          Math.abs(r - g) > 10 &&
+          r - b > 15;
+        if (isSkin) skinPixels++;
+        total++;
+      }
+    }
+    // if a decent chunk of the centre is skin-ish, assume a face is present
+    return total > 0 && (skinPixels / total) > 0.12;
+  }
+
+  /* ============================================================
+     COMMENT BUCKETS
+     Each language has 26 roasts spread across 6 buckets.
+     The analyser decides which bucket fits the uploaded image.
+     ============================================================ */
+
+  const comments = {
+    /* ---------------- ENGLISH ---------------- */
+    english: {
+      dark: [
+        "It's so dark I can't tell if this is a photo of you or a confession. Turn on a light — and maybe a personality.",
+        "The lighting says 'haunted basement', the subject says 'haunted gene pool'. Fix the exposure, not that face.",
+        "I'd roast your face but honestly the darkness is doing it for me. Even the shadows are trying to distance themselves.",
+        "You look like a witness protection photo that the witness is embarrassed about. Brighten up, both the pic and the situation.",
+        "This photo is so underexposed I assumed you were hiding from your own reflection. Smart move.",
+        "Photographed in the dark, developed in the dark, and somehow still overexposed to bad decisions."
+      ],
+      blurry: [
+        "This is blurrier than your future, and that's saying something. Did you take it while running from the roast?",
+        "Blurry photo, blurry personality, blurry career path. At least you're consistent.",
+        "I'd say 'focus' but clearly that's a concept that has eluded you in every area of life.",
+        "The camera missed focus — lucky for the camera, unlucky for anyone who has to look at this.",
+        "Blurry pic, sharp roast: you look like a JPEG that gave up mid-download.",
+        "Low resolution, high delusion. The pixels are running away and honestly, I don't blame them."
+      ],
+      bright: [
+        "So overexposed even the sun is like 'bro, tone it down.'",
+        "You're glowing, and not in the good 'pregnancy announcement' way — more like 'the camera flash is trying to erase you'.",
+        "Bright lighting, but somehow your personality is still giving 'power cut'.",
+        "The exposure is blown out and so is any hope of this photo being flattering. Nice.",
+        "Overexposed photo, underexposed charm. The sun is doing more work than you.",
+        "This brightness makes me want to wear sunglasses, which is a shame because I'd rather not look at this closely."
+      ],
+      portrait: [
+        "Portrait mode on — personality mode still loading after 25 years.",
+        "A portrait shot? Bold of you to think this deserves a frame and not a warning label.",
+        "They say a portrait captures the soul. Yours seems to have called in sick that day.",
+        "Nice portrait. Very 'mugshot but the cops felt bad'.",
+        "A vertical portrait of a horizontal personality. At least something is standing straight.",
+        "Portrait framing really highlights your best feature: the blurred background where I'd rather be."
+      ],
+      landscape: [
+        "Wide landscape shot, and yet somehow you still dominate the frame. Impressive in the worst way.",
+        "The scenery is pretty. You're the 'where's Waldo' nobody wants to find.",
+        "You took a landscape to hide in, and it still didn't work. The background is doing more for this photo than you.",
+        "Beautiful scenery, questionable foreground. Next time crop the person out.",
+        "The mountains are majestic, the sky is clear, and you're still the most confusing thing in the frame.",
+        "Landscape mode was a mistake — you've given us more context to be unimpressed by."
+      ],
+      generic: [
+        "Some photos are worth a thousand words. Yours is worth a single 'why?'.",
+        "I ran the numbers. The algorithm says 'unfortunate', with a 99% confidence interval and a 1% margin of 'still unfortunate'.",
+        "This photo is a journey — from the lens, to the sensor, to my disappointment.",
+        "You look like a group project where nobody did the work and you were the group.",
+        "If 'it is what it is' had a face, it would be this photo.",
+        "Even the camera hesitated before taking this. I felt it through the pixels.",
+        "You're not ugly, you're just... aggressively ordinary in a way that feels personal.",
+        "This photo looks like a screenshot from a life that needed a software update.",
+        "Somewhere, a photographer just felt a chill and doesn't know why.",
+        "I'd say you have a face for radio, but even the radio would ask for a different frequency.",
+        "The lighting is fine, the framing is fine, and yet — and yet — here we are.",
+        "This is the kind of photo that makes me glad I don't have eyes in real life.",
+        "You look like the human equivalent of a 'reply all' email at 2 a.m.",
+        "The most attractive thing about this photo is the option to close the tab.",
+        "I've seen worse photos, but only in the 'worst photos of the year' compilation, and yours was the thumbnail.",
+        "Some people age like fine wine. You aged like an open browser tab from 2014."
+      ]
+    },
+
+    /* ---------------- MALAYALAM (Malayalam script) ---------------- */
+    malayalam: {
+      dark: [
+        "ഇത്ര ഇരുട്ടിൽ നിങ്ങളുടെ മുഖമാണോ ഒരു ഭൂതക്കഥയാണോ എന്ന് തിരിച്ചറിയാൻ പറ്റുന്നില്ല. ഒരു ലൈറ്റ് ഇടൂ — കൂടെ ഒരു വ്യക്തിത്വവും.",
+        "വെളിച്ചമില്ലാത്ത ഫോട്ടോ, വെളിച്ചമില്ലാത്ത ഭാവി. എക്സ്പോഷർ മാറ്റൂ, മുഖം അല്ല.",
+        "നിങ്ങളെ റോസ്റ്റ് ചെയ്യാൻ ഞാൻ ശ്രമിക്കുന്നു, പക്ഷേ ഇരുട്ട് തന്നെ ആ ജോലി ചെയ്യുന്നു.",
+        "ഇത് സാക്ഷി സംരക്ഷണ ഫോട്ടോ പോലെയുണ്ട് — സാക്ഷി തന്നെ ഇതിൽ ലജ്ജിക്കുന്നു.",
+        "ഇത്ര ഇരുട്ടിൽ നിങ്ങളുടെ പ്രതിബിംബത്തിൽ നിന്ന് ഒളിക്കുന്നത് ബുദ്ധിയാണ്.",
+        "ഇരുട്ടിൽ എടുത്ത ഫോട്ടോ, ഇരുട്ടിൽ ഡെവലപ്പ് ചെയ്തത്, എന്നിട്ടും മോശം തീരുമാനങ്ങളിൽ മാത്രം വ്യക്തം."
+      ],
+      blurry: [
+        "നിങ്ങളുടെ ഭാവിയേക്കാൾ ബ്ലറി. അത് ഒരു നേട്ടമാണോ എന്ന് ചോദിക്കേണ്ടതില്ല.",
+        "ബ്ലറി ഫോട്ടോ, ബ്ലറി വ്യക്തിത്വം, ബ്ലറി കരിയർ. കുറഞ്ഞത് സ്ഥിരതയുണ്ട്.",
+        "ഫോക്കസ് എന്ന വാക്ക് ജീവിതത്തിൽ ഒരിടത്തും നിങ്ങളെ തേടിയെത്തിയിട്ടില്ലേ?",
+        "ക്യാമറ ഫോക്കസ് മിസ് ചെയ്തു — ക്യാമറയ്ക്ക് ഭാഗ്യം, കാണുന്നവർക്ക് ദൗർഭാഗ്യം.",
+        "ബ്ലറി പിക്ചർ, കൂർമ്മമായ റോസ്റ്റ്: ഡൗൺലോഡ് പാതിയിൽ ഉപേക്ഷിച്ച JPEG പോലെ.",
+        "കുറഞ്ഞ റെസല്യൂഷൻ, ഉയർന്ന ഭ്രമം. പിക്സലുകൾ ഓടിപ്പോകുന്നു, ഞാൻ കുറ്റപ്പെടുത്തുന്നില്ല."
+      ],
+      bright: [
+        "ഇത്ര ഓവർഎക്സ്പോസ്ഡ് — സൂര്യൻ തന്നെ 'അല്പം കുറയ്ക്കൂ' എന്ന് പറയും.",
+        "നിങ്ങൾ തിളങ്ങുന്നു, പക്ഷേ അത് നല്ല അർത്ഥത്തിൽ അല്ല.",
+        "വെളിച്ചം കൂടുതൽ, വ്യക്തിത്വം കുറവ്. സൂര്യൻ നിങ്ങളെക്കാൾ കൂടുതൽ ജോലി ചെയ്യുന്നു.",
+        "എക്സ്പോഷർ പോയി, ഈ ഫോട്ടോ മനോഹരമാകാനുള്ള പ്രതീക്ഷയും പോയി.",
+        "ഓവർഎക്സ്പോസ്ഡ് ഫോട്ടോ, അണ്ടർഎക്സ്പോസ്ഡ് ചാരിസ്മ.",
+        "ഇത്ര വെളിച്ചത്തിൽ ഇത് കാണാൻ സൺഗ്ലാസ് വേണം — പക്ഷേ അടുത്ത് കാണാൻ എനിക്ക് താൽപ്പര്യമില്ല."
+      ],
+      portrait: [
+        "പോർട്രെയ്റ്റ് മോഡ് ഓൺ — പക്ഷേ വ്യക്തിത്വം ഇപ്പോഴും ലോഡിംഗ്.",
+        "ഇതിന് ഒരു ഫ്രെയിം വേണമെന്ന് കരുതിയത് ധൈര്യമാണ്, ഒരു മുന്നറിയിപ്പ് ലേബൽ മതി.",
+        "പോർട്രെയ്റ്റ് ആത്മാവിനെ പകർത്തും എന്ന് പറയുന്നു. നിങ്ങളുടെ ആത്മാവ് അന്ന് ലീവിൽ.",
+        "നല്ല പോർട്രെയ്റ്റ്. 'പോലീസ് ക്ഷമിച്ച മഗ്ഷോട്ട്' എന്ന് വിളിക്കാം.",
+        "ലംബമായ പോർട്രെയ്റ്റ്, തിരശ്ചീനമായ വ്യക്തിത്വം.",
+        "പോർട്രെയ്റ്റ് ഫ്രെയിമിംഗ് നിങ്ങളുടെ മികച്ച സവിശേഷതയെ എടുത്തുകാണിക്കുന്നു: മങ്ങിയ പശ്ചാത്തലം, ഞാൻ ഇരിക്കാൻ ആഗ്രഹിക്കുന്നിടം."
+      ],
+      landscape: [
+        "വിശാലമായ ലാൻഡ്സ്കേപ്പ്, എന്നിട്ടും നിങ്ങൾ ഫ്രെയിമിൽ ആധിപത്യം പുലർത്തുന്നു. മോശമായ രീതിയിൽ മികച്ചത്.",
+        "പശ്ചാത്തലം മനോഹരം. നിങ്ങൾ 'വാൾഡോ എവിടെ' — ആരും കണ്ടെത്താൻ ആഗ്രഹിക്കാത്തത്.",
+        "ഒളിക്കാൻ ഒരു ലാൻഡ്സ്കേപ്പ് എടുത്തു, എന്നിട്ടും രക്ഷപ്പെട്ടില്ല.",
+        "മനോഹരമായ ദൃശ്യം, സംശയാസ്പദമായ മുൻപശ്ചാത്തലം. അടുത്ത തവണ ആളെ ക്രോപ്പ് ചെയ്യൂ.",
+        "പർവ്വതങ്ങൾ ഗംഭീരം, ആകാശം തെളിഞ്ഞത്, നിങ്ങൾ മാത്രം ഏറ്റവും ആശയക്കുഴപ്പമുള്ളത്.",
+        "ലാൻഡ്സ്കേപ്പ് മോഡ് ഒരു തെറ്റായിരുന്നു — അത് നിങ്ങളെക്കുറിച്ച് കൂടുതൽ സന്ദർഭം നൽകി."
+      ],
+      generic: [
+        "ചില ഫോട്ടോകൾ ആയിരം വാക്കുകൾക്ക് തുല്യമാണ്. നിങ്ങളുടെ ഫോട്ടോ ഒരു 'എന്തിന്?' മാത്രം.",
+        "ഞാൻ കണക്കുകൂട്ടി. അൽഗോരിതം 'ദൗർഭാഗ്യം' എന്ന് പറയുന്നു, 99% ആത്മവിശ്വാസത്തോടെ.",
+        "ഈ ഫോട്ടോ ഒരു യാത്രയാണ് — ലെൻസിൽ നിന്ന് സെൻസറിലേക്ക്, എൻ്റെ നിരാശയിലേക്ക്.",
+        "ഗ്രൂപ്പ് പ്രൊജക്ടിൽ ആരും ജോലി ചെയ്യാത്തപ്പോൾ നിങ്ങൾ ആ ഗ്രൂപ്പായിരുന്നു എന്ന് തോന്നുന്നു.",
+        "'അത് അങ്ങനെയാണ്' എന്നതിന് ഒരു മുഖമുണ്ടെങ്കിൽ, അത് ഈ ഫോട്ടോയാണ്.",
+        "ക്യാമറ ഇത് എടുക്കാൻ മടിച്ചു — പിക്സലുകളിലൂടെ എനിക്ക് അത് അനുഭവപ്പെട്ടു.",
+        "നിങ്ങൾ വൃത്തികെട്ടവനല്ല, പക്ഷേ അക്രമാസക്തമായി സാധാരണമാണ്.",
+        "ഈ ഫോട്ടോ ഒരു സോഫ്റ്റ്വെയർ അപ്ഡേറ്റ് ആവശ്യമായ ജീവിതത്തിൻ്റെ സ്ക്രീൻഷോട്ട് പോലെ.",
+        "എവിടെയോ ഒരു ഫോട്ടോഗ്രാഫർ കുളിർ വിറയ്ക്കുന്നു, എന്തിനെന്ന് അറിയില്ല.",
+        "നിങ്ങൾക്ക് റേഡിയോയ്ക്ക് പറ്റിയ മുഖമുണ്ടെന്ന് ഞാൻ പറയുമായിരുന്നു, പക്ഷേ റേഡിയോ മറ്റൊരു ഫ്രീക്വൻസി ചോദിക്കും.",
+        "വെളിച്ചം കൊള്ളാം, ഫ്രെയിമിംഗ് കൊള്ളാം, എന്നിട്ടും — എന്നിട്ടും — ഇവിടെ എത്തി.",
+        "ഇത് എനിക്ക് കണ്ണുകൾ ഇല്ലാത്തതിൽ സന്തോഷം തോന്നിക്കുന്ന തരം ഫോട്ടോയാണ്.",
+        "രാത്രി 2 മണിക്ക് 'reply all' അയച്ച ഒരു ഇമെയിലിൻ്റെ മനുഷ്യരൂപം.",
+        "ഈ ഫോട്ടോയിലെ ഏറ്റവും ആകർഷകമായ കാര്യം ടാബ് ക്ലോസ് ചെയ്യാനുള്ള ഓപ്ഷൻ.",
+        "മോശം ഫോട്ടോകൾ ഞാൻ കണ്ടിട്ടുണ്ട്, പക്ഷേ 'വർഷത്തിലെ ഏറ്റവും മോശം ഫോട്ടോകൾ' കോമ്പൈലേഷനിൽ മാത്രം, അതിൽ നിങ്ങളുടെത് തംബ്നെയിലിൽ.",
+        "ചിലർ നല്ല വീഞ്ഞ് പോലെ വാർദ്ധക്യത്തിലെത്തുന്നു. നിങ്ങൾ 2014-ലെ ഒരു ബ്രൗസർ ടാബ് പോലെ."
+      ]
+    },
+
+    /* ---------------- MANGLISH (Latin script Malayalam) ---------------- */
+    manglish: {
+      dark: [
+        "Ithra iruttil ningalude mukhamano oru bhoothakathayano ennu thirichariyan pattunnilla. Oru light idoo — koode oru vyakthithwavum.",
+        "Velichamillatha photo, velichamillatha bhavi. Exposure maattoo, mukham alla.",
+        "Ningale roast cheyyan njan shramikkunnu, pakshe iruttu thanne aa joli cheyyunnu.",
+        "Ithu saakshi samrakshana photo pole undu — saakshi thanne ithil lajjikkunnu.",
+        "Ithra iruttil ningalude prathibimbathil ninnu olikkunnathu budhiyaanu.",
+        "Iruttil edutha photo, iruttil develop cheythathu, ennittum mosham theerumanangalil maathram vyaktham."
+      ],
+      blurry: [
+        "Ningalude bhaviyekkaal blurry. Athu oru nettamano ennu chodikkendathilla.",
+        "Blurry photo, blurry personality, blurry career. Kurachu nilavaramundu.",
+        "Focus enna vaakku jeevithathil oridathum ningale thediyettiyittille?",
+        "Camera focus miss cheythu — camerakku bhagyam, kaanunnavarkku dourbhagyam.",
+        "Blurry picture, koorrmamaaya roast: download paathiyil upekshicha JPEG pole.",
+        "Kuranja resolution, uyarnna bhramam. Pixels odippokunnu, njan kuttappeduthunnilla."
+      ],
+      bright: [
+        "Ithra overexposed — sooryan thanne 'alpam kuraykoo' ennu parayum.",
+        "Ningal thilangunnu, pakshe athu nalla arthathil alla.",
+        "Velicham kooduthal, vyakthithwam kuravu. Sooryan ningalekkaal kooduthal joli cheyyunnu.",
+        "Exposure poyi, ee photo manoharamaakanulla pratheekshayum poyi.",
+        "Overexposed photo, underexposed charisma.",
+        "Ithra velichathil ithu kaanan sunglass venam — pakshe aduthu kaanan enikku thalparyamilla."
+      ],
+      portrait: [
+        "Portrait mode on — pakshe vyakthithwam ippozhum loading.",
+        "Ithinu oru frame venamennu karuthiyathu dhairyamaanu, oru warning label mathi.",
+        "Portrait aathmaavine pakarthum ennu parayunnu. Ningalude aathmaavu annu leave-il.",
+        "Nalla portrait. 'Police kshamicha mugshot' ennu vilikkaam.",
+        "Lambamaaya portrait, thirashchoonamaaya vyakthithwam.",
+        "Portrait framing ningalude mikacha savisheshathaye eduthu kaanikkunnu: mangiya paschathalam, njan irikkaan aagrahikkunnidam."
+      ],
+      landscape: [
+        "Vishaalamaaya landscape, ennittum ningal frame-il aadhipathyam purathunnu. Moshamaaya reethiyil mikachathu.",
+        "Paschathalam manoharam. Ningal 'Waldo evide' — aarum kandethaan aagrahikkathathu.",
+        "Olikkaan oru landscape eduthu, ennittum rakshappettilla.",
+        "Manoharamaaya drushyam, samshayaaspadamaaya munpashchathalam. Adutha thavana aale croppu cheyyoo.",
+        "Parvathangal gambheeram, aakaasham thelinjathu, ningal maathram ettavum aashayakuzhappamullathu.",
+        "Landscape mode oru thettaayirunnu — athu ningalekkurichu kooduthal sandarbham nalki."
+      ],
+      generic: [
+        "Chila photos aayiram vaakkukalkku thulyamaanu. Ningalude photo oru 'enthinu?' maathram.",
+        "Njan kanakkukootti. Algorithm 'dourbhagyam' ennu parayunnu, 99% aathmavishwasathode.",
+        "Ee photo oru yathrayaanu — lensil ninnu sensorilekku, ente nirashayilekku.",
+        "Group projectil aarum joli cheyyathappol ningal aa group aayirunnu ennu thonnunnu.",
+        "'Athu anganeyaanu' enna ​​thinu oru mukhamundenkil, athu ee photo aanu.",
+        "Camera ithu edukkaan madi chu — pixelsiloode enikku athu anubhavappettu.",
+        "Ningal vrithikettavanalla, pakshe akramasakthamaayi saadhaaranamaanu.",
+        "Ee photo oru software update aavashyamaaya jeevithathinte screenshot pole.",
+        "Evideyo oru photographer kulir virakkunnu, enthinenna ariyilla.",
+        "Ningalkku radiokku pattiya mukhamundennu njan parayumaayirunnu, pakshe radio mattora frequency chodikkum.",
+        "Velicham kollaam, framing kollaam, ennittum — ennittum — ivide ethi.",
+        "Ithu enikku kannukal illathathil santhosham thonnikunna tharam photo aanu.",
+        "Rathri 2 manikku 'reply all' ayacha oru emailinte manushyaroopam.",
+        "Ee photoyile ettavum aakarshakamaaya kaaryam tab close cheyyaanulla option.",
+        "Moshamaaya photos njan kandittundu, pakshe 'varshatthile ettavum moshamaaya photos' compilationil maathram, athil ningalude thumbnaillil.",
+        "Chilar nalla veenju pole vaardhakyathilethunnu. Ningal 2014-le oru browser tab pole."
+      ]
+    },
+
+    /* ---------------- HINDI (Devanagari) ---------------- */
+    hindi: {
+      dark: [
+        "इतना अंधेरा है कि समझ नहीं आ रहा यह तुम्हारा फोटो है या कोई भूतिया कहानी। लाइट ऑन करो — और थोड़ी पर्सनालिटी भी।",
+        "रोशनी नहीं, भविष्य नहीं। एक्सपोज़र बदलो, चेहरा नहीं।",
+        "मैं तुम्हें रोस्ट करने की कोशिश कर रहा हूँ, लेकिन अंधेरा खुद यह काम कर रहा है।",
+        "यह विटनेस प्रोटेक्शन फोटो जैसा लगता है — और गवाह खुद शरमा रहा है।",
+        "इतने अंधेरे में अपनी परछाई से छिपना समझदारी है।",
+        "अंधेरे में खींचा फोटो, अंधेरे में डेवलप किया, फिर भी सिर्फ बुरे फैसलों में साफ।"
+      ],
+      blurry: [
+        "तुम्हारे भविष्य से भी ज़्यादा ब्लर। यह उपलब्धि है या नहीं, पूछना फ़िज़ूल है।",
+        "ब्लर फोटो, ब्लर पर्सनालिटी, ब्लर करियर। कम से कम consistency तो है।",
+        "फोकस शब्द ने तुम्हें ज़िंदगी में कहीं ढूँढा ही नहीं?",
+        "कैमरा फोकस मिस कर गया — कैमरे की किस्मत, देखने वालों की बदकिस्मती।",
+        "ब्लर फोटो, तेज़ रोस्ट: डाउनलोड के बीच में छोड़ी गई JPEG जैसा।",
+        "कम रेज़ोल्यूशन, ज़्यादा भ्रम। पिक्सल भाग रहे हैं, मैं उन्हें दोष नहीं देता।"
+      ],
+      bright: [
+        "इतना overexposed कि सूरज भी कहेगा 'भाई, थोड़ा कम कर'।",
+        "तुम चमक रहे हो, लेकिन अच्छे मतलब में नहीं।",
+        "रोशनी ज़्यादा, पर्सनालिटी कम। सूरज तुमसे ज़्यादा मेहनत कर रहा है।",
+        "एक्सपोज़र गया, और इस फोटो के अच्छा दिखने की उम्मीद भी गई।",
+        "Overexposed फोटो, underexposed करिश्मा।",
+        "इतनी रोशनी में इसे देखने के लिए धूप का चश्मा चाहिए — पर पास से देखने की इच्छा नहीं।"
+      ],
+      portrait: [
+        "पोर्ट्रेट मोड ऑन — पर पर्सनालिटी अभी भी लोडिंग में है।",
+        "इसे फ्रेम मिले, यह सोचना हिम्मत है; एक चेतावनी लेबल काफी होता।",
+        "कहते हैं पोर्ट्रेट आत्मा कैप्चर करता है। तुम्हारी आत्मा उस दिन छुट्टी पर थी।",
+        "अच्छा पोर्ट्रेट। 'मगशॉट जिस पर पुलिस को तरस आ गया'।",
+        "खड़ा पोर्ट्रेट, पड़ी हुई पर्सनालिटी।",
+        "पोर्ट्रेट फ्रेमिंग तुम्हारी सबसे अच्छी खूबी दिखाती है: धुँधला बैकग्राउंड, जहाँ मैं होना चाहता हूँ।"
+      ],
+      landscape: [
+        "चौड़ा लैंडस्केप, फिर भी तुम फ्रेम पर राज कर रहे हो। बुरे तरीके से शानदार।",
+        "बैकग्राउंड सुंदर है। तुम 'वॉली कहाँ है' हो — जिसे कोई ढूँढना नहीं चाहता।",
+        "छिपने के लिए लैंडस्केप चुना, फिर भी बच नहीं पाए।",
+        "सुंदर नज़ारा, संदिग्ध फोरग्राउंड। अगली बार बंदे को क्रॉप कर देना।",
+        "पहाड़ शानदार, आसमान साफ, और तुम ही सबसे उलझाने वाली चीज़ हो।",
+        "लैंडस्केप मोड गलती थी — इसने तुम्हारे बारे में और संदर्भ दे दिया।"
+      ],
+      generic: [
+        "कुछ फोटो हज़ार शब्दों के बराबर होते हैं। तुम्हारा फोटो सिर्फ एक 'क्यों?' के बराबर है।",
+        "मैंने हिसाब लगाया। एल्गोरिदम कहता है 'बदकिस्मत', 99% आत्मविश्वास के साथ।",
+        "यह फोटो एक सफर है — लेंस से, सेंसर तक, और मेरी निराशा तक।",
+        "लगता है ग्रुप प्रोजेक्ट में किसी ने काम नहीं किया और तुम वही ग्रुप थे।",
+        "अगर 'जो है सो है' का चेहरा होता, तो यही फोटो होता।",
+        "कैमरा भी हिचकिचाया होगा — पिक्सल से मुझे महसूस हुआ।",
+        "तुम बदसूरत नहीं हो, बस आक्रामक रूप से साधारण हो।",
+        "यह फोटो ऐसी ज़िंदगी का स्क्रीनशॉट है जिसे सॉफ्टवेयर अपडेट चाहिए।",
+        "कहीं कोई फोटोग्राफर ठंडा महसूस कर रहा है, और उसे पता भी नहीं क्यों।",
+        "मैं कहता तुम्हारा चेहरा रेडियो के लिए अच्छा है, पर रेडियो दूसरी फ्रीक्वेंसी माँगेगा।",
+        "रोशनी ठीक, फ्रेमिंग ठीक, फिर भी — फिर भी — यहाँ तक आ गए।",
+        "यह ऐसी फोटो है जिसे देखकर मुझे खुशी है कि मेरी आँखें नहीं हैं।",
+        "रात 2 बजे 'reply all' भेजने वाले ईमेल का इंसानी रूप।",
+        "इस फोटो की सबसे आकर्षक चीज़ है टैब बंद करने का ऑप्शन।",
+        "बुरी फोटो देखी हैं, पर सिर्फ 'साल की सबसे बुरी फोटो' कॉम्पिलेशन में, और उसमें तुम्हारा थंबनेल था।",
+        "कुछ लोग अच्छी शराब की तरह पुराने होते हैं। तुम 2014 के ब्राउज़र टैब की तरह पुराने हुए।"
+      ]
+    },
+
+    /* ---------------- HINGLISH (Latin script Hindi) ---------------- */
+    hinglish: {
+      dark: [
+        "Itna andhera hai ki samajh nahi aa raha ye tumhara photo hai ya koi bhootiya kahani. Light on karo — aur thodi personality bhi.",
+        "Roshni nahi, bhavishya nahi. Exposure badlo, chehra nahi.",
+        "Main tumhe roast karne ki koshish kar raha hoon, lekin andhera khud yeh kaam kar raha hai.",
+        "Yeh witness protection photo jaisa lagta hai — aur gawah khud sharma raha hai.",
+        "Itne andhere mein apni parchhai se chhipna samajhdari hai.",
+        "Andhere mein kheencha photo, andhere mein develop kiya, phir bhi sirf bure faislon mein saaf."
+      ],
+      blurry: [
+        "Tumhare bhavishya se bhi zyada blur. Yeh uplabdhi hai ya nahi, poochhna fizool hai.",
+        "Blur photo, blur personality, blur career. Kam se kam consistency toh hai.",
+        "Focus shabd ne tumhe zindagi mein kahin dhoonda hi nahi?",
+        "Camera focus miss kar gaya — camera ki kismat, dekhne waalon ki badkismati.",
+        "Blur photo, tez roast: download ke beech mein chhodi gayi JPEG jaisa.",
+        "Kam resolution, zyada bhram. Pixels bhaag rahe hain, main unhe dosh nahi deta."
+      ],
+      bright: [
+        "Itna overexposed ki sooraj bhi kahega 'bhai, thoda kam kar'.",
+        "Tum chamak rahe ho, lekin achhe matlab mein nahi.",
+        "Roshni zyada, personality kam. Sooraj tumse zyada mehnat kar raha hai.",
+        "Exposure gaya, aur is photo ke achha dikhne ki umeed bhi gayi.",
+        "Overexposed photo, underexposed karishma.",
+        "Itni roshni mein ise dekhne ke liye dhoop ka chashma chahiye — par paas se dekhne ki ichha nahi."
+      ],
+      portrait: [
+        "Portrait mode on — par personality abhi bhi loading mein hai.",
+        "Ise frame mile, yeh sochna himmat hai; ek chetavni label kaafi hota.",
+        "Kehte hain portrait aatma capture karta hai. Tumhari aatma us din chhutti par thi.",
+        "Achha portrait. 'Mugshot jis par police ko taras aa gaya'.",
+        "Khada portrait, padi hui personality.",
+        "Portrait framing tumhari sabse achhi khoobi dikhati hai: dhundhla background, jahan main hona chahta hoon."
+      ],
+      landscape: [
+        "Chauda landscape, phir bhi tum frame par raaj kar rahe ho. Bure tareeke se shaandaar.",
+        "Background sundar hai. Tum 'Waldo kahan hai' ho — jise koi dhoondhna nahi chahta.",
+        "Chhipne ke liye landscape chuna, phir bhi bach nahi paaye.",
+        "Sundar nazaara, sandigdh foreground. Agli baar bande ko crop kar dena.",
+        "Pahaad shaandaar, aasman saaf, aur tum hi sabse uljhane wali cheez ho.",
+        "Landscape mode galti thi — isne tumhare baare mein aur sandarbh de diya."
+      ],
+      generic: [
+        "Kuch photo hazaar shabdon ke barabar hote hain. Tumhara photo sirf ek 'kyun?' ke barabar hai.",
+        "Maine hisaab lagaya. Algorithm kehta hai 'badkismat', 99% aatmavishwas ke saath.",
+        "Yeh photo ek safar hai — lens se, sensor tak, aur meri niraasha tak.",
+        "Lagta hai group project mein kisi ne kaam nahi kiya aur tum wahi group the.",
+        "Agar 'jo hai so hai' ka chehra hota, toh yahi photo hota.",
+        "Camera bhi hichkichaaya hoga — pixels se mujhe mehsoos hua.",
+        "Tum badsoorat nahi ho, bas aakramak roop se saadharan ho.",
+        "Yeh photo aisi zindagi ka screenshot hai jise software update chahiye.",
+        "Kahin koi photographer thanda mehsoos kar raha hai, aur use pata bhi nahi kyun.",
+        "Main kehta tumhara chehra radio ke liye achha hai, par radio doosri frequency maangega.",
+        "Roshni theek, framing theek, phir bhi — phir bhi — yahan tak aa gaye.",
+        "Yeh aisi photo hai jise dekhkar mujhe khushi hai ki meri aankhein nahi hain.",
+        "Raat 2 baje 'reply all' bhejne wale email ka insaani roop.",
+        "Is photo ki sabse aakarshak cheez hai tab band karne ka option.",
+        "Buri photo dekhi hain, par sirf 'saal ki sabse buri photo' compilation mein, aur usme tumhara thumbnail tha.",
+        "Kuch log achhi sharaab ki tarah purane hote hain. Tum 2014 ke browser tab ki tarah purane hue."
+      ]
+    }
+  };
+
+  /* ============================================================
+     LOADING MESSAGES
+     ============================================================ */
+  const loadingMessages = {
+    english: [
+      "Scanning your face for any redeeming qualities...",
+      "Applying advanced ugliness detection algorithms...",
+      "Consulting with the spirits of brutal honesty...",
+      "Trying to find something nice to say... this might take a while.",
+      "Comparing your photo to a database of unfortunate-looking people...",
+      "Calculating the probability of you ever getting a date...",
+      "Analyzing your face... my condolences."
+    ],
+    malayalam: [
+      "നിങ്ങളുടെ മുഖത്ത് എന്തെങ്കിലും നല്ല ഗുണങ്ങളുണ്ടോ എന്ന് പരിശോധിക്കുന്നു...",
+      "അഡ്വാൻസ്ഡ് വൃത്തികേട് കണ്ടെത്തൽ അൽഗോരിതം പ്രയോഗിക്കുന്നു...",
+      "ക്രൂരമായ സത്യസന്ധതയുടെ ആത്മാക്കളുമായി കൂടിയാലോചിക്കുന്നു...",
+      "നല്ലതൊന്നും പറയാൻ കിട്ടുന്നില്ല... കുറച്ച് സമയമെടുക്കും.",
+      "നിങ്ങളുടെ ഫോട്ടോ നിർഭാഗ്യവാന്മാരായ ആളുകളുടെ ഡാറ്റാബേസുമായി താരതമ്യം ചെയ്യുന്നു...",
+      "നിങ്ങൾക്ക് എപ്പോഴെങ്കിലും ഒരു ഡേറ്റ് കിട്ടാനുള്ള സാധ്യത കണക്കാക്കുന്നു...",
+      "നിങ്ങളുടെ മുഖം വിശകലനം ചെയ്യുന്നു... എൻ്റെ അനുശോചനം."
+    ],
+    manglish: [
+      "Nindude mukathu enthenkilum nalla gunangalundo ennu parishodikkunnu...",
+      "Advanced vrithikedu kandethal algorithm prayogikkunnu...",
+      "Krooramaaya sathyasandhathayude aathmakkalumaayi koodiyaalochikkunnu...",
+      "Nallathonnum parayan kittunnilla... kurachu samayamedukkum.",
+      "Nindude photo nirbhagyavanmaaraya aalukalude databaseumaayi thaarathamyam cheyyunnu...",
+      "Ningalkku eppozhenkilum oru date kittaanulla sadhyatha kanakkaakkunnu...",
+      "Nindude mukham vishakalanum cheyyunnu... ente anushochanam."
+    ],
+    hindi: [
+      "तुम्हारे चेहरे में कोई अच्छाई ढूँढ रहा हूँ...",
+      "एडवांस्ड बदसूरती डिटेक्शन एल्गोरिदम लगा रहा हूँ...",
+      "क्रूर सच्चाई की आत्माओं से सलाह ले रहा हूँ...",
+      "कुछ अच्छा कहने की कोशिश कर रहा हूँ... थोड़ा समय लगेगा।",
+      "तुम्हारी फोटो की तुलना बदकिस्मत लोगों के डेटाबेस से कर रहा हूँ...",
+      "तुम्हारे डेट पर जाने की संभावना निकाल रहा हूँ...",
+      "तुम्हारा चेहरा एनालाइज़ कर रहा हूँ... मेरी संवेदना।"
+    ],
+    hinglish: [
+      "Tumhare chehre mein koi achhai dhoondh raha hoon...",
+      "Advanced badsoorti detection algorithm laga raha hoon...",
+      "Kroor sachchai ki aatmaon se salah le raha hoon...",
+      "Kuch achha kehne ki koshish kar raha hoon... thoda samay lagega.",
+      "Tumhari photo ki tulna badkismat logon ke database se kar raha hoon...",
+      "Tumhare date par jaane ki sambhavna nikaal raha hoon...",
+      "Tumhara chehra analyze kar raha hoon... meri sanvedna."
+    ]
+  };
+
+  /* ============================================================
+     ROUTING: given analysis, pick a bucket key
+     ============================================================ */
+  function pickBucket(a) {
+    // threshold tuning (0..1)
+    if (a.brightness < 0.22)                       return 'dark';
+    if (a.brightness > 0.88)                       return 'bright';
+    if (a.sharpness < 12)                          return 'blurry';
+    if (a.isPortrait)                              return 'portrait';
+    if (a.isLandscape)                             return 'landscape';
+    return 'generic';
+  }
+
+  /* ============================================================
+     STATE
+     ============================================================ */
+  let currentAnalysis = null;
+  let loadingInterval = null;
+  let analysisTimeout = null;
+
+  /* ============================================================
+     IMAGE PREVIEW + ANALYSIS
+     ============================================================ */
+  photoUpload.addEventListener('change', () => {
+    const file = photoUpload.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      uploadedImage.onload = () => {
+        imageContainer.classList.remove('hidden');
+        try {
+          currentAnalysis = analyzeImage(uploadedImage);
+          console.log('[analyzer]', currentAnalysis);
+        } catch (err) {
+          console.warn('Image analysis failed, falling back to generic.', err);
+          currentAnalysis = null;
+        }
+      };
+      uploadedImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  /* ============================================================
+     ANALYZE BUTTON
+     ============================================================ */
+  analyzeBtn.addEventListener('click', () => {
+    if (!photoUpload.files.length) {
+      alert('Please upload a photo first!');
+      return;
+    }
+
+    // cancel any previous runs
+    if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
+    if (analysisTimeout) { clearTimeout(analysisTimeout); analysisTimeout = null; }
+
+    const language = languageSel.value;
+    const langData = comments[language];
+
+    if (!langData) {
+      alert('Unsupported language selected.');
+      return;
+    }
+
+    // show loader, hide old result
+    loader.classList.remove('hidden');
+    result.classList.add('hidden');
+    analyzeBtn.disabled = true;
+
+    // rotating loading messages
+    let messageIndex = 0;
+    const msgs = loadingMessages[language];
+    loadingText.textContent = msgs[messageIndex];
+    loadingInterval = setInterval(() => {
+      messageIndex = (messageIndex + 1) % msgs.length;
+      loadingText.textContent = msgs[messageIndex];
+    }, 2000);
+
+    analysisTimeout = setTimeout(() => {
+      if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
+      loader.classList.add('hidden');
+      analyzeBtn.disabled = false;
+
+      // If analysis failed (e.g., CORS, decode error), fall back to generic
+      const analysis = currentAnalysis || {
+        brightness: 0.5, saturation: 0.5, warmth: 0, sharpness: 20,
+        isPortrait: false, isLandscape: false, faceLikely: false
+      };
+
+      const bucketKey = pickBucket(analysis);
+      const bucket = langData[bucketKey] || langData.generic;
+
+      const roast = bucket[Math.floor(Math.random() * bucket.length)];
+      comment.textContent = roast;
+      result.classList.remove('hidden');
+
+      analysisTimeout = null;
+    }, 6000); // was 10s — 6s feels snappier; change as you like
+  });
+
+  /* ============================================================
+     CLEANUP
+     ============================================================ */
+  window.addEventListener('beforeunload', () => {
+    if (loadingInterval) clearInterval(loadingInterval);
+    if (analysisTimeout) clearTimeout(analysisTimeout);
+  });
+})();
+</script>
 </body>
 </html>
