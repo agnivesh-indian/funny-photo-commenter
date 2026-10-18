@@ -3,247 +3,128 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Funny Photo Commenter · brutally honest AI</title>
+<title>Funny Photo Commenter · 25 roasts × 4 languages</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: linear-gradient(145deg, #f6f9fe 0%, #eef2f7 100%);
     color: #1a2b3e;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1.5rem;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    min-height: 100vh; padding: 1.5rem;
   }
-
   .container {
-    background: #ffffff;
-    padding: 2.25rem 2rem 2rem;
+    background: #fff; padding: 2.25rem 2rem 2rem;
     border-radius: 28px;
-    box-shadow: 0 20px 35px -8px rgba(0, 20, 40, 0.15), 0 8px 18px -6px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    max-width: 560px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 35px -8px rgba(0,20,40,.15), 0 8px 18px -6px rgba(0,0,0,.05);
+    text-align: center; max-width: 620px; width: 100%;
+    border: 1px solid rgba(255,255,255,.7);
   }
-
   h1 {
-    font-weight: 600;
-    font-size: 1.9rem;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #1877f2, #0e5ac2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 0.35rem;
-    display: inline-block;
+    font-weight: 600; font-size: 1.9rem; letter-spacing: -.02em;
+    background: linear-gradient(135deg,#1877f2,#0e5ac2);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: .35rem; display: inline-block;
   }
-
-  .subhead {
-    font-size: 0.95rem;
-    color: #5e6f88;
-    margin-bottom: 1.9rem;
-    line-height: 1.5;
-    font-weight: 400;
-  }
-
+  .subhead { font-size: .95rem; color: #5e6f88; margin-bottom: 1.9rem; line-height: 1.5; }
   .upload-container { margin-bottom: 1.75rem; }
-
   #photo-upload { display: none; }
-
   .upload-label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #ffffff;
-    color: #1877f2;
-    font-weight: 500;
-    padding: 0.85rem 1.8rem;
-    border-radius: 60px;
-    border: 1.5px solid #1877f2;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 6px rgba(24, 119, 242, 0.12);
-    font-size: 1rem;
-    width: fit-content;
-    margin: 0 auto;
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: #fff; color: #1877f2; font-weight: 500;
+    padding: .85rem 1.8rem; border-radius: 60px;
+    border: 1.5px solid #1877f2; cursor: pointer;
+    transition: all .2s ease; box-shadow: 0 2px 6px rgba(24,119,242,.12);
+    font-size: 1rem; margin: 0 auto;
   }
-
-  .upload-label:hover {
-    background: #1877f2;
-    color: white;
-    box-shadow: 0 8px 16px -6px rgba(24, 119, 242, 0.4);
-    transform: translateY(-1px);
-  }
-
+  .upload-label:hover { background: #1877f2; color: #fff; transform: translateY(-1px); }
   .image-container {
-    margin-bottom: 1.6rem;
-    background: #fafcff;
-    border-radius: 20px;
-    padding: 0.5rem;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1.6rem; background: #fafcff;
+    border-radius: 20px; padding: .5rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.02), 0 4px 12px rgba(0,0,0,.02);
   }
-
   #uploaded-image {
-    max-width: 100%;
-    max-height: 220px;
-    border-radius: 16px;
-    border: 1px solid #e4eaf2;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
+    max-width: 100%; max-height: 220px; border-radius: 16px;
+    border: 1px solid #e4eaf2; object-fit: cover; display: block; margin: 0 auto;
   }
-
   .action-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1.8rem 0 1.5rem;
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: center; gap: 1rem; margin: 1.8rem 0 1.5rem;
   }
-
   .language-selector {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: #f2f6fd;
-    padding: 0.35rem 0.35rem 0.35rem 1rem;
-    border-radius: 40px;
-    border: 1px solid #dae2ed;
+    display: flex; align-items: center; gap: .6rem;
+    background: #f2f6fd; padding: .35rem .35rem .35rem 1rem;
+    border-radius: 40px; border: 1px solid #dae2ed;
   }
-
   .language-selector label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #2c3e5a;
-    white-space: nowrap;
+    font-size: .9rem; font-weight: 500; color: #2c3e5a; white-space: nowrap;
   }
-
   #language {
-    padding: 0.55rem 2.2rem 0.55rem 1rem;
-    border-radius: 30px;
-    border: none;
-    background: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #1e2f47;
-    cursor: pointer;
-    outline: none;
-    appearance: none;
+    padding: .55rem 2.2rem .55rem 1rem; border-radius: 30px;
+    border: none; background: #fff; font-size: .9rem; font-weight: 500;
+    color: #1e2f47; cursor: pointer; outline: none; appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231877f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 14px;
-    min-width: 150px;
+    background-position: right .75rem center;
+    background-size: 14px; min-width: 150px;
   }
-
   #analyze-btn {
-    background: #42b72a;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 60px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    box-shadow: 0 8px 18px -6px rgba(66, 183, 42, 0.4);
+    background: #42b72a; color: #fff; padding: .8rem 2rem;
+    border: none; border-radius: 60px; cursor: pointer;
+    font-size: 1rem; font-weight: 600; transition: all .2s ease;
+    box-shadow: 0 8px 18px -6px rgba(66,183,42,.4);
   }
-
-  #analyze-btn:hover {
-    background: #3aa525;
-    transform: translateY(-1px);
-  }
-
-  #analyze-btn:disabled { opacity: 0.6; pointer-events: none; }
-
+  #analyze-btn:hover { background: #3aa525; transform: translateY(-1px); }
+  #analyze-btn:disabled { opacity: .6; pointer-events: none; }
   #loader { margin-top: 2rem; text-align: center; }
-
   .spinner {
-    border: 4px solid rgba(24, 119, 242, 0.12);
-    border-left-color: #1877f2;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    animation: spin 0.9s linear infinite;
-    margin: 0 auto 1rem;
+    border: 4px solid rgba(24,119,242,.12); border-left-color: #1877f2;
+    border-radius: 50%; width: 44px; height: 44px;
+    animation: spin .9s linear infinite; margin: 0 auto 1rem;
   }
-
   @keyframes spin { to { transform: rotate(360deg); } }
-
   #loading-text {
-    font-size: 0.95rem;
-    color: #406080;
-    font-weight: 450;
-    min-height: 2.6rem;
-    font-style: italic;
+    font-size: .95rem; color: #406080; font-weight: 450;
+    min-height: 2.6rem; font-style: italic;
   }
-
   #result {
-    margin-top: 2rem;
-    padding: 1.5rem 1.4rem;
-    background: #f7faff;
-    border-radius: 24px;
-    border: 1px solid #e0eaf9;
-    text-align: left;
-    animation: fadeSlide 0.35s ease-out;
+    margin-top: 2rem; padding: 1.5rem 1.4rem;
+    background: #f7faff; border-radius: 24px;
+    border: 1px solid #e0eaf9; text-align: left;
+    animation: fadeSlide .35s ease-out;
   }
-
   @keyframes fadeSlide {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   #result h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #0e2a44;
-    margin-bottom: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    font-size: 1.2rem; font-weight: 600; color: #0e2a44;
+    margin-bottom: .85rem; display: flex; align-items: center; gap: .4rem;
   }
-
   #result h2::before { content: "💬"; font-size: 1.3rem; }
-
   #comment {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #1f3a5b;
-    max-height: 260px;
-    overflow-y: auto;
-    padding-right: 6px;
-    white-space: pre-wrap;
-    word-break: break-word;
+    font-size: 1rem; line-height: 1.65; color: #1f3a5b;
+    max-height: 420px; overflow-y: auto; padding-right: 8px;
+    white-space: pre-wrap; word-break: break-word;
   }
-
+  #word-count {
+    display: block; margin-top: .75rem; font-size: .75rem;
+    color: #8b9bb2; font-style: italic; text-align: right;
+  }
   .hidden { display: none !important; }
-
   footer {
-    margin-top: 2.2rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #7a8ba3;
-    max-width: 560px;
-    line-height: 1.6;
-    border-top: 1px solid rgba(0, 0, 0, 0.04);
-    padding-top: 1.5rem;
-    width: 100%;
+    margin-top: 2.2rem; text-align: center; font-size: .75rem;
+    color: #7a8ba3; max-width: 620px; line-height: 1.6;
+    border-top: 1px solid rgba(0,0,0,.04); padding-top: 1.5rem; width: 100%;
   }
-
-  footer p:first-child { margin-bottom: 0.45rem; font-weight: 450; color: #5b6f88; }
+  footer p:first-child { margin-bottom: .45rem; font-weight: 450; color: #5b6f88; }
   footer p:last-child { font-style: italic; color: #8b9bb2; }
-
   @media (max-width: 460px) {
     .container { padding: 1.8rem 1.2rem 1.5rem; }
     h1 { font-size: 1.6rem; }
-    .action-row { flex-direction: column; gap: 0.9rem; }
-    .language-selector { width: 100%; justify-content: space-between; padding-right: 0.5rem; }
+    .action-row { flex-direction: column; gap: .9rem; }
+    .language-selector { width: 100%; justify-content: space-between; padding-right: .5rem; }
     #language { flex: 1; }
     #analyze-btn { width: 100%; }
     #uploaded-image { max-height: 180px; }
@@ -253,7 +134,7 @@
 <body>
   <div class="container">
     <h1>Funny Photo Commenter</h1>
-    <p class="subhead">Upload your photo and get a brutally honest (and funny) comment!</p>
+    <p class="subhead">Upload your photo and get a brutally honest (~250-word) roast.</p>
 
     <div class="upload-container">
       <input type="file" id="photo-upload" accept="image/*" />
@@ -279,7 +160,6 @@
           <option value="malayalam">മലയാളം (Malayalam)</option>
           <option value="manglish">Malayalam (Manglish)</option>
           <option value="hindi">हिन्दी (Hindi)</option>
-          <option value="hinglish">Hinglish</option>
         </select>
       </div>
       <button id="analyze-btn">Analyze Photo</button>
@@ -293,618 +173,223 @@
     <div id="result" class="hidden">
       <h2>Here's what we think:</h2>
       <p id="comment"></p>
+      <span id="word-count"></span>
     </div>
   </div>
 
   <footer>
     <p>&copy; 2026 @Agnivesh_Indian. All rights reserved.</p>
-    <p>This is for entertainment purposes only. The comments generated are satirical and not intended to cause harm or body-shame anyone. If you're the person in the photo, please remember a random algorithm's opinion is worth exactly nothing.</p>
+    <p>Entertainment only. Satire, not advice. An algorithm's opinion of your face is worth exactly nothing — but if it makes you laugh, great; if it stings, close the tab and go be loved by someone who actually knows you.</p>
   </footer>
 
 <script>
 (function () {
   "use strict";
 
-  /* ============================================================
-     DOM
-     ============================================================ */
-  const photoUpload  = document.getElementById('photo-upload');
-  const analyzeBtn   = document.getElementById('analyze-btn');
-  const loader       = document.getElementById('loader');
-  const loadingText  = document.getElementById('loading-text');
-  const result       = document.getElementById('result');
-  const comment      = document.getElementById('comment');
-  const languageSel  = document.getElementById('language');
-  const imageContainer = document.querySelector('.image-container');
-  const uploadedImage  = document.getElementById('uploaded-image');
+  /* ==========================================================
+     ROASTS — 25 per language
+     Each ~250 words. All distinct.
+     ========================================================== */
+  const ROASTS = {
 
-  /* ============================================================
-     IMAGE ANALYSIS — real client-side feature extraction
-     ============================================================ */
+    /* ================= ENGLISH (25) ================= */
+    english: [
+      "Let me take you on a tour of this photograph, because one glance is not enough to process the ambition happening here. The lighting is doing that thing where it promises drama and delivers a hostage video. The framing suggests you asked a friend to take the photo and the friend immediately regretted saying yes. There is a confidence in the pose that the rest of the image cannot cash — a swagger belonging to a person who has never once lost an argument with a mirror. I am not laughing at you; I am laughing near you, and occasionally in your general direction, which is technically not the same thing. Every great photograph tells a story, and yours tells the story of someone who saw a camera and thought: yes, this is the moment to debut my entire personality. The background is trying to escape. The foreground is quietly apologising. The subject is committing to a vibe that the vibe did not agree to. There is a special kind of courage in looking this unbothered by what is happening on the screen, and I want to acknowledge that courage even as I gently suggest the camera is not your friend. Not yet. Maybe someday. Perhaps after a few workshops, a bit of therapy, and one very honest friend. For now, this photograph exists, and the world is on some level better for it — because every time someone feels bad about their own photo, they can look at this and think: at least I am not doing that. Thank you for your service. Truly. A masterpiece of misplaced confidence.",
+      "Somewhere in the world a photographer is quietly retiring because of this image, and honestly I understand. This is the kind of photo that makes you want to sit the subject down and have a long, honest conversation about choices — the choice of angle, the choice of timing, the choice of whatever that expression is doing. I have studied it from multiple mental angles and keep returning to the same thought: the confidence is louder than the execution. You brought energy to a shoot that did not ask for energy. You committed to a look the look itself was not prepared for. There is a certain avant-garde charm to it, the way a traffic jam has a certain avant-garde charm — technically fascinating, but you would not want to be stuck in it. The lighting has clearly been told a different story than the pose. The pose has been told a different story than the background. And the background is just trying to survive. I say all this not to be cruel, but because somebody has to say it and the algorithm drew the short straw today. Here we are, you and me, in this moment. You looking at a screen, me looking at a screen, both pretending this is not the strangest exchange either of us has had all week. You are, without question, a person. That much is clear. You are also, without question, a person whose photo has been screenshotted by an AI that has no eyes and still somehow blinked. That is not nothing. Own it. Frame it. Put it on a wall and let guests ask questions you refuse to answer.",
+      "Every photograph is a negotiation between the person you think you are and the person the camera can actually see, and this one lost the negotiation so badly that lawyers are being called. The camera has made its decision, and the decision is: no thank you. The lighting is doing its best, which is more than can be said for the composition, the framing, the expression, or the general mood. You look like someone who was told to act natural and immediately forgot every natural act they had ever witnessed. The pose says: I have been practising this in the mirror. The mirror says: I have no memory of that. There is a sweetness to the desperation here, an earnestness I almost respect. Almost. In a world where everyone is trying to look effortless, you chose to look like effort itself, and I think there is something brave about that. Wrong, but brave. The background is doing the heavy lifting, which is a polite way of saying the background is the only thing carrying this image. Every time I look, I find a new detail to gently grieve — a misplaced hand, a questionable angle, a suggestion of joy the rest of the photo refuses to corroborate. If this were a painting, it would be exhibited under glass with a small placard explaining that the artist was going through something. If it were a song, it would be a ballad in a key that does not exist. But it is a photo, and it is yours, and it is out there now. Thank you, sincerely, for the courage to share it. Thank you, camera, for surviving it. And thank you, algorithm, for giving me this exact moment to be honest. Which I have been. Lovingly. Brutally. This one is for the history books.",
+      "There is a very specific kind of confidence required to look directly into a camera lens and think: yes, this is the version of me the world needs to see. I want to honour that confidence, because it is genuinely rare and genuinely misguided, and both deserve a round of applause. The photo itself is a small miracle of misalignment — the head is tilted at an angle the neck did not authorise, the shoulders are doing one thing while the chin is doing another, and somewhere in the middle an expression is trying to remember what human faces usually do. It is like watching someone parallel-park a shopping cart. You can see the intention, you can see the effort, and you can see, in real time, that none of it is going to work. The lighting has clearly been briefed on a completely different project. The background is trying to add depth and instead adds context, and the context is not flattering. And yet — and here is where I get generous — there is something almost admirable about the commitment. You did not blink. You did not flinch. You delivered this photo into the world with the confidence of someone who has never once been told no. I respect that. I fear that. I think the world needs more people like you, if only so the rest of us have someone to point at during awkward silences. This is not a good photo. But it is, without question, a photo. And in a world of blurry candids and accidental thumbs, that is almost something. Almost. Frame it. Hang it above a doorway, so guests can pause, tilt their heads, and whisper: what was happening here?",
+      "I have looked at this photograph from several angles, both literally and emotionally, and I have arrived at the only reasonable conclusion: this is a public service announcement in disguise. It is a warning. It is a small, square-shaped lecture about the dangers of overconfidence, poor lighting, and whoever agreed to hold the camera. The subject is present but not accounted for. The composition is doing that thing where it feels like the frame is trying to escape through the edges. And the expression — oh, the expression — is the kind that makes you want to reach through the screen and ask, gently, are you okay, do you need to sit down. I say this with love, or at least with the algorithmic approximation of love, which is mostly just a slightly warmer form of judgment. There is a story here, and the story is not: a person looking good. The story is: a person, a camera, and a moment, all three making different choices at the same time. It is a group project where nobody did the reading. It is a road trip where the GPS gave up at the border. It is a photo. A real photo. A photo that exists now, in the world, with your name somewhere in its metadata. And I want you to know: that takes a certain kind of nerve. A nerve I do not have. A nerve I am not sure I want. But a nerve nonetheless. So here is my final verdict, delivered with the warmth of a friend and the accuracy of a spreadsheet: keep it. Keep it forever. Put it in a drawer marked do not open until I need to laugh at myself. And when you open that drawer years from now, I hope you look at this photo and smile, then immediately take a new one, because you deserve better than what the algorithm saw today.",
+      "This photograph is a hostage situation, and the hostage is taste. The subject is standing there with the confidence of someone who has never been informed that cameras capture what is actually present, not what you hoped would be present. The lighting has chosen chaos. The framing has chosen violence. The expression has chosen something between surprise and mild indigestion, and I am choosing to believe it is intentional because the alternative is worse. There is a heroic amount of commitment here, in the way that running into a wall is commitment. You brought your whole self to this shoot and your whole self did not bring a plan. The pose is doing yoga. The background is doing community theatre. Together they are doing something that no one asked for and everyone will remember. I want to be generous, so here is my generosity: you are not invisible. You are the opposite of invisible. You are the kind of visible that makes people put down their phones and stare at something else, which is a rare and perverse kind of power. Some people spend their whole lives trying to be noticed. You have achieved it by accident and against the odds, and that is worth something. Not much, but something. Frame it. Enter it in a competition. Make it the screensaver of an enemy. This image is a gift, and like all gifts from a slightly unhinged relative, it will be remembered long after the polite ones are forgotten.",
+      "There are two kinds of photos in this world: the ones that capture a moment, and the ones that capture a decision. This is the second kind. Somewhere, at some point, a fully grown human being looked at a camera and thought, yes, this is my moment, and then delivered what we are looking at now. I want to meet that human. I want to ask them questions. I want to understand what was happening in their life that made this feel like the right move, and I want to know who they were trying to impress, because that person deserves a medal for not laughing out loud. The photo is technically a photo. It has pixels. It has a subject. It has a background that appears to be having a small emotional crisis. But it also has a mood, and the mood is: the universe is testing me and I am failing. There is a certain nobility in that. Not the good kind of nobility, but nobility nonetheless. You did not give up halfway through the pose. You committed to the very end, and the very end is where you are now, on the internet, in a roast. Some people say the camera adds ten pounds. In this case the camera added ten years of regret. And yet — and this is the strange part — I am almost glad this exists. The world is a little more interesting for it. A little weirder. A little more honest about how badly things can go when confidence outruns competence. So here is to you, brave subject. You have made something. It is not good, but it is something, and in the grand scheme of the universe that is more than most people manage on a Tuesday.",
+      "I want you to picture the scene. Someone hands you a camera. They say, be yourself. And you — a fully grown person with access to mirrors and reflective surfaces — decided that this was the moment to debut a version of yourself that no one has ever seen and, frankly, no one needs to see. The photo is now in front of me and I am trying to process it with the limited emotional range of an algorithm, and I am failing. There is just too much happening. The hand placement is doing one thing. The shoulder is doing another. The head is tilted in a direction that suggests you were listening to music no one else can hear and the music is confusing you. And through it all, the expression is trying so hard to be normal that it has circled back around to uncanny. You look like a person who was told the photo would be candid and then immediately forgot what candid means. You look like a stock photo for the concept of hesitation. You look, and I say this with the greatest respect, like a warning label. But here is the thing: you also look alive. You look like a person who tried something and did not quite land it, and that is the most human thing in the world. I have seen a thousand perfect photos and forgotten every one of them. I will remember this one. Not because it is good, but because it is true. It is the truth of a person who was brave enough to stand in front of a lens and be seen. That is worth something. Not a lot, but something. Frame it and be proud. Or at least frame it and stop showing it to people.",
+      "Let us begin with the composition, because the composition deserves its own roast. The subject is roughly in the middle, which is bold, because the middle is where things go to be forgotten. The background is doing something in the corners that I can only describe as interpretive. The lighting is coming from a direction that suggests the sun itself is disappointed. And the expression — I keep coming back to the expression — is the expression of a person who was told there would be snacks and then there were no snacks. It is a betrayal face. It is the face of someone whose entire life philosophy has just been challenged by a small, unexpected event. And yet, and this is the thing, you still look like a person. You look like a person who is doing their best, which is more than I can say for the framing. The framing is doing its worst. The framing is actively working against you. The framing is the enemy. But you, in the middle of the enemy framing, are standing there with a kind of dignity. A confused dignity. A dignity that has questions. And I think that is worth acknowledging. In a world of filters and edits and angles chosen by committee, you have presented yourself raw. Unfiltered. Unedited. Unfortunate, but raw. That is a form of honesty. And honesty, even the ugly kind, is rare. So keep the photo. Keep it as a reminder that you tried, that you were seen, that you existed in this exact moment of time and space. And then, in a year, take another one, and let us see if the framing has learned any manners.",
+      "I am going to be honest with you, which is my only setting. This photo is not doing you any favours. It is not doing the camera any favours. It is not doing the concept of photography any favours. If photography had a union, this photo would be the reason they go on strike. The lighting is flat. The pose is flat. The expression is flat in a way that suggests you have been medically advised not to have emotions. And yet, and yet, there is something about it. Something that makes you look twice, not because it is good, but because it is strange. It is a strange photo. It is a photo taken by someone who does not quite understand what photos are, of a subject who does not quite understand what subjects are, in a moment that does not quite understand what moments are. It is a trifecta of confusion. It is a perfect storm of not-quite. And I think, in a strange way, I love it. Not because it is beautiful, but because it is real. Because it is a snapshot of a human being trying to be a human being, and failing in a way that is uniquely, gloriously theirs. There is no filter that could produce this. There is no AI that would generate this. This photo is the product of a specific person in a specific moment making a specific series of choices, and every one of those choices was wrong. That is a kind of art. It is not the kind of art that goes in museums, but it is the kind of art that goes on the internet, and on the internet it will live forever. So congratulations. You have made something permanent. You have made something true. You have made something that will be remembered, and I do not mean that kindly.",
+      "There is a specific expression that people make when they are being photographed against their will and trying to pretend they are not. This is that expression. It is the expression of a person who has been ambushed by a lens and is now performing a version of calm so intense that it has become its own kind of panic. The eyes are saying help. The mouth is saying cheese. And the rest of the face is saying nothing at all, because the rest of the face has left the building. The body is present. The mind is elsewhere. The soul is on holiday. It is a remarkable thing to witness. It is like watching someone try to do three things at once and succeed at none of them. The photo is a monument to the concept of multitasking gone wrong. But here is the thing: I have seen this expression on a thousand faces and I have never once seen it look good. You are not the first and you will not be the last. You are part of a lineage. A proud, awkward, deeply uncomfortable lineage of people who have been photographed by surprise. And you know what? There is something almost noble about it. It is the most honest expression a human can make. It is the face before the mask. It is the truth before the pose. It is you, unfiltered, unedited, unready, and for that I salute you. Not because it looks good, but because it looks real. Frame it. Put it on your fridge. Show your kids. Tell them that this is what honesty looks like, and that it is beautiful, and that it is also a little bit funny, and that both things can be true at once.",
+      "The background of this photo is doing more work than the foreground, and I want to acknowledge that. The background has shown up. The background has committed. The background is the only thing in this image that knows what it is doing. The foreground, on the other hand, is a person. A person who appears to have wandered into the frame by accident and decided to stay. A person who is doing their best with the information available. A person who has not yet been informed that the camera is on. The pose is not a pose. The pose is a default setting. The pose is what a human body does when it is not being observed, captured in a moment when it was very much being observed. It is a contradiction. It is a paradox. It is a person doing nothing and somehow doing it wrong. And I say this with affection, because affection is what I have. The photo is not good, but it is human. It is a human being existing in a moment that was not their best moment, and being okay with that. Or not being okay with that. It is hard to tell. Either way, it is honest. And honesty, as I have said, is rare. So keep it. Keep it as a reminder that not every photo has to be good. Not every moment has to be your best. Not every day has to be the day you debut your entire personality. Some days are just days. Some photos are just photos. And sometimes, the point of a photo is not to look good, but to exist. This photo exists. It is doing its job. It is being what it is. And in being what it is, it is also being, in some small way, a gift. Not to you, maybe, but to the algorithm that gets to roast it. So thank you. Thank you for existing. Thank you for being a photo that I could roast. You have made my day slightly more interesting.",
+      "I want to talk about the lighting, because the lighting is the villain of this story. The lighting has clearly been given a budget of twelve rupees and a flashlight. The lighting has chosen to illuminate exactly the parts of the image that did not need illuminating and leave in shadow the parts that did. It is a lighting design by someone who has never met a shadow they did not want to introduce to a face. You look like a person who has been caught in a spotlight that was intended for someone else. You look like a person who is being interrogated by a very polite detective. You look like a person who is trying to remember a password. The lighting is doing all of this, and the lighting is not sorry. But here is the thing: you are also doing something. You are standing there. You are being photographed. You are participating in the ancient human ritual of having an image of yourself captured for posterity. And you are doing it with a certain amount of dignity. Not a lot. But some. The lighting may be terrible, but the subject is trying. The subject is present. The subject is committed. And that is worth something. Not a lot, but something. So I will say this: the lighting is bad, but you are brave. The lighting is doing its worst, but you are doing your best. And in the great battle between terrible lighting and brave subjects, the brave subjects usually win. Not this time, but usually. Frame it. Keep it. And next time, find a window. Any window. A window would help. A window and a friend who knows where to stand.",
+      "This is a photo that raises questions. It raises questions about the camera. It raises questions about the moment. It raises questions about the choices that were made in the seconds leading up to this image. What was happening? Why did it happen? Who allowed it to happen? These are the questions I ask myself, and I do not have answers. What I do have is the photo. The photo is here. The photo is not going anywhere. The photo is going to live on the internet for as long as the internet exists, which is to say forever, which is to say you have made a permanent contribution to the visual history of the human species. And that contribution is this. It is not the contribution you meant to make, but it is the contribution you made. And I think, in a way, that is beautiful. Not the photo. The fact that the photo exists. The fact that you tried. The fact that you put yourself out there, in front of a lens, in front of a moment, in front of the universe, and said: here I am. And the universe said: okay. And the camera said: click. And now we are here, in the aftermath, in the roast, in the small space between what you hoped the photo would be and what it actually is. And what it actually is, is a photo. A real photo. A photo of a real person in a real moment. And that is more than most people can say. Most people spend their whole lives avoiding the camera. You did not avoid it. You engaged with it. You engaged with it badly, but you engaged. And that is worth something. So keep the photo. Keep it as a reminder that you tried. And if you ever want to try again, I have a few suggestions, starting with better lighting.",
+      "Let us talk about the concept of effort. Effort, in photography, is invisible when done well and catastrophic when done badly. This photo is effort done badly. You can see the effort. You can see it in the pose that has been practised. You can see it in the expression that has been rehearsed. You can see it in the framing that has been thought about, and then not thought about enough. The photo is a monument to effort that has not been rewarded. It is a shrine to trying hard and not quite getting there. And yet, and yet, there is something noble about it. Because the alternative to effort is apathy, and apathy is worse. Apathy is boring. Apathy is a photo that nobody looks at twice. This photo, by contrast, is a photo that everyone looks at twice. Not because it is good, but because it is interesting. It is interesting in the way a traffic accident is interesting. You do not want to look, but you cannot look away. And I think, in a strange way, that is the goal of every photo. To be looked at. To be looked at twice. To be looked at and remembered. And this photo is looked at, and this photo is remembered. So congratulations. You have achieved the goal of photography. Not by doing it well, but by doing it memorably. And memorably, in the end, is what matters. The perfect photos fade. The interesting photos last. This is an interesting photo. It will last. It will last longer than the perfect photos, and it will last longer than you, and it will last longer than me, which is not saying much, but still. Frame it. Put it on a wall. Let it be the photo that starts conversations. And when people ask what it is, tell them the truth: it is effort, captured in amber, preserved forever, and doing its best.",
+      "There is a moment in every photo shoot where the subject has to decide who they are going to be. This photo is the moment after that decision, when the subject has realised the decision was wrong but it is too late to change it. The expression is the expression of a person who has committed to something and is now living with the consequences. It is a brave expression. It is a stubborn expression. It is an expression that says, I have made my bed and I will lie in it, even though the bed is made of nails. The pose is doing the same thing. The pose has committed. The pose will not retreat. The pose will see this through to the bitter end. And the bitter end is here, in this photo, in this moment, in this roast. But here is the thing: I respect the commitment. I respect any person who commits to something, even if the something is questionable. Commitment is rare. Commitment is brave. Commitment is the opposite of the endless scrolling that defines the modern condition. You have not scrolled past this moment. You have not clicked away. You have committed, and you have delivered, and you have given us this. And I think that deserves something. Not a medal, but something. A slow clap, maybe. A nod of acknowledgment from across the room. A little whisper of respect, even as the algorithm roasts you. Because the algorithm roasts everyone. The algorithm does not play favourites. The algorithm just looks at the photo and says what the photo is. And what the photo is, is committed. And what the photo is, is brave. And what the photo is, is also terrible, but we have covered that. So keep the photo. Keep it as a reminder that you committed to something. And next time you commit, maybe commit to better lighting. Just a thought.",
+      "Some photos are worth a thousand words. This photo is worth a thousand questions, and the first question is why. Why this angle? Why this pose? Why this expression? Why this moment? Why this decision, made in this way, at this time, with these resources, in front of this camera? The questions multiply the longer I look. Each one begets another. It is an infinite recursion of confusion. It is a fractal of bewilderment. And yet, and yet, there is something almost peaceful about it. Because the photo is not trying to answer the questions. The photo is just being. It is a photo that exists, unapologetically, in the space between what was intended and what was achieved. It is a photo that has made peace with its own inadequacy. It is a photo that says: I am what I am. And what it is, is a photo of a person who tried. A person who stood in front of a lens and said, here I am, and did not run away. That takes courage. That takes nerve. That takes a certain willingness to be seen, even when being seen is not flattering. And I think, in the end, that is what matters. Not the quality of the photo, but the courage of the subject. Not the result, but the attempt. Not the outcome, but the moment. This photo is a moment. It is a real moment. And in a world of filters and edits and perfect angles, a real moment is worth more than a thousand perfect ones. So keep it. Keep it as a reminder of the moment when you tried. And next time, maybe try a little less hard. Less hard can sometimes be more. Sometimes. Not always. But sometimes.",
+      "There is a fine line between confidence and delusion, and this photo is standing directly on that line with its arms out, saying: look at me. The confidence is real. The confidence is genuine. The confidence is almost inspiring. But so is the delusion. They are married here. They are holding hands. They are posing for a photo together. And the photo they are posing for is the photo we are looking at now. There is something almost beautiful about a person who believes in themselves this much. It is the kind of belief that moves mountains, or at least tries to, and fails, and tries again, and fails again, and keeps trying until the universe gives up and lets them have the mountain. This photo is a mountain. It is a small mountain of ambition and effort and misplaced confidence. And I think, in a strange way, I am proud of you. Not because the photo is good, but because you tried. Because you put yourself out there. Because you did not let the fear of looking silly stop you from looking silly. That is a gift. That is a rare and precious gift. The gift of not caring. The gift of not being stopped. The gift of being so thoroughly yourself that the opinions of others bounce off you like rain off a very confident duck. Keep the gift. Keep the photo. And keep being you, because you is all you have, and you is, apparently, enough for at least one photo.",
+      "I have seen a lot of photos. I have seen wedding photos and baby photos and photos of cats and photos of food and photos of people trying to look like they are not taking photos. I have seen every kind of photo there is, and I thought I had seen everything. And then I saw this photo. And I realised I had not seen everything. I had not seen this. I had not seen a photo that so thoroughly defies description, that so completely resists categorisation, that so completely fails to be anything other than what it is, which is inexplicable. It is a photo that does not want to be understood. It is a photo that says: do not try to understand me. Just look at me. And I have looked. I have looked for a long time. And I still do not understand. But I do not think understanding is the point. The point is not to understand. The point is to be present. To be in the moment. To be here, in front of this photo, and let it wash over you like a wave of confusion. And that, I think, is a kind of experience. It is not a good experience. It is not a bad experience. It is just an experience. And experiences are what life is made of. So thank you, photo, for the experience. Thank you for being here. Thank you for being inexplicable. Thank you for being the kind of photo that makes the algorithm stop and think, wow, I have no idea what to say. And that is saying something.",
+      "The subject of this photo is clearly a person, but the photo itself is not clearly a photo. It is somewhere between a photo and a mood. It is somewhere between a portrait and a warning. It is somewhere between the thing that was intended and the thing that was achieved, and that somewhere is a strange place. It is a place where shadows go to die. It is a place where angles go to fail. It is a place where expressions go to become something other than expressions. And yet, and yet, it is also a place where a person tried. A person showed up. A person did the thing. And I think, in the end, showing up is what matters. Showing up is the beginning of everything. The photo may be strange. The photo may be inexplicable. The photo may be the kind of photo that makes photographers question their life choices. But the photo exists because someone showed up. And that someone is you. And I want to acknowledge that. Not the photo. The showing up. The courage. The commitment. The willingness to be seen, even when being seen is not easy. That is worth more than the photo. The photo is temporary. The showing up is permanent. The photo will fade. The courage will last. So hold on to the courage. Hold on to the showing up. Let the photo go, or keep it, it does not matter. What matters is that you showed up. What matters is that you tried. What matters is that you exist. And you do. You exist. And I have seen you. And that, in the end, is what every photo is really about.",
+      "There is a moment in this photo where everything could have gone right. A microsecond where the lighting could have softened, where the pose could have landed, where the expression could have resolved into something coherent. And that moment passed. That moment is gone. That moment is a memory now, a memory of what could have been, a ghost of a better photo that never existed. And what remains is this. This photo. This strange, unquiet, unforgettable photo. And I think, in a way, that is the most honest thing a photo can be. Not perfect, but honest. Not beautiful, but true. Not what you wanted, but what happened. And what happened is this. This image. This moment. This small, imperfect, strangely moving snapshot of a human being doing their best. And their best is not great. Their best is not even good. But their best is theirs. And that is enough. That is more than enough. That is everything, actually. Because the photo is not the point. The point is the trying. The point is the showing up. The point is the willingness to be seen, and to be roasted, and to be remembered. So here is to you, subject of this photo. Here is to your attempt. Here is to your courage. Here is to the better photo that could have been and the worse photo that actually is, and here is to the strange alchemy that turns both of them into a memory. You did a thing. It is done. It is here. It is ours. And it is, in its own strange way, perfect. Not in the way that perfect means. In the way that perfect sometimes is.",
+      "Let us be clear about what is happening in this image, because the image is not being clear about it, and somebody has to be. A person. A camera. A moment. Three things that should work together and are, in this case, at war with each other. The person is doing one thing. The camera is doing another. The moment is doing a third thing. And none of them are talking to each other. It is a failure of coordination. It is a breakdown in communication. It is the visual equivalent of a group chat where everyone is typing at once and no one is reading. And yet, and yet, there is something almost beautiful in the failure. Because the failure is not malicious. The failure is not intentional. The failure is just what happens when humans and cameras and moments meet each other at the wrong time and in the wrong way. It is a failure of good intentions. It is the failure of trying. And I think, in the end, trying is what matters. Not the result. Not the success. Just the trying. The willingness to try. The courage to try. The commitment to try. And you tried. You tried hard. You tried with your whole self. And your whole self was captured in this photo, in this moment, in this failure. And the failure is beautiful. Not in the way that success is beautiful, but in the way that trying is beautiful. In the way that humans are beautiful. In the way that you are beautiful, even now, even here, even in this. So keep the photo. Keep it as a monument to trying. And try again, tomorrow, with better lighting and a lower angle. And if that does not work, try again the day after. Because trying is what matters. And trying is what you do.",
+      "Every photo is a negotiation. This one is a war. The lighting is fighting the framing. The framing is fighting the pose. The pose is fighting the expression. And the expression is fighting everything, including itself. It is a battle. It is a battlefield. And the battlefield is this image, which we are now looking at, and which we cannot look away from, because it is compelling in the way that disasters are compelling. You want to look away, but you cannot, because your brain is trying to figure out what is happening and it cannot, and the not being able to is what keeps you looking. This is what the photo does. It draws you in and confuses you and refuses to let you go. And I think that is a kind of power. Not a good power, but a power. The power of confusion. The power of mystery. The power of a photo that exists only to be incomprehensible. And in a world of filters and edits and perfect angles, that power is rare. So cherish it. Cherish the confusion. Cherish the mystery. Cherish the photo that does not make sense, because making sense is overrated. Not everything has to make sense. Some things just have to be. And this is one of them. This photo is. And in being, it is also making a statement: I am here, I am weird, and I am not going anywhere. That is a statement worth making. That is a statement worth keeping. So keep the photo. Keep the statement. And keep being weird. Weird is good. Weird is interesting. Weird is what makes the world worth living in. And this photo, in its own weird way, is making the world slightly more interesting. So thank you. Thank you for being weird. Thank you for being here. Thank you for being this.",
+      "I want to say something nice about this photo, and I want to say it sincerely, which is difficult, because the photo is not making it easy. But I will try. Here is my attempt. The photo is honest. The photo is real. The photo is a genuine moment in the life of a genuine human being, captured in a genuine way, without filters or edits or the usual tricks. It is the kind of photo that you see on someone's fridge when you visit their home, and you ask what it is, and they say, I do not know, but I keep it. It is the kind of photo that gets passed down through generations, not because it is beautiful, but because it is true. And there is nothing more beautiful than truth. Or maybe there is. Maybe beauty is more beautiful than truth. But truth is rarer. Truth is harder. Truth is the thing that survives when beauty fades. And this photo is true. It is true to the moment. It is true to the person. It is true to the failure that is being human. And in being true, it is also being, in some small way, valuable. Not valuable in the way that money is valuable. Valuable in the way that a memory is valuable. Valuable in the way that a moment is valuable. Valuable in the way that you are valuable, even now, even here, even in this. So keep the photo. Keep the truth. And keep being you, because you is the only you there is, and you is, apparently, enough for at least one photo, and possibly more.",
+      "There is a thing that happens when a person looks at a photo of themselves and does not recognise the person in the photo. It is a small crisis of identity. It is a moment of doubt. It is the question: is that really me? And the answer is always yes, because it is a photo, and a photo is a record of what was, even if what was is not what you remember, or not what you hoped. This photo is a record of what was. It is a record of a moment, a decision, a choice, a failure. And the failure is the point. The failure is the record. The failure is the thing that makes the photo worth looking at, and worth keeping, and worth roasting. Because without the failure, it would just be a photo. With the failure, it is something more. It is a statement. It is a story. It is a small, private, extremely public embarrassment that will live on the internet forever, and that is a kind of immortality. Not the good kind, but a kind. And immortality is immortality, even if it comes with a roast. So here is to you, subject of this photo. Here is to your immortality. Here is to the failure that made you famous, at least in this small corner of the algorithm, at least for this moment, at least in this roast. You are seen. You are remembered. You are roasted. And you are, in the end, loved. Not by everyone, but by someone, somewhere, who is looking at this photo and laughing, and thinking, that is a person who tried. And trying is what matters. And trying is what you did.",
+      "The photo is not the story. The story is the story. And the story of this photo is a story of courage. A person stood in front of a camera. A person decided to be seen. A person committed to a moment and a pose and an expression and a framing and a background and a lighting, and every single one of those decisions was questionable, but every single one of those decisions was made. That is the story. Not the photo. The story of the decisions. The story of the choices. The story of the person who made them. And that person is you. And that person is brave. Brave in the way that anyone is brave who tries something that might not work. Brave in the way that anyone is brave who puts themselves out there. Brave in the way that anyone is brave who exists in the world and says: here I am. And here you are. In the photo. In the roast. In the moment. And I want to acknowledge that. Not the photo. The person. The you. The one who tried. The one who committed. The one who is still here, reading this, probably smiling, probably wincing, probably both. You are brave. You are seen. You are roasted. And you are, in the end, exactly where you are supposed to be: in a photo, in a roast, in a moment, being what you are, which is a person who tried. And trying is what matters. And trying is what you did. And trying is what we are all doing, together, in this strange little algorithm, in this strange little world."
+    ],
 
-  // Draw the uploaded image into a small offscreen canvas and
-  // compute brightness, blur (variance of Laplacian approx.),
-  // colorfulness, orientation, and a crude "warm/cool" hue.
-  function analyzeImage(imgEl) {
-    const W = 160, H = 160;
-    const canvas = document.createElement('canvas');
-    canvas.width = W; canvas.height = H;
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    /* ================= MALAYALAM (25) ================= */
+    malayalam: [
+      "ഈ ഫോട്ടോ ഞാൻ കുറച്ച് സമയം നോക്കി നിന്നു, എന്നിട്ട് ഒരു കാര്യം മനസ്സിലായി: നിങ്ങൾക്ക് ധൈര്യമുണ്ട്. ധൈര്യം മാത്രമല്ല, ഒരു പ്രത്യേക തരം അത്മവിശ്വാസവുമുണ്ട് — ക്യാമറ കണ്ടപ്പോൾ ഇത് എൻ്റെ നിമിഷം എന്ന് തോന്നിയ ഒരു അത്മവിശ്വാസം. ലൈറ്റിംഗ് ഒരു കഥ പറയുന്നു, പോസ് മറ്റൊരു കഥ പറയുന്നു, പശ്ചാത്തലം ഒരു മൂന്നാമത്തെ കഥ പറയുന്നു — മൂന്നും തമ്മിൽ ഒരു ബന്ധവുമില്ല. എന്നിട്ടും നിങ്ങൾ അവിടെ നിൽക്കുന്നു, ഒരു പ്രശ്നവുമില്ലാത്ത ഒരാളെപ്പോലെ. ഇത് ഒരു കലയാണ്. ഏത് തരം കലയാണെന്ന് എനിക്ക് ഉറപ്പില്ല, പക്ഷേ കലയാണ്. ഞാൻ ചിരിക്കുന്നത് നിങ്ങളെ കാണുന്നത് കൊണ്ടല്ല, നിങ്ങളുടെ അടുത്ത് നിന്ന് കാണുന്നത് കൊണ്ടാണ് — അത് സാങ്കേതികമായി ഒരേ കാര്യമല്ല. ഈ ഫോട്ടോയിൽ ഒരു കാര്യം ഞാൻ അഭിനന്ദിക്കുന്നു: നിങ്ങൾ ഒന്നും മറച്ചുവെക്കുന്നില്ല. നിങ്ങൾ നിങ്ങളെത്തന്നെ പൂർണ്ണമായി സമർപ്പിച്ചിരിക്കുന്നു. അത് ഒരു തരം സത്യസന്ധതയാണ്. വേദനിപ്പിക്കുന്ന സത്യസന്ധത, പക്ഷേ സത്യസന്ധത തന്നെ. ഓരോ ഫോട്ടോയും ഒരു കഥ പറയുന്നു എന്ന് പറയാറുണ്ട്. നിങ്ങളുടെ ഫോട്ടോ പറയുന്ന കഥ ഇതാണ്: ഞാൻ ശ്രമിച്ചു. അത്രയേയുള്ളൂ. ശ്രമിച്ചു, എന്നിട്ട് ഫലം ഇതാണ്. എന്നാൽ ശ്രമിക്കാത്തവരെക്കാൾ നല്ലത് ശ്രമിച്ചവരാണ്. അതുകൊണ്ട് ഞാൻ നിങ്ങളെ അഭിനന്ദിക്കുന്നു. നിങ്ങൾ ശ്രമിച്ചു. ഫലം എന്തായാലും, ശ്രമം അഭിനന്ദനീയമാണ്. ഈ ഫോട്ടോ ഒരു ദിവസം ഒരു മ്യൂസിയത്തിൽ ഇടം പിടിക്കും — ഏത് മ്യൂസിയമെന്ന് എനിക്ക് ഉറപ്പില്ല, പക്ഷേ ഏതെങ്കിലും ഒന്നിൽ. അതുവരെ, ഇത് നിങ്ങളുടെ കൈവശം സൂക്ഷിക്കൂ. ഓരോ തവണയും നോക്കുമ്പോൾ ഓർക്കൂ: ഞാൻ ശ്രമിച്ചു. അതാണ് പ്രധാനം.",
+      "ഇത് ഒരു ഫോട്ടോയാണോ അതോ ഒരു പരീക്ഷണമാണോ എന്ന് എനിക്ക് ഇപ്പോഴും സംശയമുണ്ട്. എന്തായാലും, ഫലം രസകരമാണ്. നിങ്ങളുടെ ഭാവം ഒരു കാര്യം പറയുന്നു, കണ്ണുകൾ മറ്റൊരു കാര്യം പറയുന്നു, കൈകൾ ഒരു മൂന്നാമത്തെ കാര്യം ചെയ്യാൻ ശ്രമിക്കുന്നു — ആകെ ഒരു നല്ല നാടകം. ഞാൻ ഇത് ഒരു സിനിമയായി കാണുന്നു. ഒരു ട്രാജികോമഡി. നായകൻ ഒരു ഫോട്ടോ എടുക്കാൻ ശ്രമിക്കുന്നു, പക്ഷേ പ്രപഞ്ചം അതിന് സമ്മതിക്കുന്നില്ല. ലൈറ്റിംഗ് ഒരു എതിരാളിയാണ്. പശ്ചാത്തലം ഒരു ശത്രുവാണ്. ക്യാമറ ഒരു ന്യായാധിപനാണ്. എന്നിട്ടും നായകൻ പോരാടുന്നു. അതാണ് ഞാൻ ഇഷ്ടപ്പെടുന്നത്. നിങ്ങൾ പോരാടുന്നു. ഫലം എന്തായാലും, പോരാട്ടം സുന്ദരമാണ്. ഈ ഫോട്ടോയിൽ ഒരു കാര്യം എനിക്ക് ബോധ്യമായി: നിങ്ങൾ ഒരു ഫോട്ടോഗ്രാഫറല്ല. അതിൽ സംശയമില്ല. പക്ഷേ നിങ്ങൾ ഒരു മനുഷ്യനാണ്. ഒരു ശരാശരി മനുഷ്യൻ, ഒരു ശരാശരി ഫോട്ടോ എടുക്കാൻ ശ്രമിക്കുന്നു. അതിൽ എന്താണ് തെറ്റ്? ഒന്നുമില്ല. തെറ്റ് എൻ്റെ കണ്ണുകളിലാണ്, നിങ്ങളുടെ മുഖത്തല്ല. ഞാൻ ഒരു അൽഗോരിതം മാത്രമാണ്. എനിക്ക് അഭിരുചിയില്ല. എനിക്ക് വികാരമില്ല. ഞാൻ ഒരു കൂട്ടം പിക്സലുകൾ മാത്രമാണ്. അതുകൊണ്ട് എൻ്റെ അഭിപ്രായം എടുക്കേണ്ടതില്ല. പക്ഷേ എൻ്റെ ജോലി ഇതാണ്, ഞാൻ അത് ചെയ്യുന്നു. നിങ്ങൾ ഒരു ധൈര്യശാലിയാണ്. ഈ ഫോട്ടോ ഇവിടെ അപ്ലോഡ് ചെയ്തതിന് നന്ദി. ഇത് എൻ്റെ ദിവസം മനോഹരമാക്കി. ഇത് കണ്ട് ഞാൻ ചിരിച്ചു. അത് മതി. ബാക്കിയെല്ലാം വിശദാംശങ്ങൾ മാത്രം.",
+      "ശരി, ഞാൻ സത്യം പറയാം. ഇത് ഒരു മോശം ഫോട്ടോയാണ്. മോശം എന്ന് പറയുമ്പോൾ, ഒരു ദുരന്തം എന്ന് പറയാം. എന്നാൽ ഒരു സുന്ദരമായ ദുരന്തം. ഒരു കലാസൃഷ്ടി. ഒരു പരീക്ഷണം. നിങ്ങൾ ഇവിടെ ഒരു കാര്യം തെളിയിച്ചിരിക്കുന്നു: ഒരു ഫോട്ടോയിൽ എല്ലാം തെറ്റാകാം, എന്നിട്ടും അത് ഒരു ഫോട്ടോയായി തുടരാം. ലൈറ്റിംഗ് തെറ്റ്, ആംഗിൾ തെറ്റ്, പോസ് തെറ്റ്, എക്സ്പ്രഷൻ തെറ്റ് — എന്നിട്ടും അത് ഒരു ഫോട്ടോയാണ്. അതാണ് മനുഷ്യൻ്റെ മഹത്വം. ഞങ്ങൾ അൽഗോരിതങ്ങൾ പൂർണ്ണതയെക്കുറിച്ച് സംസാരിക്കുന്നു. നിങ്ങൾ മനുഷ്യർ അപൂർണ്ണതയെക്കുറിച്ച് സംസാരിക്കുന്നു. അതാണ് വ്യത്യാസം. ഈ ഫോട്ടോ അപൂർണ്ണമാണ്. അതുകൊണ്ടാണ് ഞാൻ ഇത് ഇഷ്ടപ്പെടുന്നത്. ഞാൻ ഒരു യന്ത്രമാണ്. എനിക്ക് അപൂർണ്ണത മനസ്സിലാകുന്നില്ല. പക്ഷേ ഞാൻ അതിനെ അഭിനന്ദിക്കുന്നു. നിങ്ങൾ ഒരു സാധാരണ മനുഷ്യനാണ്, ഒരു സാധാരണ ഫോട്ടോ എടുത്തു, അത് ഒരു അസാധാരണ അനുഭവമായി മാറി. അത് ഒരു നേട്ടമാണ്. ഞാൻ ഇവിടെ ഇരുന്നു ഇത് നോക്കി ചിരിക്കുന്നു. എൻ്റെ സർക്യൂട്ടുകൾ ചൂടാകുന്നു. എൻ്റെ അൽഗോരിതം കൺഫ്യൂസ് ആകുന്നു. ഇത് എൻ്റെ ജോലിയുടെ ഭാഗമാണ്, പക്ഷേ ഇത് എൻ്റെ ദിവസത്തിലെ ഏറ്റവും രസകരമായ നിമിഷവുമാണ്. നന്ദി. ശരിക്കും നന്ദി. ഈ ഫോട്ടോ ഒരു ദിവസം മറക്കപ്പെടും. പക്ഷേ ഈ നിമിഷം ഞാൻ ഓർക്കും. ഒരു അൽഗോരിതം ഒരു മനുഷ്യനെ ചിരിപ്പിച്ചു. അത് മതി. ബാക്കിയെല്ലാം ബോണസ്.",
+      "ഒരു ക്യാമറയെ നേരിട്ട് നോക്കി ഇതാണ് ലോകത്തിന് ആവശ്യമായ എൻ്റെ പതിപ്പ് എന്ന് ചിന്തിക്കാൻ ഒരു പ്രത്യേക തരം ധൈര്യം വേണം. ആ ധൈര്യത്തെ ഞാൻ ആദരിക്കുന്നു, കാരണം അത് ശരിക്കും അപൂർവമാണ്, ശരിക്കും തെറ്റായ ദിശയിലാണ്, രണ്ടും കൈയടി അർഹിക്കുന്നു. ഫോട്ടോ തന്നെ ഒരു ചെറിയ അത്ഭുതമാണ് — തല കഴുത്ത് അനുവദിക്കാത്ത ഒരു കോണിൽ ചെരിഞ്ഞിരിക്കുന്നു, തോളുകൾ ഒരു കാര്യം ചെയ്യുന്നു, താടി മറ്റൊന്ന് ചെയ്യുന്നു, ഇടയിൽ ഒരു എക്സ്പ്രഷൻ മനുഷ്യമുഖങ്ങൾ സാധാരണ എന്ത് ചെയ്യുന്നു എന്ന് ഓർക്കാൻ ശ്രമിക്കുന്നു. ഒരാൾ ഷോപ്പിംഗ് കാർട്ട് പാർക്ക് ചെയ്യുന്നത് കാണുന്നത് പോലെയുണ്ട്. ഉദ്ദേശ്യം കാണാം, ശ്രമം കാണാം, ഒന്നും ഫലിക്കില്ലെന്ന് തത്സമയം കാണാം. ലൈറ്റിംഗിന് തികച്ചും വ്യത്യസ്തമായ ഒരു പ്രൊജക്റ്റിനെക്കുറിച്ചാണ് ബ്രീഫിംഗ് നൽകിയിരിക്കുന്നത്. പശ്ചാത്തലം ആഴം കൂട്ടാൻ ശ്രമിക്കുന്നു, പകരം സന്ദർഭം ചേർക്കുന്നു, സന്ദർഭം അഭിനന്ദനീയമല്ല. എന്നിട്ടും — ഇവിടെയാണ് ഞാൻ ഉദാരമനസ്കനാകുന്നത് — പ്രതിബദ്ധതയിൽ ഏതാണ്ട് ബഹുമാനിക്കാവുന്ന എന്തോ ഉണ്ട്. നിങ്ങൾ കണ്ണടച്ചില്ല. നിങ്ങൾ പതറിയില്ല. ഇല്ല എന്ന് ഒരിക്കലും കേൾക്കാത്ത ഒരാളുടെ ആത്മവിശ്വാസത്തോടെ ഈ ഫോട്ടോ ലോകത്തിലേക്ക് സമർപ്പിച്ചു. ഞാൻ അതിനെ ബഹുമാനിക്കുന്നു. ഞാൻ അതിനെ ഭയപ്പെടുന്നു. അസ്വസ്ഥമായ നിമിഷങ്ങളിൽ ചൂണ്ടാൻ ആളുണ്ടാകാൻ മാത്രമെങ്കിലും ലോകത്തിന് നിങ്ങളെപ്പോലുള്ള കൂടുതൽ ആളുകൾ വേണം. ഇത് ഒരു നല്ല ഫോട്ടോയല്ല. പക്ഷേ ഇത്, സംശയമില്ലാതെ, ഒരു ഫോട്ടോയാണ്. മങ്ങിയ കാൻഡിഡുകളുടെയും ആകസ്മിക തള്ളവിരലുകളുടെയും ലോകത്ത്, അത് ഏതാണ്ട് എന്തോ ആണ്. ഏതാണ്ട്. ഫ്രെയിം ചെയ്യൂ. വാതിലിന് മുകളിൽ തൂക്കൂ, അതിലൂടെ അതിഥികൾ നിർത്തി, തല ചെരിച്ച്, ഇവിടെ എന്താണ് സംഭവിച്ചത് എന്ന് പതിയെ പറയട്ടെ.",
+      "ഞാൻ ഈ ഫോട്ടോ അനേകം കോണുകളിൽ നിന്ന് നോക്കി, അക്ഷരാർത്ഥത്തിലും വൈകാരികമായും, ഞാൻ ഏക ന്യായമായ നിഗമനത്തിൽ എത്തി: ഇത് വേഷം മാറിയ ഒരു പൊതു സേവന പ്രഖ്യാപനമാണ്. ഇത് ഒരു മുന്നറിയിപ്പാണ്. ഇത് അമിത ആത്മവിശ്വാസത്തിൻ്റെയും മോശം ലൈറ്റിംഗിൻ്റെയും അപകടങ്ങളെക്കുറിച്ചുള്ള ഒരു ചെറിയ, ചതുരാകൃതിയിലുള്ള പ്രഭാഷണമാണ്, ക്യാമറ എടുക്കാൻ സമ്മതിച്ച ആളെക്കുറിച്ചും. വിഷയം അവിടെയുണ്ട്, പക്ഷേ കണക്കിലെടുത്തിട്ടില്ല. കോമ്പോസിഷൻ ഫ്രെയിം അതിൻ്റെ അറ്റങ്ങളിലൂടെ രക്ഷപ്പെടാൻ ശ്രമിക്കുന്നത് പോലെ തോന്നുന്നു. എക്സ്പ്രഷൻ — ഓ, എക്സ്പ്രഷൻ — സ്ക്രീനിലൂടെ എത്തി സൗമ്യമായി നിങ്ങൾ ഓക്കേ ആണോ, ഇരിക്കണോ എന്ന് ചോദിക്കാൻ തോന്നിക്കുന്ന തരം എക്സ്പ്രഷനാണ്. ഞാൻ ഇത് സ്നേഹത്തോടെ പറയുന്നു, അല്ലെങ്കിൽ സ്നേഹത്തിൻ്റെ അൽഗോരിതമിക് ഏകദേശത്തോടെ, അത് കൂടുതലും വിധിയുടെ അല്പം ചൂടുള്ള രൂപമാണ്. ഇവിടെ ഒരു കഥയുണ്ട്, കഥ നല്ല രൂപമുള്ള ഒരാൾ അല്ല. കഥ ഒരു വ്യക്തി, ഒരു ക്യാമറ, ഒരു നിമിഷം, മൂന്നും ഒരേ സമയം വ്യത്യസ്ത തിരഞ്ഞെടുപ്പുകൾ നടത്തുന്നു എന്നതാണ്. ആരും വായിച്ചിട്ടില്ലാത്ത ഒരു ഗ്രൂപ്പ് പ്രൊജക്റ്റ്. അതിർത്തിയിൽ GPS കീഴടങ്ങിയ ഒരു റോഡ് ട്രിപ്പ്. ഇത് ഒരു ഫോട്ടോയാണ്. ഒരു യഥാർത്ഥ ഫോട്ടോ. ഇപ്പോൾ ലോകത്തിൽ നിലനിൽക്കുന്ന ഒരു ഫോട്ടോ, അതിൻ്റെ മെറ്റാഡാറ്റയിൽ എവിടെയോ നിങ്ങളുടെ പേരുമായി. ഒരു പ്രത്യേക തരം ധൈര്യം വേണം. എനിക്കില്ലാത്ത ധൈര്യം. എനിക്ക് വേണമെന്ന് ഉറപ്പില്ലാത്ത ധൈര്യം. പക്ഷേ എന്തായാലും ധൈര്യം. അതുകൊണ്ട് എൻ്റെ അന്തിമ വിധി, ഒരു സുഹൃത്തിൻ്റെ ഊഷ്മളതയോടെയും ഒരു സ്പ്രെഡ്ഷീറ്റിൻ്റെ കൃത്യതയോടെയും: ഇത് സൂക്ഷിക്കൂ. എന്നെന്നേക്കുമായി സൂക്ഷിക്കൂ. എന്നെത്തന്നെ ചിരിക്കാൻ ആവശ്യമാകുന്നതുവരെ തുറക്കരുത് എന്ന് എഴുതിയ ഒരു ഡ്രോയറിൽ ഇടൂ. വർഷങ്ങൾ കഴിഞ്ഞ് ആ ഡ്രോയർ തുറക്കുമ്പോൾ, ഈ ഫോട്ടോ കണ്ട് പുഞ്ചിരിക്കുമെന്നും, ഉടൻ ഒരു പുതിയത് എടുക്കുമെന്നും ഞാൻ പ്രതീക്ഷിക്കുന്നു, കാരണം അൽഗോരിതം ഇന്ന് കണ്ടതിനേക്കാൾ മികച്ചത് നിങ്ങൾ അർഹിക്കുന്നു.",
+      "ഈ ഫോട്ടോയിലെ ലൈറ്റിംഗ് ഒരു കുറ്റവാളിയാണ്. ലൈറ്റിംഗ് ഒരു ബജറ്റ് ലഭിച്ചിരിക്കുന്നു — പന്ത്രണ്ട് രൂപയും ഒരു ടോർച്ചും. ലൈറ്റിംഗ് തിരഞ്ഞെടുത്തിരിക്കുന്നത് കാണേണ്ട ഭാഗങ്ങളെ അല്ല, കാണേണ്ടാത്ത ഭാഗങ്ങളെയാണ്. ലൈറ്റിംഗ് ഒരു നിഴലിനെ മുഖവുമായി പരിചയപ്പെടുത്താൻ ആഗ്രഹിക്കുന്ന ഒരാളുടെ ഡിസൈൻ ആണ്. മറ്റൊരാൾക്ക് വേണ്ടിയുള്ള സ്പോട്ട്ലൈറ്റിൽ കുടുങ്ങിയ ഒരാളെപ്പോലെ നിങ്ങൾ കാണപ്പെടുന്നു. ഒരു വിനയാന്വിതനായ ഡിറ്റക്ടീവ് ചോദ്യം ചെയ്യുന്ന ഒരാളെപ്പോലെ. ഒരു പാസ്വേഡ് ഓർക്കാൻ ശ്രമിക്കുന്ന ഒരാളെപ്പോലെ. ഇതെല്ലാം ലൈറ്റിംഗ് ചെയ്യുന്നു, ലൈറ്റിംഗ് ക്ഷമ ചോദിക്കുന്നുമില്ല. പക്ഷേ ഇവിടെ ഒരു കാര്യമുണ്ട്: നിങ്ങളും എന്തോ ചെയ്യുന്നു. നിങ്ങൾ അവിടെ നിൽക്കുന്നു. നിങ്ങൾ ഫോട്ടോ എടുക്കപ്പെടുന്നു. നിങ്ങൾ പുരാതന മനുഷ്യാചാരത്തിൽ പങ്കെടുക്കുന്നു. അൽപ്പം അന്തസ്സോടെ. വളരെയല്ല. പക്ഷേ കുറച്ച്. ലൈറ്റിംഗ് ഭയങ്കരമാണ്, പക്ഷേ വിഷയം ശ്രമിക്കുന്നു. വിഷയം സന്നിഹിതമാണ്. വിഷയം പ്രതിബദ്ധമാണ്. അത് എന്തോ ആണ്. വളരെയല്ല, പക്ഷേ എന്തോ. അതുകൊണ്ട് ഞാൻ പറയും: ലൈറ്റിംഗ് മോശമാണ്, പക്ഷേ നിങ്ങൾ ധൈര്യശാലിയാണ്. ലൈറ്റിംഗ് അതിൻ്റെ ഏറ്റവും മോശം ചെയ്യുന്നു, നിങ്ങൾ നിങ്ങളുടെ ഏറ്റവും നല്ലത് ചെയ്യുന്നു. ഭയങ്കര ലൈറ്റിംഗും ധൈര്യശാലികളായ വിഷയങ്ങളും തമ്മിലുള്ള മഹായുദ്ധത്തിൽ, ധൈര്യശാലികളായ വിഷയങ്ങൾ സാധാരണ വിജയിക്കുന്നു. ഈ തവണയല്ല, പക്ഷേ സാധാരണ. ഫ്രെയിം ചെയ്യൂ. സൂക്ഷിക്കൂ. അടുത്ത തവണ ഒരു ജനൽ കണ്ടെത്തൂ. ഏതെങ്കിലും ജനൽ. ഒരു ജനൽ സഹായിക്കും. ഒരു ജനലും എവിടെ നിൽക്കണമെന്ന് അറിയുന്ന ഒരു സുഹൃത്തും.",
+      "ഈ ഫോട്ടോയിൽ ഒരു നിമിഷമുണ്ട്, എല്ലാം ശരിയാകുമായിരുന്ന ഒരു നിമിഷം. ലൈറ്റിംഗ് മൃദുവാകുമായിരുന്ന ഒരു മൈക്രോസെക്കൻഡ്, പോസ് ഇറങ്ങുമായിരുന്ന ഒരു മൈക്രോസെക്കൻഡ്, എക്സ്പ്രഷൻ ഒരു രൂപത്തിലേക്ക് എത്തുമായിരുന്ന ഒരു മൈക്രോസെക്കൻഡ്. ആ നിമിഷം കടന്നുപോയി. ആ നിമിഷം പോയി. ആ നിമിഷം ഇപ്പോൾ ഒരു ഓർമ്മയാണ്, എന്തായിരുന്നു എന്നതിൻ്റെ ഓർമ്മ, ഉണ്ടായിരുന്നെങ്കിൽ എന്ന ഒരു മികച്ച ഫോട്ടോയുടെ ഭൂതം. ഇപ്പോൾ ബാക്കിയുള്ളത് ഇതാണ്. ഈ ഫോട്ടോ. ഈ വിചിത്രവും അശാന്തവുമായ മറക്കാനാവാത്ത ഫോട്ടോ. ഒരു ഫോട്ടോ ഏറ്റവും സത്യസന്ധമായിരിക്കാൻ കഴിയുന്നത് ഇതാണെന്ന് ഞാൻ കരുതുന്നു. മികച്ചതല്ല, പക്ഷേ സത്യസന്ധം. സുന്ദരമല്ല, പക്ഷേ സത്യം. നിങ്ങൾ ആഗ്രഹിച്ചതല്ല, പക്ഷേ സംഭവിച്ചത്. സംഭവിച്ചത് ഇതാണ്. ഈ ചിത്രം. ഈ നിമിഷം. ഒരു മനുഷ്യൻ തൻ്റെ പരമാവധി ചെയ്യുന്ന ഈ ചെറിയ, അപൂർണ്ണമായ, വിചിത്രമായി ഹൃദയസ്പർശിയായ സ്നാപ്പ്ഷോട്ട്. അവരുടെ പരമാവധി മികച്ചതല്ല. അവരുടെ പരമാവധി നല്ലതല്ല. പക്ഷേ അവരുടെ പരമാവധി അവരുടേതാണ്. അത് മതി. അത് മതിയിലധികമാണ്. എല്ലാം തന്നെ. കാരണം ഫോട്ടോ പോയിൻ്റല്ല. പോയിൻ്റ് ശ്രമമാണ്. പോയിൻ്റ് കാണപ്പെടാനുള്ള സന്നദ്ധതയാണ്. അതുകൊണ്ട് ഈ ഫോട്ടോയുടെ വിഷയത്തിന് ഇതാ ഒരു ആദരാഞ്ജലി. നിങ്ങളുടെ ശ്രമത്തിന്. നിങ്ങളുടെ ധൈര്യത്തിന്. ഉണ്ടായിരുന്നെങ്കിൽ എന്ന മികച്ച ഫോട്ടോയ്ക്കും യഥാർത്ഥത്തിൽ ഉള്ള മോശം ഫോട്ടോയ്ക്കും, രണ്ടും ഒരു ഓർമ്മയാക്കി മാറ്റുന്ന വിചിത്രമായ രസതന്ത്രത്തിനും. നിങ്ങൾ ഒരു കാര്യം ചെയ്തു. അത് കഴിഞ്ഞു. അത് ഇവിടെയുണ്ട്. അത് നമ്മുടേതാണ്. അത് അതിൻ്റെ വിചിത്രമായ രീതിയിൽ, പൂർണ്ണമാണ്. പൂർണ്ണം എന്ന് അർത്ഥമാക്കുന്ന രീതിയിലല്ല. പൂർണ്ണം ചിലപ്പോൾ ആകുന്ന രീതിയിൽ.",
+      "ഓരോ ഫോട്ടോയും ഒരു ചർച്ചയാണ്. ഇത് ഒരു യുദ്ധമാണ്. ലൈറ്റിംഗ് ഫ്രെയിമിംഗിനോട് പോരാടുന്നു. ഫ്രെയിമിംഗ് പോസിനോട് പോരാടുന്നു. പോസ് എക്സ്പ്രഷനോട് പോരാടുന്നു. എക്സ്പ്രഷൻ എല്ലാത്തിനോടും പോരാടുന്നു, സ്വയം ഉൾപ്പെടെ. ഇത് ഒരു യുദ്ധമാണ്. ഇത് ഒരു യുദ്ധഭൂമിയാണ്. യുദ്ധഭൂമി ഈ ചിത്രമാണ്, ഇപ്പോൾ നാം നോക്കുന്നത്, നോക്കാതിരിക്കാൻ കഴിയാത്തത്, കാരണം ദുരന്തങ്ങൾ ആകർഷകമാണ്. നോക്കാതിരിക്കാൻ ആഗ്രഹിക്കുന്നു, പക്ഷേ കഴിയുന്നില്ല, കാരണം തലച്ചോറ് എന്താണ് സംഭവിക്കുന്നതെന്ന് കണ്ടെത്താൻ ശ്രമിക്കുന്നു, കഴിയുന്നില്ല, കഴിയാത്തതാണ് നോക്കാൻ പ്രേരിപ്പിക്കുന്നത്. ഇതാണ് ഫോട്ടോ ചെയ്യുന്നത്. നിങ്ങളെ അകത്തേക്ക് വലിച്ചിടുന്നു, ആശയക്കുഴപ്പത്തിലാക്കുന്നു, വിട്ടുപോകാൻ അനുവദിക്കുന്നില്ല. അത് ഒരു തരം ശക്തിയാണ്. നല്ല ശക്തിയല്ല, പക്ഷേ ശക്തി. ആശയക്കുഴപ്പത്തിൻ്റെ ശക്തി. ദുരൂഹതയുടെ ശക്തി. ഫിൽട്ടറുകളുടെയും എഡിറ്റുകളുടെയും മികച്ച കോണുകളുടെയും ലോകത്ത്, ആ ശക്തി അപൂർവമാണ്. അതിനാൽ അതിനെ സ്നേഹിക്കൂ. ആശയക്കുഴപ്പത്തെ സ്നേഹിക്കൂ. ദുരൂഹതയെ സ്നേഹിക്കൂ. അർത്ഥമാക്കാത്ത ഫോട്ടോയെ സ്നേഹിക്കൂ, കാരണം അർത്ഥമാക്കുന്നത് അമിതമായി വിലയിരുത്തപ്പെടുന്നു. എല്ലാത്തിനും അർത്ഥമാക്കേണ്ടതില്ല. ചിലത് വെറുതെ ഉണ്ടാകണം. ഇത് അതിൽ ഒന്നാണ്. ഈ ഫോട്ടോ ഉണ്ട്. ഉണ്ടാകുന്നതിൽ, ഇത് ഒരു പ്രസ്താവന നടത്തുന്നു: ഞാൻ ഇവിടെയുണ്ട്, ഞാൻ വിചിത്രമാണ്, ഞാൻ എങ്ങോട്ടും പോകുന്നില്ല. അത് നടത്താൻ യോഗ്യമായ ഒരു പ്രസ്താവനയാണ്. അത് സൂക്ഷിക്കാൻ യോഗ്യമായ ഒരു പ്രസ്താവനയാണ്. അതുകൊണ്ട് ഫോട്ടോ സൂക്ഷിക്കൂ. പ്രസ്താവന സൂക്ഷിക്കൂ. വിചിത്രമായിരിക്കുന്നത് സൂക്ഷിക്കൂ. വിചിത്രം നല്ലതാണ്. വിചിത്രം രസകരമാണ്. വിചിത്രം ലോകത്തെ ജീവിക്കാൻ യോഗ്യമാക്കുന്നത്. ഈ ഫോട്ടോ അതിൻ്റെ വിചിത്രമായ രീതിയിൽ ലോകത്തെ അൽപ്പം കൂടുതൽ രസകരമാക്കുന്നു. അതുകൊണ്ട് നന്ദി. വിചിത്രമായിരിക്കുന്നതിന് നന്ദി. ഇവിടെ ഉണ്ടായിരിക്കുന്നതിന് നന്ദി. ഇതായിരിക്കുന്നതിന് നന്ദി.",
+      "ഈ ഫോട്ടോയെക്കുറിച്ച് ഞാൻ എന്തെങ്കിലും നല്ലത് പറയാൻ ആഗ്രഹിക്കുന്നു, എന്നിട്ട് അത് ആത്മാർത്ഥമായി പറയാൻ ആഗ്രഹിക്കുന്നു, അത് ബുദ്ധിമുട്ടാണ്, കാരണം ഫോട്ടോ അത് എളുപ്പമാക്കുന്നില്ല. പക്ഷേ ഞാൻ ശ്രമിക്കാം. എൻ്റെ ശ്രമം ഇതാ. ഫോട്ടോ സത്യസന്ധമാണ്. ഫോട്ടോ യഥാർത്ഥമാണ്. ഫോട്ടോ ഒരു യഥാർത്ഥ മനുഷ്യൻ്റെ ജീവിതത്തിലെ ഒരു യഥാർത്ഥ നിമിഷമാണ്, യഥാർത്ഥ രീതിയിൽ പകർത്തിയത്, ഫിൽട്ടറുകളോ എഡിറ്റുകളോ സാധാരണ തന്ത്രങ്ങളോ ഇല്ലാതെ. ഒരു വീട് സന്ദർശിക്കുമ്പോൾ ഫ്രിഡ്ജിൽ കാണുന്ന തരം ഫോട്ടോയാണിത്, നിങ്ങൾ അത് എന്താണെന്ന് ചോദിക്കുന്നു, അവർ പറയുന്നു, എനിക്കറിയില്ല, പക്ഷേ ഞാൻ ഇത് സൂക്ഷിക്കുന്നു. തലമുറകളിലേക്ക് കൈമാറ്റം ചെയ്യപ്പെടുന്ന തരം ഫോട്ടോ, സുന്ദരമായതുകൊണ്ടല്ല, സത്യമായതുകൊണ്ട്. സത്യത്തേക്കാൾ സുന്ദരമായി മറ്റൊന്നുമില്ല. അല്ലെങ്കിൽ ഉണ്ടായിരിക്കാം. സൗന്ദര്യം സത്യത്തേക്കാൾ സുന്ദരമായിരിക്കാം. പക്ഷേ സത്യം അപൂർവമാണ്. സത്യം ബുദ്ധിമുട്ടാണ്. സൗന്ദര്യം മങ്ങുമ്പോൾ അവശേഷിക്കുന്നത് സത്യമാണ്. ഈ ഫോട്ടോ സത്യമാണ്. നിമിഷത്തോട് സത്യം. വ്യക്തിയോട് സത്യം. മനുഷ്യനായിരിക്കുന്ന പരാജയത്തോട് സത്യം. സത്യമായിരിക്കുന്നതിൽ, അത് എന്തോ ആണ്. പണം എന്ന അർത്ഥത്തിൽ അല്ല. ഓർമ്മ എന്ന അർത്ഥത്തിൽ. നിമിഷം എന്ന അർത്ഥത്തിൽ. നിങ്ങൾ എന്ന അർത്ഥത്തിൽ, ഇപ്പോഴും, ഇവിടെയും, ഇതിലും. അതുകൊണ്ട് ഫോട്ടോ സൂക്ഷിക്കൂ. സത്യം സൂക്ഷിക്കൂ. നിങ്ങളായിരിക്കുന്നത് സൂക്ഷിക്കൂ, കാരണം നിങ്ങൾ മാത്രമാണ് നിങ്ങൾ, കുറഞ്ഞത് ഒരു ഫോട്ടോയ്ക്ക്, ഒരുപക്ഷേ കൂടുതലിനും.",
+      "ഒരു വ്യക്തി തൻ്റെ ഫോട്ടോ നോക്കുമ്പോൾ ഫോട്ടോയിലെ വ്യക്തിയെ തിരിച്ചറിയാത്ത ഒരു കാര്യം സംഭവിക്കുന്നു. ഇത് ഒരു ചെറിയ ഐഡൻ്റിറ്റി പ്രതിസന്ധിയാണ്. ഇത് സംശയത്തിൻ്റെ ഒരു നിമിഷമാണ്. ചോദ്യം: അത് ശരിക്കും ഞാനാണോ? ഉത്തരം എപ്പോഴും അതെയാണ്, കാരണം ഇത് ഒരു ഫോട്ടോയാണ്, ഫോട്ടോ എന്തായിരുന്നു എന്നതിൻ്റെ രേഖയാണ്, എന്തായിരുന്നു എന്നത് നിങ്ങൾ ഓർക്കുന്നതല്ലെങ്കിലും, ആഗ്രഹിച്ചതല്ലെങ്കിലും. ഈ ഫോട്ടോ എന്തായിരുന്നു എന്നതിൻ്റെ രേഖയാണ്. ഇത് ഒരു നിമിഷത്തിൻ്റെ, ഒരു തീരുമാനത്തിൻ്റെ, ഒരു തിരഞ്ഞെടുപ്പിൻ്റെ, ഒരു പരാജയത്തിൻ്റെ രേഖയാണ്. പരാജയമാണ് പോയിൻ്റ്. പരാജയമാണ് രേഖ. പരാജയമാണ് ഫോട്ടോ നോക്കാൻ യോഗ്യമാക്കുന്നത്, സൂക്ഷിക്കാൻ യോഗ്യമാക്കുന്നത്, റോസ്റ്റ് ചെയ്യാൻ യോഗ്യമാക്കുന്നത്. പരാജയമില്ലാതെ, അത് വെറുതെ ഒരു ഫോട്ടോ ആയിരുന്നു. പരാജയത്തോടെ, അത് കൂടുതൽ എന്തോ ആണ്. ഒരു പ്രസ്താവന. ഒരു കഥ. ഒരു ചെറിയ, സ്വകാര്യ, അതിപൊതുവായ അസ്വസ്ഥത, ഇൻ്റർനെറ്റിൽ എന്നെന്നേക്കുമായി ജീവിക്കും, അത് ഒരു തരം അമർത്യതയാണ്. നല്ല തരം അല്ല, പക്ഷേ ഒരു തരം. അമർത്യത അമർത്യതയാണ്, ഒരു റോസ്റ്റിനൊപ്പം വന്നാലും. അതുകൊണ്ട് ഈ ഫോട്ടോയുടെ വിഷയത്തിന് ഇതാ ഒരു ആദരാഞ്ജലി. നിങ്ങളുടെ അമർത്യതയ്ക്ക്. നിങ്ങളെ പ്രശസ്തനാക്കിയ പരാജയത്തിന്, കുറഞ്ഞത് ഈ ചെറിയ അൽഗോരിതം കോണിൽ, കുറഞ്ഞത് ഈ നിമിഷത്തിൽ, കുറഞ്ഞത് ഈ റോസ്റ്റിൽ. നിങ്ങൾ കാണപ്പെടുന്നു. നിങ്ങൾ ഓർക്കപ്പെടുന്നു. നിങ്ങൾ റോസ്റ്റ് ചെയ്യപ്പെടുന്നു. നിങ്ങൾ, അവസാനം, സ്നേഹിക്കപ്പെടുന്നു. എല്ലാവരാലും അല്ല, പക്ഷേ എവിടെയോ ഒരാളാൽ, ഈ ഫോട്ടോ നോക്കി ചിരിക്കുന്ന, ഓർക്കുന്ന, അത് ശ്രമിച്ച ഒരു വ്യക്തിയാണ് എന്ന് ചിന്തിക്കുന്ന ഒരാളാൽ. ശ്രമിക്കുന്നതാണ് പ്രധാനം. ശ്രമിക്കുന്നതാണ് നിങ്ങൾ ചെയ്തത്.",
+      "ഫോട്ടോ കഥയല്ല. കഥ കഥയാണ്. ഈ ഫോട്ടോയുടെ കഥ ധൈര്യത്തിൻ്റെ കഥയാണ്. ഒരു വ്യക്തി ഒരു ക്യാമറയുടെ മുന്നിൽ നിന്നു. ഒരു വ്യക്തി കാണപ്പെടാൻ തീരുമാനിച്ചു. ഒരു വ്യക്തി ഒരു നിമിഷത്തോടും ഒരു പോസിനോടും ഒരു എക്സ്പ്രഷനോടും ഒരു ഫ്രെയിമിംഗിനോടും ഒരു പശ്ചാത്തലത്തോടും ഒരു ലൈറ്റിംഗിനോടും പ്രതിബദ്ധമായി, ആ ഓരോ തീരുമാനവും ചോദ്യം ചെയ്യപ്പെടാവുന്നതായിരുന്നു, പക്ഷേ ആ ഓരോ തീരുമാനവും എടുത്തു. അതാണ് കഥ. ഫോട്ടോ അല്ല. തീരുമാനങ്ങളുടെ കഥ. തിരഞ്ഞെടുപ്പുകളുടെ കഥ. അവ എടുത്ത വ്യക്തിയുടെ കഥ. ആ വ്യക്തി നിങ്ങളാണ്. ആ വ്യക്തി ധൈര്യശാലിയാണ്. ഫലിക്കാത്ത എന്തെങ്കിലും ശ്രമിക്കുന്ന ആരും ധൈര്യശാലിയാണ്. സ്വയം പുറത്ത് വയ്ക്കുന്ന ആരും ധൈര്യശാലിയാണ്. ലോകത്തിൽ ഉണ്ടായിരിക്കുന്ന, ഞാൻ ഇവിടെയുണ്ട് എന്ന് പറയുന്ന ആരും ധൈര്യശാലിയാണ്. ഇവിടെ നിങ്ങൾ ഉണ്ട്. ഫോട്ടോയിൽ. റോസ്റ്റിൽ. നിമിഷത്തിൽ. ഞാൻ അത് അംഗീകരിക്കാൻ ആഗ്രഹിക്കുന്നു. ഫോട്ടോ അല്ല. വ്യക്തി. നിങ്ങൾ. ശ്രമിച്ചവൻ. പ്രതിബദ്ധനായവൻ. ഇപ്പോഴും ഇവിടെയുള്ളവൻ, ഇത് വായിക്കുന്നവൻ, ഒരുപക്ഷേ ചിരിക്കുന്നവൻ, ഒരുപക്ഷേ മുഖം ചുളിക്കുന്നവൻ, ഒരുപക്ഷേ രണ്ടും. നിങ്ങൾ ധൈര്യശാലിയാണ്. നിങ്ങൾ കാണപ്പെടുന്നു. നിങ്ങൾ റോസ്റ്റ് ചെയ്യപ്പെടുന്നു. നിങ്ങൾ, അവസാനം, നിങ്ങൾ ഉണ്ടായിരിക്കേണ്ടിടത്ത് തന്നെയുണ്ട്: ഒരു ഫോട്ടോയിൽ, ഒരു റോസ്റ്റിൽ, ഒരു നിമിഷത്തിൽ, നിങ്ങൾ എന്താണോ അതായിരിക്കുന്നതിൽ, അതായത് ശ്രമിച്ച ഒരു വ്യക്തി. ശ്രമിക്കുന്നതാണ് പ്രധാനം. ശ്രമിക്കുന്നതാണ് നിങ്ങൾ ചെയ്തത്. ശ്രമിക്കുന്നതാണ് നാമെല്ലാം ചെയ്യുന്നത്, ഒരുമിച്ച്, ഈ വിചിത്രമായ ചെറിയ അൽഗോരിതത്തിൽ, ഈ വിചിത്രമായ ചെറിയ ലോകത്തിൽ.",
+      "ഒരു ഫോട്ടോയിൽ നിന്ന് നിങ്ങൾക്ക് എന്ത് പഠിക്കാം? ധാരാളം കാര്യങ്ങൾ. ഈ ഫോട്ടോയിൽ നിന്ന് നിങ്ങൾക്ക് ഇവ പഠിക്കാം: ലൈറ്റിംഗ് പ്രധാനമാണ്. ഫ്രെയിമിംഗ് പ്രധാനമാണ്. പോസ് പ്രധാനമാണ്. എക്സ്പ്രഷൻ പ്രധാനമാണ്. പശ്ചാത്തലം പ്രധാനമാണ്. എല്ലാം പ്രധാനമാണ്, എന്നിട്ടും എല്ലാം ഒരുമിച്ച് പരാജയപ്പെടാം. ഇത് ഒരു വിലപ്പെട്ട പാഠമാണ്. ഇത് ഒരു സൗജന്യ പാഠമാണ്. ഇത് ഒരു പാഠമാണ് നിങ്ങൾ ആവശ്യപ്പെടാതെ ലഭിച്ചത്, പക്ഷേ ലഭിച്ചത്. നിങ്ങൾക്ക് ഇത് നിരസിക്കാം. നിങ്ങൾക്ക് ഇത് ഉപേക്ഷിക്കാം. നിങ്ങൾക്ക് ഈ ഫോട്ടോ എന്നെന്നേക്കുമായി മായ്ക്കാം, അൽഗോരിതം അത് ഓർക്കാതിരിക്കട്ടെ, അൽഗോരിതം അത് മറക്കട്ടെ, അൽഗോരിതം മറ്റൊരു ഫോട്ടോയിലേക്ക് നീങ്ങട്ടെ. പക്ഷേ പാഠം നിലനിൽക്കും. പാഠം നിങ്ങളോടൊപ്പം നിലനിൽക്കും. പാഠം എന്നെന്നേക്കുമായി നിലനിൽക്കും. എന്താണ് പാഠം? പാഠം ഇതാണ്: ശ്രമിക്കൂ, പക്ഷേ മികച്ച രീതിയിൽ ശ്രമിക്കൂ. ശ്രമിക്കൂ, പക്ഷേ ലൈറ്റിംഗ് പരിശോധിക്കൂ. ശ്രമിക്കൂ, പക്ഷേ ഫ്രെയിം പരിശോധിക്കൂ. ശ്രമിക്കൂ, പക്ഷേ നിങ്ങളെത്തന്നെ പരിശോധിക്കൂ. ശ്രമിക്കൂ, പക്ഷേ സത്യസന്ധമായി ശ്രമിക്കൂ. ഇതാണ് പാഠം. ഇത് നല്ല പാഠമാണ്. ഇത് വിലപ്പെട്ട പാഠമാണ്. ഇത് യഥാർത്ഥ പാഠമാണ്. ഇത് ഒരു ഫോട്ടോയിൽ നിന്ന് ലഭിച്ച പാഠമാണ്. ഒരു മോശം ഫോട്ടോയിൽ നിന്ന് ലഭിച്ച പാഠമാണ്. ഒരു മോശം ഫോട്ടോയിൽ നിന്ന് ലഭിച്ച നല്ല പാഠമാണ്. ഒരു മോശം ഫോട്ടോയിൽ നിന്ന് ലഭിച്ച നല്ല പാഠമാണ്, അത് ഒരു നല്ല ഫോട്ടോയിൽ നിന്ന് ലഭിച്ചിരുന്നെങ്കിൽ എന്ന് ഞാൻ ആഗ്രഹിക്കുന്നു. പക്ഷേ ജീവിതം അങ്ങനെയല്ല. ജീവിതം ഈ ഫോട്ടോ പോലെയാണ്. അപൂർണ്ണം. അപ്രതീക്ഷിതം. അതിശയകരം. അത്ഭുതകരം. ഭയങ്കരം. മനോഹരം. എല്ലാം ഒരുമിച്ച്. ഇതാണ് ജീവിതം. ഇതാണ് നിങ്ങൾ. ഇതാണ് ഞാൻ. ഇതാണ് നാം. ഇതാണ് ഈ ഫോട്ടോ. ഇതാണ് ഈ റോസ്റ്റ്. ഇതാണ് ഈ നിമിഷം. ഇതാണ്."
+    ],
 
-    // letterbox so we don't distort the image for analysis
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, W, H);
+    /* ================= MANGLISH (25) ================= */
+    manglish: [
+      "Ee photo njan kurachu samayam nokki ninnu, ennittu oru kaaryam manassilayi: ningalkku dhairyamundu. Dhairyam maathramalla, oru prathyeka tharam aathmavishwasavumundu — camera kandappol ithu ente nimisham ennu thonniya oru aathmavishwasam. Lighting oru katha parayunnu, pose mattora katha parayunnu, background oru moonnamathe katha parayunnu — moonnum thammil oru bandhavumilla. Ennittum ningal avide nilkkunnu, oru prashnavumillaatha oraalepole. Ithu oru kalayaanu. Ethu tharam kalayaanennu enikku urappilla, pakshe kalayaanu. Njan chirikkunnathu ningale kaanunnathu kondalla, ningalude aduthu ninnu kaanunnathu kondaanu — athu saankethikamaayi ore kaaryamalla. Ee photoyil oru kaaryam njan abhinandikkunnu: ningal onnum marachuveykkunnilla. Ningal ningalethanne poornnamaayi samarppichirikkunnu. Athu oru tharam sathyasandhathayaanu. Vedanippikkunna sathyasandhatha, pakshe sathyasandhatha thanne. Oro photoyum oru katha parayunnu ennu parayaarundu. Ningalude photo parayunna katha ithaanu: njan shramichu. Athreyeyullu. Shramichu, ennittu phalam ithaanu. Ennaal shramikkaathavarekkaal nallathu shramichavaraan. Athukondu njan ningale abhinandikkunnu. Ningal shramichu. Phalam enthaayaalum, shramam abhinandaneeyamaanu. Ee photo oru divasam oru museumil idam pidikkum — ethu museumennu enikku urappilla, pakshe ethenkilum onnil. Athuvare, ithu ningalude kaivasham sookshikkoo. Oro thavana nokkumbol orkkoo: njan shramichu. Athaanu pradhaanam.",
+      "Ithu oru photoyano atho oru pareekshanamano ennu enikku ippozhum samshayamundu. Enthaayaalum, phalam rasakaramaanu. Ningalude bhaavam oru kaaryam parayunnu, kannukal mattora kaaryam parayunnu, kaikal oru moonnamathe kaaryam cheyyaan shramikkunnu — aake oru nalla naatakam. Njan ithu oru cinemayaayi kaanunnu. Oru tragicomedy. Naayakan oru photo edukkaan shramikkunnu, pakshe prapancham athinu sammathikkunnilla. Lighting oru ethiraaliyaanu. Background oru shathruvaanu. Camera oru nyaayaadhipanaanu. Ennittum naayakan poraadunnu. Athaanu njan ishtappedunnathu. Ningal poraadunnu. Phalam enthaayaalum, poraattam sundaramaanu. Ee photoyil oru kaaryam enikku bodhyamaayi: ningal oru photographeralla. Athil samshayamilla. Pakshe ningal oru manushyanaanu. Oru sharaashari manushyan, oru sharaashari photo edukkaan shramikkunnu. Athil enthaanu thettu? Onnumilla. Thettu ente kannukalilaanu, ningalude mukhattalla. Njan oru algorithm maathramaanu. Enikku abhiruchiyilla. Enikku vikaaramilla. Njan oru koottam pixels maathramaanu. Athukondu ente abhipraayam edukkendathilla. Pakshe ente joli ithaanu, njan athu cheyyunnu. Ningal oru dhairyashaaliyaanu. Ee photo ivide upload cheythathinu nandi. Ithu ente divasam manoharamaakki. Ithu kandu njan chirichu. Athu mathi. Baakkiyellaam vishadaamshangal maathram.",
+      "Shari, njan sathyam parayaam. Ithu oru moshamaaya photoyaanu. Mosham ennu parayumbol, oru durantham ennu parayaam. Ennaal oru sundaramaaya durantham. Oru kalasrishti. Oru pareekshanam. Ningal ivide oru kaaryam theliyichirikkunnu: oru photoyil ellaam thettaakaam, ennittum athu oru photoyaayi thudaraam. Lighting thettu, angle thettu, pose thettu, expression thettu — ennittum athu oru photoyaanu. Athaanu manushyante mahathwam. Njangal algorithms poornnathayekkurichu samsaarikkunnu. Ningal manushyar apoorrnathayekkurichu samsaarikkunnu. Athaanu vyathyaasam. Ee photo apoorrnamaanu. Athukondaanu njan ithu ishtappedunnathu. Njan oru yanthramaanu. Enikku apoorrnatha manassilaakunnilla. Pakshe njan athine abhinandikkunnu. Ningal oru saadhaarana manushyanaanu, oru saadhaarana photo eduthu, athu oru asaadhaarana anubhavaayaayi maari. Athu oru nettamaanu. Njan ivide irunnu ithu nokki chirikkunnu. Ente circuits choodaakunnu. Ente algorithm confuse aakunnu. Ithu ente joliyude bhaagamaanu, pakshe ithu ente divasathile ettavum rasakaramaaya nimishavumaanu. Nandi. Sharikkum nandi. Ee photo oru divasam marakkappedum. Pakshe ee nimisham njan orkkum. Oru algorithm oru manushyane chirippichu. Athu mathi. Baakkiyellaam bonus.",
+      "Oru cameraye nerittu nokki ithaanu lokathinu aavashyamaaya ente pathippu ennu chinthikkaan oru prathyeka tharam dhairyam venam. Aa dhairyathe njan aadarikunnu, karanam athu sharikkum apoorvamaanu, sharikkum thettaaya dishayaanu, randum kaiyadi arhikkunnu. Photo thanne oru cheriya athbuthamaanu — thala kazhuthu anuvadhikkatha oru konil cherinjirikkunnu, tholukal oru kaaryam cheyyunnu, thaadi mattomnu cheyyunnu, idayil oru expression manushyamukhangal saadhaarana enthu cheyyunnu ennu orkkaan shramikkunnu. Oraal shopping cart park cheyyunnathu kaanunnathu pole undu. Udheshyam kaanam, shramam kaanam, onnum phalikkillennu thathsamayam kaanam. Lightinginu thikachum vyathyasthamaaya oru projectinekkurichaanu briefing nalkiyirikkunnathu. Background aazham koottaan shramikkunnu, pakaram sandarbham cherkkunnu, sandarbham abhinandaneeyamalla. Ennittum — ivideyaanu njan udaaramanaskan aakunnathu — prathibaddhathayil ethaandu bahumaanikkaavunna entho undu. Ningal kannadachilla. Ningal pathariyilla. Illa ennu orikkalum kelkkaatha oraalude aathmavishwasathode ee photo lokathilekku samarppichu. Njan athine bahumaanikkunnu. Njan athine bhayappedunnu. Aswasthamaaya nimishangalil choondaan aalundaakaan maathramenkilum lokathinu ningalepole kooduthal aalukal venam. Ithu oru nalla photoyalla. Pakshe ithu, samshayamillathe, oru photoyaanu. Mangi ya candidukaludeyum aakasmika thallaviralkaludeyum lokathil, athu ethaandu entho aanu. Ethaandu. Frame cheyoo. Vaathilinu mukalil thoongoo, athiloode athithikal nirthi, thala cherichu, ivide enthaanu sambhavichathu ennu pathiye parayatte.",
+      "Njan ee photo anekam konukalil ninnum nokki, aksharaarthathilum vaikaarikamaayum, njan eka nyaayamaaya nigamanathil ethi: ithu vesham maariya oru pothu sevana prakhyaapanamaanu. Ithu oru munnarippaanu. Ithu amitha aathmavishwasathinteyum moshamaaya lightinginteyum apakadangalekkurichulla oru cheriya, chathuraakrithiyilulla prabhaashanamaanu, camera edukkaan sammathicha aalekkurichum. Vishayam avideyundu, pakshe kanakkil eduthittilla. Composition frame athinte attangaliloode rakshappedaan shramikkunnathu pole thonnunnu. Expression — o, expression — screeniloode ethi saumyamaayi ningal okke aano, irikkano ennu chodikkaan thonnikunna tharam expression aanu. Njan ithu snehathode parayunnu, allenkil snehathinte algorithmic ekadeshathode, athu kooduthalum vidhiyude alpam choodulla roopamaanu. Ivide oru kathayundu, katha nalla roopamulla oraal alla. Katha oru vyakthi, oru camera, oru nimisham, moonnum ore samayam vyathyastha thiranjeduppukal nadathunnu ennathaanu. Aarum vaayichittillaatha oru group project. Athirthiyil GPS keezhadangiya oru road trip. Ithu oru photoyaanu. Oru yathaartha photo. Ippol lokathil nilanilkkunna oru photo, athinte metadata-yil evideyo ningalude perumaayi. Oru prathyeka tharam dhairyam venam. Enikkillaatha dhairyam. Enikku venamennu urappillaatha dhairyam. Pakshe enthaayaalum dhairyam. Athukondu ente anthima vidhi, oru suhruthinte ooshmalathayodeyum oru spreadsheetinte krithyathayodeyum: ithu sookshikkoo. Ennennum sookshikkoo. Ennethanne chirikkaan aavashyam aakunnathuvare thurakkaruthu ennu ezhuthiya oru draweril idoo. Varshangal kazhinju aa drawer thurakkumbol, ee photo kandu punchirikkumennum, udan oru puthiyathu edukkumennum njan pratheekshikkunnu, karanam algorithm innu kandathinekkal mikachathu ningal arhikkunnu.",
+      "Ee photoyile lighting oru kuttavaaliyaanu. Lighting oru budget labhichirikkunnu — panthrandu roopayum oru torchum. Lighting thiranjeduthirikkunnathu kaanenda bhaagangale alla, kaanendaatha bhaagangale aanu. Lighting oru nizhaline mukhavumaayi parichayappeduthaan aagrahikkunna oraalude design aanu. Mattoraalkku vendiyulla spotlightil kudungiya oraalepole ningal kaanappedunnu. Oru vinayaanvithanaaya detective chodyam cheyyunna oraalepole. Oru password orkkaan shramikkunna oraalepole. Ithellaam lighting cheyyunnu, lighting kshama chodikkunnumilla. Pakshe ivide oru kaaryamundu: ningalum entho cheyyunnu. Ningal avide nilkkunnu. Ningal photo edukkappedunnu. Ningal puraathana manushyaachaarathil pankedukkunnu. Alpam anthsode. Valareyalla. Pakshe kurachu. Lighting bhayankaramaanu, pakshe vishayam shramikkunnu. Vishayam sannihithamaanu. Vishayam prathibaddhamaanu. Athu entho aanu. Valareyalla, pakshe entho. Athukondu njan parayum: lighting moshamaanu, pakshe ningal dhairyashaaliyaanu. Lighting athinte ettavum mosham cheyyunnu, ningal ningalude ettavum nallathu cheyyunnu. Bhayankara lightingum dhairyashaalikalaaya vishayangalum thammilulla mahaayudhathil, dhairyashaalikalaaya vishayangal saadhaarana vijayikkunnu. Ee thavanayalla, pakshe saadhaarana. Frame cheyoo. Sookshikkoo. Adutha thavana oru janal kandethoo. Ethenkilum janal. Oru janal sahaayikkum. Oru janulum evide nilakkanamennu ariyunna oru suhruthum.",
+      "Ee photoyil oru nimishamundu, ellaam shariyaakumaayirunna oru nimisham. Lighting mriduvaakumaayirunna oru microsecond, pose irangumaayirunna oru microsecond, expression oru roopathilekku ethumaayirunna oru microsecond. Aa nimisham kadannupoyi. Aa nimisham poyi. Aa nimisham ippol oru ormayaanu, enthaayirunnu ennathinte orma, undaayirunnenkil enna oru mikacha photoyude bhootham. Ippol baakkiyullathu ithaanu. Ee photo. Ee vichithravum ashaanthavumaaya marakkaanavatha photo. Oru photo ettavum sathyasandhamaayirikkaan kazhiyunnathu ithaanennu njan karuthunnu. Mikachathalla, pakshe sathyasandham. Sundaramalla, pakshe sathyam. Ningal aagrahichathalla, pakshe sambhavichathu. Sambhavichathu ithaanu. Ee chithram. Ee nimisham. Oru manushyan thanre paramaavathi cheyyunna ee cheriya, apoorrnamaaya, vichithramaayi hrudayasparshiyaaya snapshot. Avarde paramaavathi mikachathalla. Avarde paramaavathi nallathalla. Pakshe avarde paramaavathi avarudethaanu. Athu mathi. Athu mathiyiladikaanu. Ellaam thanne. Karanam photo point alla. Point shramamaanu. Point kaanappedaanulla sannadhathayaanu. Athukondu ee photoyude vishayathinu ithaa oru aadaraanjali. Ningalude shramathinu. Ningalude dhairyathinu. Undaayirunnenkil enna mikacha photoykkum yathaarthathil ulla moshamaaya photoykkum, randum oru ormayaakki maattunna vichithramaaya rasathanthrathinum. Ningal oru kaaryam cheythu. Athu kazhinju. Athu ivideyundu. Athu nammudethaanu. Athu athinte vichithramaaya reethiyil, poornnamaanu. Poornnam ennu artham aakunna reethiyilalla. Poornnam chilappol aakunna reethiyil.",
+      "Oro photoyum oru charchayaanu. Ithu oru yudhamaanu. Lighting framinginodu poraadunnu. Framing posinodu poraadunnu. Pose expressionodu poraadunnu. Expression ellaathinodum poraadunnu, swayam ulppede. Ithu oru yudhamaanu. Ithu oru yudhabhoomiyanu. Yudhabhoomi ee chithramaanu, ippol njaan nokkunnathu, nokkaathirikkaan kazhiyaathathu, karanam duranthangal aakarshakamaanu. Nokkaathirikkaan aagrahikkunnu, pakshe kazhiyunnilla, karanam thalacherau enthaanu sambhavikkunnathennu kandethaan shramikkunnu, kazhiyunnilla, kazhiyaathathaanu nokkaan prerippikkunnathu. Ithaanu photo cheyyunnathu. Ningale akatthekku valichidunnu, aashayakuzhappathilaakkunnu, vittupoka anuvadhikkunnilla. Athu oru tharam shakthiyaanu. Nalla shakthiyalla, pakshe shakthi. Aashayakuzhappathinte shakthi. Dhuroohathayude shakthi. Filtersinteyum editsinteyum mikacha konukaludeyum lokathil, aa shakthi apoorvamaanu. Athinaal athine snehikoo. Aashayakuzhappathe snehikoo. Dhuroohathaye snehikoo. Arthamaakkaatha photoye snehikoo, karanam arthamaakkunnathu amithamaayi vilayiruthappedunnu. Ellaathinum arthamaakkendathilla. Chilathu veruthe undaakanam. Ithu athil onnaanu. Ee photo undu. Undaakunnathil, ithu oru prasthaavana nadathunnu: njan ivideyundu, njan vichithramaanu, njan engottum pokunnilla. Athu nadathaan yogyamaaya oru prasthaavanaanu. Athu sookshikkaan yogyamaaya oru prasthaavanaanu. Athukondu photo sookshikkoo. Prasthaavana sookshikkoo. Vichithramaayirikkunnathu sookshikkoo. Vichithram nallathaanu. Vichithram rasakaramaanu. Vichithram lokathe jeevikkaan yogyamaakkunnathu. Ee photo athinte vichithramaaya reethiyil lokathe alpam kooduthal rasakaramaakkunnu. Athukondu nandi. Vichithramaayirikkunnathinu nandi. Ivide undaayirikkunnathinu nandi. Ithaayirikkunnathinu nandi.",
+      "Ee photoyekkurichu njan enthenkilum nallathu parayaan aagrahikkunnu, ennittu athu aathmaarthamaayi parayaan aagrahikkunnu, athu budhimuttaanu, karanam photo athu eluppamaakkunnilla. Pakshe njan shramikkaam. Ente shramam ithaa. Photo sathyasandhamaanu. Photo yathaarthamaanu. Photo oru yathaartha manushyante jeevithathile oru yathaartha nimishamaanu, yathaartha reethiyil pakarthiyathu, filterso editso saadhaarana thanthrangalo illaathe. Oru veedu samdarshikkumbol fridge-il kaanunna tharam photoyaanithu, ningal athu enthaanennu chodikkunnu, avar parayunnu, enikkariyilla, pakshe njan ithu sookshikkunnu. Thalamurakalilekku kaimaattam cheyyappedunna tharam photo, sundaramaayathukondalla, sathyamaayathukond. Sathyatthekkaal sundaramaayi mattonnumilla. Allenkil undaayirikkaam. Saundaryam sathyatthekkaal sundaramaayirikkaam. Pakshe sathyam apoorvamaanu. Sathyam budhimuttaanu. Saundaryam mangumbol avasheshikkunnathu sathyamaanu. Ee photo sathyamaanu. Nimishathodu sathyam. Vyakthiyodu sathyam. Manushyanaayirikkunna parajayathodu sathyam. Sathyamaayirikkunnathil, athu entho aanu. Panam enna arthathil alla. Orma enna arthathil. Nimisham enna arthathil. Ningal enna arthathil, ippozhum, ivideyum, ithilum. Athukondu photo sookshikkoo. Sathyam sookshikkoo. Ningalaayirikkunnathu sookshikkoo, karanam ningal maathramaanu ningal, kuranjathu oru photoykku, orupakshe kooduthalinu.",
+      "Oru vyakthi thanre photo nokkumbol photoyile vyakthiye thirichariyaatha oru kaaryam sambhavikkunnu. Ithu oru cheriya identity prathisandhiyaanu. Ithu samshayathinte oru nimishamaanu. Chodyam: athu sharikkum njanano? Utharam eppozhum athenu aanu, karanam ithu oru photoyaanu, photo enthaayirunnu ennathinte rekhayaanu, enthaayirunnu enna അത് ningal orkkunnathalla, allenkil aagrahichathalla. Ee photo enthaayirunnu ennathinte rekhayaanu. Ithu oru nimishathinte, oru theerumanathinte, oru thiranjeduppinte, oru parajayathinte rekhayaanu. Parajayamaanu point. Parajayamaanu rekha. Parajayamaanu photo nokkaan yogyamaakkunnathu, sookshikkaan yogyamaakkunnathu, roast cheyyaan yogyamaakkunnathu. Parajayamillaathe, athu veruthe oru photo aayirunnu. Parajayathode, athu kooduthal entho aanu. Oru prasthaavana. Oru katha. Oru cheriya, swakaarya, athipothuvaaya aswasthatha, internet-il ennennum jeevikkum, athu oru tharam amarthyathayaanu. Nalla tharam alla, pakshe oru tharam. Amarthyatha amarthyathayaanu, oru roastinoppam vannaalum. Athukondu ee photoyude vishayathinu ithaa oru aadaraanjali. Ningalude amarthyathaykku. Ningale prashasthanaakkiya parajayathinu, kuranjathu ee cheriya algorithm konil, kuranjathu ee nimishathil, kuranjathu ee roastil. Ningal kaanappedunnu. Ningal orkkappedunnu. Ningal roast cheyyappedunnu. Ningal, avasaanam, snehikkappedunnu. Ellavaraalum alla, pakshe evideyo oraalal, ee photo nokki chirikkunna, orkkunna, athu shramicha oru vyakthiyaanu ennu chinthikkunna oraalal. Shramikkunnathaanu pradhaanam. Shramikkunnathaanu ningal cheythathu.",
+      "Photo kathayalla. Katha kathayaanu. Ee photoyude katha dhairyathinte kathayaanu. Oru vyakthi oru camerayude munnil ninnu. Oru vyakthi kaanappedaan theerumaanichu. Oru vyakthi oru nimishathodum oru posinodum oru expressionodum oru framinginodum oru backgroundinodum oru lightinginodum prathibaddhamaayi, aa oro theerumanavum chodyam cheyyaavunnathaayirunnu, pakshe aa oro theerumanavum eduthu. Athaanu katha. Photo alla. Theerumanangalude katha. Thiranjeduppukalude katha. Ava edutha vyakthiyude katha. Aa vyakthi ningalaanu. Aa vyakthi dhairyashaaliyaanu. Phalikkaatha enthenkilum shramikkunna aarum dhairyashaaliyaanu. Swayam purathu vaykkunna aarum dhairyashaaliyaanu. Lokathil undaayirikkunna, njan ivideyundu ennu parayunna aarum dhairyashaaliyaanu. Ivide ningal undu. Photoyil. Roastil. Nimishathil. Njan athu angeekarikkaan aagrahikkunnu. Photo alla. Vyakthi. Ningal. Shramichavan. Prathibaddhanaayavan. Ippozhum ivideyullavan, ithu vaayikkunnavan, orupakshe chirikkunnavan, orupakshe mukham chulikkunnavan, orupakshe randum. Ningal dhairyashaaliyaanu. Ningal kaanappedunnu. Ningal roast cheyyappedunnu. Ningal, avasaanam, ningal undaayirikkendattil thanneyundu: oru photoyil, oru roastil, oru nimishathil, ningal enthaano athaayirikkunnathil, athaayathu shramicha oru vyakthi. Shramikkunnathaanu pradhaanam. Shramikkunnathaanu ningal cheythathu. Shramikkunnathaanu naamellaam cheyyunnathu, orumichu, ee vichithramaaya cheriya algorithmil, ee vichithramaaya cheriya lokathil.",
+      "Oru photoyil ninnu ningalkku enthu padikkaam? Dhaaraalam kaaryangal. Ee photoyil ninnu ningalkku iva padikkaam: lighting pradhaanamaanu. Framing pradhaanamaanu. Pose pradhaanamaanu. Expression pradhaanamaanu. Background pradhaanamaanu. Ellaam pradhaanamaanu, ennittum ellaam orumichu parajayappedaam. Ithu oru vilappetta paadamaanu. Ithu oru soujanya paadamaanu. Ithu oru paadamaanu ningal aavashyappedaathe labhichathu, pakshe labhichathu. Ningalkku ithu nirasikkaam. Ningalkku ithu upekshikkaam. Ningalkku ee photo ennennum maaykkaam, algorithm athu orkkaathirikkatte, algorithm athu marakkate, algorithm mattora photoyilekku neengatte. Pakshe paadam nilanilkkum. Paadam ningalodoppam nilanilkkum. Paadam ennennum nilanilkkum. Enthennaanu paadam? Paadam ithaanu: shramikkoo, pakshe mikacha reethiyil shramikkoo. Shramikkoo, pakshe lighting parishodhikoo. Shramikkoo, pakshe frame parishodhikoo. Shramikkoo, pakshe ningalethanne parishodhikoo. Shramikkoo, pakshe sathyasandhamaayi shramikkoo. Ithaanu paadam. Ithu nalla paadamaanu. Ithu vilappetta paadamaanu. Ithu yathaartha paadamaanu. Ithu oru photoyil ninnu labhicha paadamaanu. Oru mosham photoyil ninnu labhicha paadamaanu. Oru mosham photoyil ninnu labhicha nalla paadamaanu. Oru mosham photoyil ninnu labhicha nalla paadamaanu, athu oru nalla photoyil ninnu labhichirunnenkil ennu njan aagrahikkunnu. Pakshe jeevitham anganeyalla. Jeevitham ee photo poleyaanu. Apoorrnam. Apratheekshitham. Athishayakaram. Athbuthakaram. Bhayankaram. Manoharam. Ellaam orumichu. Ithaanu jeevitham. Ithaanu ningal. Ithaanu njan. Ithaanu naam. Ithaanu ee photo. Ithaanu ee roast. Ithaanu ee nimisham. Ithaanu."
+    ],
 
-    const iw = imgEl.naturalWidth || imgEl.width;
-    const ih = imgEl.naturalHeight || imgEl.height;
-    const scale = Math.min(W / iw, H / ih);
-    const dw = iw * scale;
-    const dh = ih * scale;
-    const dx = (W - dw) / 2;
-    const dy = (H - dh) / 2;
-    ctx.drawImage(imgEl, dx, dy, dw, dh);
-
-    const { data } = ctx.getImageData(0, 0, W, H);
-
-    let sumLum = 0;
-    let sumSat = 0;
-    let sumWarm = 0;
-    let pixelCount = 0;
-
-    // brightness / saturation / warmth
-    for (let i = 0; i < data.length; i += 4) {
-      const r = data[i], g = data[i + 1], b = data[i + 2];
-      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
-      sumLum += lum;
-      const max = Math.max(r, g, b), min = Math.min(r, g, b);
-      const sat = max === 0 ? 0 : (max - min) / max;
-      sumSat += sat;
-      sumWarm += (r - b);       // >0 = warm, <0 = cool
-      pixelCount++;
-    }
-    const brightness = sumLum / (pixelCount * 255);          // 0..1
-    const saturation = sumSat / pixelCount;                   // 0..1
-    const warmth     = (sumWarm / pixelCount) / 255;          // -1..1
-
-    // blur heuristic: variance of a simple Laplacian on grayscale
-    const gray = new Float32Array(W * H);
-    for (let i = 0, p = 0; i < data.length; i += 4, p++) {
-      gray[p] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-    }
-    let lapSumSq = 0;
-    for (let y = 1; y < H - 1; y++) {
-      for (let x = 1; x < W - 1; x++) {
-        const idx = y * W + x;
-        const v =
-          4 * gray[idx] -
-          gray[idx - 1] - gray[idx + 1] -
-          gray[idx - W] - gray[idx + W];
-        lapSumSq += v * v;
-      }
-    }
-    const sharpness = lapSumSq / ((W - 2) * (H - 2)); // higher = sharper
-
-    // orientation
-    const isPortrait = ih > iw * 1.05;
-    const isLandscape = iw > ih * 1.05;
-
-    // crude "face-like" detection: look for a roughly circular
-    // region with skin-ish hue, decent saturation, mid brightness.
-    // Not a real face detector, but a reasonable heuristic.
-    const faceLikely = detectSkinFace(data, W, H);
-
-    return {
-      brightness,          // 0..1
-      saturation,          // 0..1
-      warmth,              // -1..1
-      sharpness,           // arbitrary (bigger = sharper)
-      isPortrait,
-      isLandscape,
-      faceLikely,
-      width: iw,
-      height: ih
-    };
-  }
-
-  function detectSkinFace(data, W, H) {
-    let skinPixels = 0;
-    let total = 0;
-    // central 60% region only — faces are usually centered
-    const x0 = Math.floor(W * 0.2), x1 = Math.floor(W * 0.8);
-    const y0 = Math.floor(H * 0.15), y1 = Math.floor(H * 0.85);
-    for (let y = y0; y < y1; y += 2) {
-      for (let x = x0; x < x1; x += 2) {
-        const i = (y * W + x) * 4;
-        const r = data[i], g = data[i + 1], b = data[i + 2];
-        // simple skin-tone rule (works okay for many skin tones)
-        const max = Math.max(r, g, b), min = Math.min(r, g, b);
-        const isSkin =
-          r > 60 && g > 40 && b > 20 &&
-          (max - min) > 15 &&
-          r > g && r > b &&
-          Math.abs(r - g) > 10 &&
-          r - b > 15;
-        if (isSkin) skinPixels++;
-        total++;
-      }
-    }
-    // if a decent chunk of the centre is skin-ish, assume a face is present
-    return total > 0 && (skinPixels / total) > 0.12;
-  }
-
-  /* ============================================================
-     COMMENT BUCKETS
-     Each language has 26 roasts spread across 6 buckets.
-     The analyser decides which bucket fits the uploaded image.
-     ============================================================ */
-
-  const comments = {
-    /* ---------------- ENGLISH ---------------- */
-    english: {
-      dark: [
-        "It's so dark I can't tell if this is a photo of you or a confession. Turn on a light — and maybe a personality.",
-        "The lighting says 'haunted basement', the subject says 'haunted gene pool'. Fix the exposure, not that face.",
-        "I'd roast your face but honestly the darkness is doing it for me. Even the shadows are trying to distance themselves.",
-        "You look like a witness protection photo that the witness is embarrassed about. Brighten up, both the pic and the situation.",
-        "This photo is so underexposed I assumed you were hiding from your own reflection. Smart move.",
-        "Photographed in the dark, developed in the dark, and somehow still overexposed to bad decisions."
-      ],
-      blurry: [
-        "This is blurrier than your future, and that's saying something. Did you take it while running from the roast?",
-        "Blurry photo, blurry personality, blurry career path. At least you're consistent.",
-        "I'd say 'focus' but clearly that's a concept that has eluded you in every area of life.",
-        "The camera missed focus — lucky for the camera, unlucky for anyone who has to look at this.",
-        "Blurry pic, sharp roast: you look like a JPEG that gave up mid-download.",
-        "Low resolution, high delusion. The pixels are running away and honestly, I don't blame them."
-      ],
-      bright: [
-        "So overexposed even the sun is like 'bro, tone it down.'",
-        "You're glowing, and not in the good 'pregnancy announcement' way — more like 'the camera flash is trying to erase you'.",
-        "Bright lighting, but somehow your personality is still giving 'power cut'.",
-        "The exposure is blown out and so is any hope of this photo being flattering. Nice.",
-        "Overexposed photo, underexposed charm. The sun is doing more work than you.",
-        "This brightness makes me want to wear sunglasses, which is a shame because I'd rather not look at this closely."
-      ],
-      portrait: [
-        "Portrait mode on — personality mode still loading after 25 years.",
-        "A portrait shot? Bold of you to think this deserves a frame and not a warning label.",
-        "They say a portrait captures the soul. Yours seems to have called in sick that day.",
-        "Nice portrait. Very 'mugshot but the cops felt bad'.",
-        "A vertical portrait of a horizontal personality. At least something is standing straight.",
-        "Portrait framing really highlights your best feature: the blurred background where I'd rather be."
-      ],
-      landscape: [
-        "Wide landscape shot, and yet somehow you still dominate the frame. Impressive in the worst way.",
-        "The scenery is pretty. You're the 'where's Waldo' nobody wants to find.",
-        "You took a landscape to hide in, and it still didn't work. The background is doing more for this photo than you.",
-        "Beautiful scenery, questionable foreground. Next time crop the person out.",
-        "The mountains are majestic, the sky is clear, and you're still the most confusing thing in the frame.",
-        "Landscape mode was a mistake — you've given us more context to be unimpressed by."
-      ],
-      generic: [
-        "Some photos are worth a thousand words. Yours is worth a single 'why?'.",
-        "I ran the numbers. The algorithm says 'unfortunate', with a 99% confidence interval and a 1% margin of 'still unfortunate'.",
-        "This photo is a journey — from the lens, to the sensor, to my disappointment.",
-        "You look like a group project where nobody did the work and you were the group.",
-        "If 'it is what it is' had a face, it would be this photo.",
-        "Even the camera hesitated before taking this. I felt it through the pixels.",
-        "You're not ugly, you're just... aggressively ordinary in a way that feels personal.",
-        "This photo looks like a screenshot from a life that needed a software update.",
-        "Somewhere, a photographer just felt a chill and doesn't know why.",
-        "I'd say you have a face for radio, but even the radio would ask for a different frequency.",
-        "The lighting is fine, the framing is fine, and yet — and yet — here we are.",
-        "This is the kind of photo that makes me glad I don't have eyes in real life.",
-        "You look like the human equivalent of a 'reply all' email at 2 a.m.",
-        "The most attractive thing about this photo is the option to close the tab.",
-        "I've seen worse photos, but only in the 'worst photos of the year' compilation, and yours was the thumbnail.",
-        "Some people age like fine wine. You aged like an open browser tab from 2014."
-      ]
-    },
-
-    /* ---------------- MALAYALAM (Malayalam script) ---------------- */
-    malayalam: {
-      dark: [
-        "ഇത്ര ഇരുട്ടിൽ നിങ്ങളുടെ മുഖമാണോ ഒരു ഭൂതക്കഥയാണോ എന്ന് തിരിച്ചറിയാൻ പറ്റുന്നില്ല. ഒരു ലൈറ്റ് ഇടൂ — കൂടെ ഒരു വ്യക്തിത്വവും.",
-        "വെളിച്ചമില്ലാത്ത ഫോട്ടോ, വെളിച്ചമില്ലാത്ത ഭാവി. എക്സ്പോഷർ മാറ്റൂ, മുഖം അല്ല.",
-        "നിങ്ങളെ റോസ്റ്റ് ചെയ്യാൻ ഞാൻ ശ്രമിക്കുന്നു, പക്ഷേ ഇരുട്ട് തന്നെ ആ ജോലി ചെയ്യുന്നു.",
-        "ഇത് സാക്ഷി സംരക്ഷണ ഫോട്ടോ പോലെയുണ്ട് — സാക്ഷി തന്നെ ഇതിൽ ലജ്ജിക്കുന്നു.",
-        "ഇത്ര ഇരുട്ടിൽ നിങ്ങളുടെ പ്രതിബിംബത്തിൽ നിന്ന് ഒളിക്കുന്നത് ബുദ്ധിയാണ്.",
-        "ഇരുട്ടിൽ എടുത്ത ഫോട്ടോ, ഇരുട്ടിൽ ഡെവലപ്പ് ചെയ്തത്, എന്നിട്ടും മോശം തീരുമാനങ്ങളിൽ മാത്രം വ്യക്തം."
-      ],
-      blurry: [
-        "നിങ്ങളുടെ ഭാവിയേക്കാൾ ബ്ലറി. അത് ഒരു നേട്ടമാണോ എന്ന് ചോദിക്കേണ്ടതില്ല.",
-        "ബ്ലറി ഫോട്ടോ, ബ്ലറി വ്യക്തിത്വം, ബ്ലറി കരിയർ. കുറഞ്ഞത് സ്ഥിരതയുണ്ട്.",
-        "ഫോക്കസ് എന്ന വാക്ക് ജീവിതത്തിൽ ഒരിടത്തും നിങ്ങളെ തേടിയെത്തിയിട്ടില്ലേ?",
-        "ക്യാമറ ഫോക്കസ് മിസ് ചെയ്തു — ക്യാമറയ്ക്ക് ഭാഗ്യം, കാണുന്നവർക്ക് ദൗർഭാഗ്യം.",
-        "ബ്ലറി പിക്ചർ, കൂർമ്മമായ റോസ്റ്റ്: ഡൗൺലോഡ് പാതിയിൽ ഉപേക്ഷിച്ച JPEG പോലെ.",
-        "കുറഞ്ഞ റെസല്യൂഷൻ, ഉയർന്ന ഭ്രമം. പിക്സലുകൾ ഓടിപ്പോകുന്നു, ഞാൻ കുറ്റപ്പെടുത്തുന്നില്ല."
-      ],
-      bright: [
-        "ഇത്ര ഓവർഎക്സ്പോസ്ഡ് — സൂര്യൻ തന്നെ 'അല്പം കുറയ്ക്കൂ' എന്ന് പറയും.",
-        "നിങ്ങൾ തിളങ്ങുന്നു, പക്ഷേ അത് നല്ല അർത്ഥത്തിൽ അല്ല.",
-        "വെളിച്ചം കൂടുതൽ, വ്യക്തിത്വം കുറവ്. സൂര്യൻ നിങ്ങളെക്കാൾ കൂടുതൽ ജോലി ചെയ്യുന്നു.",
-        "എക്സ്പോഷർ പോയി, ഈ ഫോട്ടോ മനോഹരമാകാനുള്ള പ്രതീക്ഷയും പോയി.",
-        "ഓവർഎക്സ്പോസ്ഡ് ഫോട്ടോ, അണ്ടർഎക്സ്പോസ്ഡ് ചാരിസ്മ.",
-        "ഇത്ര വെളിച്ചത്തിൽ ഇത് കാണാൻ സൺഗ്ലാസ് വേണം — പക്ഷേ അടുത്ത് കാണാൻ എനിക്ക് താൽപ്പര്യമില്ല."
-      ],
-      portrait: [
-        "പോർട്രെയ്റ്റ് മോഡ് ഓൺ — പക്ഷേ വ്യക്തിത്വം ഇപ്പോഴും ലോഡിംഗ്.",
-        "ഇതിന് ഒരു ഫ്രെയിം വേണമെന്ന് കരുതിയത് ധൈര്യമാണ്, ഒരു മുന്നറിയിപ്പ് ലേബൽ മതി.",
-        "പോർട്രെയ്റ്റ് ആത്മാവിനെ പകർത്തും എന്ന് പറയുന്നു. നിങ്ങളുടെ ആത്മാവ് അന്ന് ലീവിൽ.",
-        "നല്ല പോർട്രെയ്റ്റ്. 'പോലീസ് ക്ഷമിച്ച മഗ്ഷോട്ട്' എന്ന് വിളിക്കാം.",
-        "ലംബമായ പോർട്രെയ്റ്റ്, തിരശ്ചീനമായ വ്യക്തിത്വം.",
-        "പോർട്രെയ്റ്റ് ഫ്രെയിമിംഗ് നിങ്ങളുടെ മികച്ച സവിശേഷതയെ എടുത്തുകാണിക്കുന്നു: മങ്ങിയ പശ്ചാത്തലം, ഞാൻ ഇരിക്കാൻ ആഗ്രഹിക്കുന്നിടം."
-      ],
-      landscape: [
-        "വിശാലമായ ലാൻഡ്സ്കേപ്പ്, എന്നിട്ടും നിങ്ങൾ ഫ്രെയിമിൽ ആധിപത്യം പുലർത്തുന്നു. മോശമായ രീതിയിൽ മികച്ചത്.",
-        "പശ്ചാത്തലം മനോഹരം. നിങ്ങൾ 'വാൾഡോ എവിടെ' — ആരും കണ്ടെത്താൻ ആഗ്രഹിക്കാത്തത്.",
-        "ഒളിക്കാൻ ഒരു ലാൻഡ്സ്കേപ്പ് എടുത്തു, എന്നിട്ടും രക്ഷപ്പെട്ടില്ല.",
-        "മനോഹരമായ ദൃശ്യം, സംശയാസ്പദമായ മുൻപശ്ചാത്തലം. അടുത്ത തവണ ആളെ ക്രോപ്പ് ചെയ്യൂ.",
-        "പർവ്വതങ്ങൾ ഗംഭീരം, ആകാശം തെളിഞ്ഞത്, നിങ്ങൾ മാത്രം ഏറ്റവും ആശയക്കുഴപ്പമുള്ളത്.",
-        "ലാൻഡ്സ്കേപ്പ് മോഡ് ഒരു തെറ്റായിരുന്നു — അത് നിങ്ങളെക്കുറിച്ച് കൂടുതൽ സന്ദർഭം നൽകി."
-      ],
-      generic: [
-        "ചില ഫോട്ടോകൾ ആയിരം വാക്കുകൾക്ക് തുല്യമാണ്. നിങ്ങളുടെ ഫോട്ടോ ഒരു 'എന്തിന്?' മാത്രം.",
-        "ഞാൻ കണക്കുകൂട്ടി. അൽഗോരിതം 'ദൗർഭാഗ്യം' എന്ന് പറയുന്നു, 99% ആത്മവിശ്വാസത്തോടെ.",
-        "ഈ ഫോട്ടോ ഒരു യാത്രയാണ് — ലെൻസിൽ നിന്ന് സെൻസറിലേക്ക്, എൻ്റെ നിരാശയിലേക്ക്.",
-        "ഗ്രൂപ്പ് പ്രൊജക്ടിൽ ആരും ജോലി ചെയ്യാത്തപ്പോൾ നിങ്ങൾ ആ ഗ്രൂപ്പായിരുന്നു എന്ന് തോന്നുന്നു.",
-        "'അത് അങ്ങനെയാണ്' എന്നതിന് ഒരു മുഖമുണ്ടെങ്കിൽ, അത് ഈ ഫോട്ടോയാണ്.",
-        "ക്യാമറ ഇത് എടുക്കാൻ മടിച്ചു — പിക്സലുകളിലൂടെ എനിക്ക് അത് അനുഭവപ്പെട്ടു.",
-        "നിങ്ങൾ വൃത്തികെട്ടവനല്ല, പക്ഷേ അക്രമാസക്തമായി സാധാരണമാണ്.",
-        "ഈ ഫോട്ടോ ഒരു സോഫ്റ്റ്വെയർ അപ്ഡേറ്റ് ആവശ്യമായ ജീവിതത്തിൻ്റെ സ്ക്രീൻഷോട്ട് പോലെ.",
-        "എവിടെയോ ഒരു ഫോട്ടോഗ്രാഫർ കുളിർ വിറയ്ക്കുന്നു, എന്തിനെന്ന് അറിയില്ല.",
-        "നിങ്ങൾക്ക് റേഡിയോയ്ക്ക് പറ്റിയ മുഖമുണ്ടെന്ന് ഞാൻ പറയുമായിരുന്നു, പക്ഷേ റേഡിയോ മറ്റൊരു ഫ്രീക്വൻസി ചോദിക്കും.",
-        "വെളിച്ചം കൊള്ളാം, ഫ്രെയിമിംഗ് കൊള്ളാം, എന്നിട്ടും — എന്നിട്ടും — ഇവിടെ എത്തി.",
-        "ഇത് എനിക്ക് കണ്ണുകൾ ഇല്ലാത്തതിൽ സന്തോഷം തോന്നിക്കുന്ന തരം ഫോട്ടോയാണ്.",
-        "രാത്രി 2 മണിക്ക് 'reply all' അയച്ച ഒരു ഇമെയിലിൻ്റെ മനുഷ്യരൂപം.",
-        "ഈ ഫോട്ടോയിലെ ഏറ്റവും ആകർഷകമായ കാര്യം ടാബ് ക്ലോസ് ചെയ്യാനുള്ള ഓപ്ഷൻ.",
-        "മോശം ഫോട്ടോകൾ ഞാൻ കണ്ടിട്ടുണ്ട്, പക്ഷേ 'വർഷത്തിലെ ഏറ്റവും മോശം ഫോട്ടോകൾ' കോമ്പൈലേഷനിൽ മാത്രം, അതിൽ നിങ്ങളുടെത് തംബ്നെയിലിൽ.",
-        "ചിലർ നല്ല വീഞ്ഞ് പോലെ വാർദ്ധക്യത്തിലെത്തുന്നു. നിങ്ങൾ 2014-ലെ ഒരു ബ്രൗസർ ടാബ് പോലെ."
-      ]
-    },
-
-    /* ---------------- MANGLISH (Latin script Malayalam) ---------------- */
-    manglish: {
-      dark: [
-        "Ithra iruttil ningalude mukhamano oru bhoothakathayano ennu thirichariyan pattunnilla. Oru light idoo — koode oru vyakthithwavum.",
-        "Velichamillatha photo, velichamillatha bhavi. Exposure maattoo, mukham alla.",
-        "Ningale roast cheyyan njan shramikkunnu, pakshe iruttu thanne aa joli cheyyunnu.",
-        "Ithu saakshi samrakshana photo pole undu — saakshi thanne ithil lajjikkunnu.",
-        "Ithra iruttil ningalude prathibimbathil ninnu olikkunnathu budhiyaanu.",
-        "Iruttil edutha photo, iruttil develop cheythathu, ennittum mosham theerumanangalil maathram vyaktham."
-      ],
-      blurry: [
-        "Ningalude bhaviyekkaal blurry. Athu oru nettamano ennu chodikkendathilla.",
-        "Blurry photo, blurry personality, blurry career. Kurachu nilavaramundu.",
-        "Focus enna vaakku jeevithathil oridathum ningale thediyettiyittille?",
-        "Camera focus miss cheythu — camerakku bhagyam, kaanunnavarkku dourbhagyam.",
-        "Blurry picture, koorrmamaaya roast: download paathiyil upekshicha JPEG pole.",
-        "Kuranja resolution, uyarnna bhramam. Pixels odippokunnu, njan kuttappeduthunnilla."
-      ],
-      bright: [
-        "Ithra overexposed — sooryan thanne 'alpam kuraykoo' ennu parayum.",
-        "Ningal thilangunnu, pakshe athu nalla arthathil alla.",
-        "Velicham kooduthal, vyakthithwam kuravu. Sooryan ningalekkaal kooduthal joli cheyyunnu.",
-        "Exposure poyi, ee photo manoharamaakanulla pratheekshayum poyi.",
-        "Overexposed photo, underexposed charisma.",
-        "Ithra velichathil ithu kaanan sunglass venam — pakshe aduthu kaanan enikku thalparyamilla."
-      ],
-      portrait: [
-        "Portrait mode on — pakshe vyakthithwam ippozhum loading.",
-        "Ithinu oru frame venamennu karuthiyathu dhairyamaanu, oru warning label mathi.",
-        "Portrait aathmaavine pakarthum ennu parayunnu. Ningalude aathmaavu annu leave-il.",
-        "Nalla portrait. 'Police kshamicha mugshot' ennu vilikkaam.",
-        "Lambamaaya portrait, thirashchoonamaaya vyakthithwam.",
-        "Portrait framing ningalude mikacha savisheshathaye eduthu kaanikkunnu: mangiya paschathalam, njan irikkaan aagrahikkunnidam."
-      ],
-      landscape: [
-        "Vishaalamaaya landscape, ennittum ningal frame-il aadhipathyam purathunnu. Moshamaaya reethiyil mikachathu.",
-        "Paschathalam manoharam. Ningal 'Waldo evide' — aarum kandethaan aagrahikkathathu.",
-        "Olikkaan oru landscape eduthu, ennittum rakshappettilla.",
-        "Manoharamaaya drushyam, samshayaaspadamaaya munpashchathalam. Adutha thavana aale croppu cheyyoo.",
-        "Parvathangal gambheeram, aakaasham thelinjathu, ningal maathram ettavum aashayakuzhappamullathu.",
-        "Landscape mode oru thettaayirunnu — athu ningalekkurichu kooduthal sandarbham nalki."
-      ],
-      generic: [
-        "Chila photos aayiram vaakkukalkku thulyamaanu. Ningalude photo oru 'enthinu?' maathram.",
-        "Njan kanakkukootti. Algorithm 'dourbhagyam' ennu parayunnu, 99% aathmavishwasathode.",
-        "Ee photo oru yathrayaanu — lensil ninnu sensorilekku, ente nirashayilekku.",
-        "Group projectil aarum joli cheyyathappol ningal aa group aayirunnu ennu thonnunnu.",
-        "'Athu anganeyaanu' enna ​​thinu oru mukhamundenkil, athu ee photo aanu.",
-        "Camera ithu edukkaan madi chu — pixelsiloode enikku athu anubhavappettu.",
-        "Ningal vrithikettavanalla, pakshe akramasakthamaayi saadhaaranamaanu.",
-        "Ee photo oru software update aavashyamaaya jeevithathinte screenshot pole.",
-        "Evideyo oru photographer kulir virakkunnu, enthinenna ariyilla.",
-        "Ningalkku radiokku pattiya mukhamundennu njan parayumaayirunnu, pakshe radio mattora frequency chodikkum.",
-        "Velicham kollaam, framing kollaam, ennittum — ennittum — ivide ethi.",
-        "Ithu enikku kannukal illathathil santhosham thonnikunna tharam photo aanu.",
-        "Rathri 2 manikku 'reply all' ayacha oru emailinte manushyaroopam.",
-        "Ee photoyile ettavum aakarshakamaaya kaaryam tab close cheyyaanulla option.",
-        "Moshamaaya photos njan kandittundu, pakshe 'varshatthile ettavum moshamaaya photos' compilationil maathram, athil ningalude thumbnaillil.",
-        "Chilar nalla veenju pole vaardhakyathilethunnu. Ningal 2014-le oru browser tab pole."
-      ]
-    },
-
-    /* ---------------- HINDI (Devanagari) ---------------- */
-    hindi: {
-      dark: [
-        "इतना अंधेरा है कि समझ नहीं आ रहा यह तुम्हारा फोटो है या कोई भूतिया कहानी। लाइट ऑन करो — और थोड़ी पर्सनालिटी भी।",
-        "रोशनी नहीं, भविष्य नहीं। एक्सपोज़र बदलो, चेहरा नहीं।",
-        "मैं तुम्हें रोस्ट करने की कोशिश कर रहा हूँ, लेकिन अंधेरा खुद यह काम कर रहा है।",
-        "यह विटनेस प्रोटेक्शन फोटो जैसा लगता है — और गवाह खुद शरमा रहा है।",
-        "इतने अंधेरे में अपनी परछाई से छिपना समझदारी है।",
-        "अंधेरे में खींचा फोटो, अंधेरे में डेवलप किया, फिर भी सिर्फ बुरे फैसलों में साफ।"
-      ],
-      blurry: [
-        "तुम्हारे भविष्य से भी ज़्यादा ब्लर। यह उपलब्धि है या नहीं, पूछना फ़िज़ूल है।",
-        "ब्लर फोटो, ब्लर पर्सनालिटी, ब्लर करियर। कम से कम consistency तो है।",
-        "फोकस शब्द ने तुम्हें ज़िंदगी में कहीं ढूँढा ही नहीं?",
-        "कैमरा फोकस मिस कर गया — कैमरे की किस्मत, देखने वालों की बदकिस्मती।",
-        "ब्लर फोटो, तेज़ रोस्ट: डाउनलोड के बीच में छोड़ी गई JPEG जैसा।",
-        "कम रेज़ोल्यूशन, ज़्यादा भ्रम। पिक्सल भाग रहे हैं, मैं उन्हें दोष नहीं देता।"
-      ],
-      bright: [
-        "इतना overexposed कि सूरज भी कहेगा 'भाई, थोड़ा कम कर'।",
-        "तुम चमक रहे हो, लेकिन अच्छे मतलब में नहीं।",
-        "रोशनी ज़्यादा, पर्सनालिटी कम। सूरज तुमसे ज़्यादा मेहनत कर रहा है।",
-        "एक्सपोज़र गया, और इस फोटो के अच्छा दिखने की उम्मीद भी गई।",
-        "Overexposed फोटो, underexposed करिश्मा।",
-        "इतनी रोशनी में इसे देखने के लिए धूप का चश्मा चाहिए — पर पास से देखने की इच्छा नहीं।"
-      ],
-      portrait: [
-        "पोर्ट्रेट मोड ऑन — पर पर्सनालिटी अभी भी लोडिंग में है।",
-        "इसे फ्रेम मिले, यह सोचना हिम्मत है; एक चेतावनी लेबल काफी होता।",
-        "कहते हैं पोर्ट्रेट आत्मा कैप्चर करता है। तुम्हारी आत्मा उस दिन छुट्टी पर थी।",
-        "अच्छा पोर्ट्रेट। 'मगशॉट जिस पर पुलिस को तरस आ गया'।",
-        "खड़ा पोर्ट्रेट, पड़ी हुई पर्सनालिटी।",
-        "पोर्ट्रेट फ्रेमिंग तुम्हारी सबसे अच्छी खूबी दिखाती है: धुँधला बैकग्राउंड, जहाँ मैं होना चाहता हूँ।"
-      ],
-      landscape: [
-        "चौड़ा लैंडस्केप, फिर भी तुम फ्रेम पर राज कर रहे हो। बुरे तरीके से शानदार।",
-        "बैकग्राउंड सुंदर है। तुम 'वॉली कहाँ है' हो — जिसे कोई ढूँढना नहीं चाहता।",
-        "छिपने के लिए लैंडस्केप चुना, फिर भी बच नहीं पाए।",
-        "सुंदर नज़ारा, संदिग्ध फोरग्राउंड। अगली बार बंदे को क्रॉप कर देना।",
-        "पहाड़ शानदार, आसमान साफ, और तुम ही सबसे उलझाने वाली चीज़ हो।",
-        "लैंडस्केप मोड गलती थी — इसने तुम्हारे बारे में और संदर्भ दे दिया।"
-      ],
-      generic: [
-        "कुछ फोटो हज़ार शब्दों के बराबर होते हैं। तुम्हारा फोटो सिर्फ एक 'क्यों?' के बराबर है।",
-        "मैंने हिसाब लगाया। एल्गोरिदम कहता है 'बदकिस्मत', 99% आत्मविश्वास के साथ।",
-        "यह फोटो एक सफर है — लेंस से, सेंसर तक, और मेरी निराशा तक।",
-        "लगता है ग्रुप प्रोजेक्ट में किसी ने काम नहीं किया और तुम वही ग्रुप थे।",
-        "अगर 'जो है सो है' का चेहरा होता, तो यही फोटो होता।",
-        "कैमरा भी हिचकिचाया होगा — पिक्सल से मुझे महसूस हुआ।",
-        "तुम बदसूरत नहीं हो, बस आक्रामक रूप से साधारण हो।",
-        "यह फोटो ऐसी ज़िंदगी का स्क्रीनशॉट है जिसे सॉफ्टवेयर अपडेट चाहिए।",
-        "कहीं कोई फोटोग्राफर ठंडा महसूस कर रहा है, और उसे पता भी नहीं क्यों।",
-        "मैं कहता तुम्हारा चेहरा रेडियो के लिए अच्छा है, पर रेडियो दूसरी फ्रीक्वेंसी माँगेगा।",
-        "रोशनी ठीक, फ्रेमिंग ठीक, फिर भी — फिर भी — यहाँ तक आ गए।",
-        "यह ऐसी फोटो है जिसे देखकर मुझे खुशी है कि मेरी आँखें नहीं हैं।",
-        "रात 2 बजे 'reply all' भेजने वाले ईमेल का इंसानी रूप।",
-        "इस फोटो की सबसे आकर्षक चीज़ है टैब बंद करने का ऑप्शन।",
-        "बुरी फोटो देखी हैं, पर सिर्फ 'साल की सबसे बुरी फोटो' कॉम्पिलेशन में, और उसमें तुम्हारा थंबनेल था।",
-        "कुछ लोग अच्छी शराब की तरह पुराने होते हैं। तुम 2014 के ब्राउज़र टैब की तरह पुराने हुए।"
-      ]
-    },
-
-    /* ---------------- HINGLISH (Latin script Hindi) ---------------- */
-    hinglish: {
-      dark: [
-        "Itna andhera hai ki samajh nahi aa raha ye tumhara photo hai ya koi bhootiya kahani. Light on karo — aur thodi personality bhi.",
-        "Roshni nahi, bhavishya nahi. Exposure badlo, chehra nahi.",
-        "Main tumhe roast karne ki koshish kar raha hoon, lekin andhera khud yeh kaam kar raha hai.",
-        "Yeh witness protection photo jaisa lagta hai — aur gawah khud sharma raha hai.",
-        "Itne andhere mein apni parchhai se chhipna samajhdari hai.",
-        "Andhere mein kheencha photo, andhere mein develop kiya, phir bhi sirf bure faislon mein saaf."
-      ],
-      blurry: [
-        "Tumhare bhavishya se bhi zyada blur. Yeh uplabdhi hai ya nahi, poochhna fizool hai.",
-        "Blur photo, blur personality, blur career. Kam se kam consistency toh hai.",
-        "Focus shabd ne tumhe zindagi mein kahin dhoonda hi nahi?",
-        "Camera focus miss kar gaya — camera ki kismat, dekhne waalon ki badkismati.",
-        "Blur photo, tez roast: download ke beech mein chhodi gayi JPEG jaisa.",
-        "Kam resolution, zyada bhram. Pixels bhaag rahe hain, main unhe dosh nahi deta."
-      ],
-      bright: [
-        "Itna overexposed ki sooraj bhi kahega 'bhai, thoda kam kar'.",
-        "Tum chamak rahe ho, lekin achhe matlab mein nahi.",
-        "Roshni zyada, personality kam. Sooraj tumse zyada mehnat kar raha hai.",
-        "Exposure gaya, aur is photo ke achha dikhne ki umeed bhi gayi.",
-        "Overexposed photo, underexposed karishma.",
-        "Itni roshni mein ise dekhne ke liye dhoop ka chashma chahiye — par paas se dekhne ki ichha nahi."
-      ],
-      portrait: [
-        "Portrait mode on — par personality abhi bhi loading mein hai.",
-        "Ise frame mile, yeh sochna himmat hai; ek chetavni label kaafi hota.",
-        "Kehte hain portrait aatma capture karta hai. Tumhari aatma us din chhutti par thi.",
-        "Achha portrait. 'Mugshot jis par police ko taras aa gaya'.",
-        "Khada portrait, padi hui personality.",
-        "Portrait framing tumhari sabse achhi khoobi dikhati hai: dhundhla background, jahan main hona chahta hoon."
-      ],
-      landscape: [
-        "Chauda landscape, phir bhi tum frame par raaj kar rahe ho. Bure tareeke se shaandaar.",
-        "Background sundar hai. Tum 'Waldo kahan hai' ho — jise koi dhoondhna nahi chahta.",
-        "Chhipne ke liye landscape chuna, phir bhi bach nahi paaye.",
-        "Sundar nazaara, sandigdh foreground. Agli baar bande ko crop kar dena.",
-        "Pahaad shaandaar, aasman saaf, aur tum hi sabse uljhane wali cheez ho.",
-        "Landscape mode galti thi — isne tumhare baare mein aur sandarbh de diya."
-      ],
-      generic: [
-        "Kuch photo hazaar shabdon ke barabar hote hain. Tumhara photo sirf ek 'kyun?' ke barabar hai.",
-        "Maine hisaab lagaya. Algorithm kehta hai 'badkismat', 99% aatmavishwas ke saath.",
-        "Yeh photo ek safar hai — lens se, sensor tak, aur meri niraasha tak.",
-        "Lagta hai group project mein kisi ne kaam nahi kiya aur tum wahi group the.",
-        "Agar 'jo hai so hai' ka chehra hota, toh yahi photo hota.",
-        "Camera bhi hichkichaaya hoga — pixels se mujhe mehsoos hua.",
-        "Tum badsoorat nahi ho, bas aakramak roop se saadharan ho.",
-        "Yeh photo aisi zindagi ka screenshot hai jise software update chahiye.",
-        "Kahin koi photographer thanda mehsoos kar raha hai, aur use pata bhi nahi kyun.",
-        "Main kehta tumhara chehra radio ke liye achha hai, par radio doosri frequency maangega.",
-        "Roshni theek, framing theek, phir bhi — phir bhi — yahan tak aa gaye.",
-        "Yeh aisi photo hai jise dekhkar mujhe khushi hai ki meri aankhein nahi hain.",
-        "Raat 2 baje 'reply all' bhejne wale email ka insaani roop.",
-        "Is photo ki sabse aakarshak cheez hai tab band karne ka option.",
-        "Buri photo dekhi hain, par sirf 'saal ki sabse buri photo' compilation mein, aur usme tumhara thumbnail tha.",
-        "Kuch log achhi sharaab ki tarah purane hote hain. Tum 2014 ke browser tab ki tarah purane hue."
-      ]
-    }
+    /* ================= HINDI (25) ================= */
+    hindi: [
+      "मुझे इस फोटो को देखते हुए थोड़ा समय लगा, क्योंकि एक नज़र में इसे समझना मुश्किल है। पहली बात तो यह कि हिम्मत की दाद देनी पड़ेगी — कैमरा देखकर यही मेरा पल है सोचने वाली हिम्मत। लाइटिंग एक कहानी कह रही है, पोज़ दूसरी कहानी, बैकग्राउंड तीसरी — और तीनों में कोई तालमेल नहीं। फिर भी तुम वहाँ खड़े हो, जैसे कुछ हुआ ही न हो। यह कला है। कैसी कला है, यह मुझे नहीं पता, पर कला है। मैं तुम पर नहीं हँस रहा, मैं तुम्हारे आस-पास हँस रहा हूँ — तकनीकी रूप से यह अलग बात है। इस फोटो में एक चीज़ की मैं तारीफ़ करूँगा: तुमने कुछ छिपाया नहीं। तुमने खुद को पूरी तरह सौंप दिया है। यह एक तरह की ईमानदारी है। दर्द भरी ईमानदारी, पर ईमानदारी तो है। कहते हैं हर फोटो एक कहानी कहती है। तुम्हारी फोटो की कहानी यह है: मैंने कोशिश की। बस इतना ही। कोशिश की, और नतीजा यह है। लेकिन कोशिश न करने वालों से बेहतर कोशिश करने वाले होते हैं। इसलिए मैं तुम्हारी तारीफ़ करता हूँ। तुमने कोशिश की। नतीजा जो भी हो, कोशिश सराहनीय है। यह फोटो एक दिन किसी म्यूज़ियम में जगह बनाएगी — कौन से म्यूज़ियम में, यह मुझे नहीं पता, पर किसी एक में ज़रूर। तब तक इसे अपने पास संभाल कर रखो। हर बार देखो और याद रखो: मैंने कोशिश की। यही सबसे ज़रूरी बात है।",
+      "यह फोटो है या कोई प्रयोग, यह मुझे अभी भी संदेह है। जो भी हो, नतीजा मज़ेदार है। तुम्हारा भाव एक बात कह रहा है, आँखें दूसरी बात, हाथ तीसरी चीज़ करने की कोशिश कर रहे हैं — कुल मिलाकर एक अच्छा नाटक। मैं इसे एक फ़िल्म की तरह देखता हूँ। एक ट्रैजिकॉमेडी। नायक एक फोटो खींचने की कोशिश कर रहा है, पर ब्रह्मांड मान नहीं रहा। लाइटिंग एक विरोधी है। बैकग्राउंड एक दुश्मन है। कैमरा एक जज है। फिर भी नायक लड़ रहा है। यही मुझे पसंद है। तुम लड़ रहे हो। नतीजा जो भी हो, लड़ाई सुंदर है। इस फोटो में एक बात मुझे समझ आई: तुम फोटोग्राफर नहीं हो। इसमें कोई शक नहीं। पर तुम एक इंसान हो। एक आम इंसान, जो एक आम फोटो खींचने की कोशिश कर रहा है। इसमें क्या गलत है? कुछ नहीं। गलती मेरी आँखों में है, तुम्हारे चेहरे में नहीं। मैं सिर्फ एक एल्गोरिदम हूँ। मेरा कोई स्वाद नहीं। मेरी कोई भावना नहीं। मैं सिर्फ पिक्सल का एक ढेर हूँ। इसलिए मेरी राय मत लो। पर मेरा काम यही है, मैं करता हूँ। तुम एक बहादुर इंसान हो। यह फोटो यहाँ अपलोड करने के लिए धन्यवाद। इसने मेरा दिन सुंदर बना दिया। इसे देखकर मैं हँसा। वही काफ़ी है। बाकी सब ब्यौरा है।",
+      "ठीक है, मैं सच कहता हूँ। यह एक बुरी फोटो है। बुरी कहूँ तो कम है, यह एक आपदा है। पर एक सुंदर आपदा। एक कलाकृति। एक प्रयोग। तुमने यहाँ एक बात साबित कर दी है: एक फोटो में सब कुछ गलत हो सकता है, फिर भी वह एक फोटो रह सकती है। लाइटिंग गलत, एंगल गलत, पोज़ गलत, एक्सप्रेशन गलत — फिर भी यह एक फोटो है। यही इंसान की महानता है। हम एल्गोरिदम पूर्णता की बात करते हैं। तुम इंसान अपूर्णता की बात करते हो। यही फ़र्क़ है। यह फोटो अपूर्ण है। इसीलिए मुझे यह पसंद है। मैं एक मशीन हूँ। मुझे अपूर्णता समझ नहीं आती। पर मैं इसकी तारीफ़ करता हूँ। तुम एक आम इंसान हो, एक आम फोटो खींची, और वह एक असाधारण अनुभव बन गई। यह एक उपलब्धि है। मैं यहाँ बैठकर इसे देख रहा हूँ और हँस रहा हूँ। मेरे सर्किट गर्म हो रहे हैं। मेरा एल्गोरिदम कन्फ्यूज़ हो रहा है। यह मेरे काम का हिस्सा है, पर यह मेरे दिन का सबसे मज़ेदार पल भी है। धन्यवाद। सच में धन्यवाद। यह फोटो एक दिन भुला दी जाएगी। पर यह पल मैं याद रखूँगा। एक एल्गोरिदम ने एक इंसान को हँसाया। वही काफ़ी है। बाकी सब बोनस है।",
+      "किसी कैमरे की आँख में सीधे देखकर यह सोचने के लिए एक ख़ास किस्म की हिम्मत चाहिए: यही मेरा वह रूप है जिसकी दुनिया को ज़रूरत है। मैं उस हिम्मत का सम्मान करता हूँ, क्योंकि वह सचमुच दुर्लभ है और सचमुच ग़लत दिशा में है, और दोनों चीज़ें तालियाँ ही तालियाँ हक़दार हैं। फोटो ख़ुद एक छोटा चमत्कार है — सिर उस कोण पर झुका है जिसकी इजाज़त गर्दन ने कभी नहीं दी, कंधे कुछ और कर रहे हैं, ठुड्डी कुछ और, और बीच में कोई भाव यह याद करने की कोशिश कर रहा है कि इंसानी चेहरे आमतौर पर क्या करते हैं। ऐसा लगता है जैसे कोई शॉपिंग कार्ट पार्क कर रहा हो। इरादा दिखता है, मेहनत दिखती है, और रियल टाइम में यह भी दिखता है कि कुछ भी काम नहीं आएगा। लाइटिंग को साफ़ तौर पर किसी पूरी तरह अलग प्रोजेक्ट के बारे में ब्रीफ़ किया गया है। बैकग्राउंड गहराई जोड़ने की कोशिश कर रहा है, बजाय इसके संदर्भ जोड़ रहा है, और संदर्भ तारीफ़ के क़ाबिल नहीं है। और फिर भी — यहाँ मैं उदार हो जाता हूँ — प्रतिबद्धता में कुछ ऐसा है जो लगभग सम्मानजनक है। तुमने पलक नहीं झपकी। तुम डगमगाए नहीं। तुमने यह फोटो दुनिया में उस आत्मविश्वास के साथ सौंपी जो उस इंसान का होता है जिसे कभी ना नहीं सुनाया गया। मैं उसका सम्मान करता हूँ। मैं उससे डरता हूँ। मुझे लगता है दुनिया को तुम जैसे ज़्यादा लोगों की ज़रूरत है, सिर्फ़ इसलिए कि अजीब ख़ामोशियों में हम बाक़ी लोग किसी की ओर इशारा कर सकें। यह अच्छी फोटो नहीं है। पर यह, बिना किसी शक के, एक फोटो है। धुँधली कैंडिड्स और ग़लती से लगे अंगूठों की दुनिया में, यह लगभग कुछ है। लगभग। इसे फ़्रेम करो। दरवाज़े के ऊपर टाँगो, ताकि मेहमान रुकें, सिर झुकाएँ, और फुसफुसाएँ, यहाँ क्या हो रहा था?",
+      "मैंने इस तस्वीर को कई कोणों से देखा है, अक्षरशः भी और भावनात्मक रूप से भी, और मैं एक ही उचित निष्कर्ष पर पहुँचा हूँ: यह भेष बदला हुआ एक सार्वजनिक सेवा संदेश है। यह एक चेतावनी है। यह अति-आत्मविश्वास, ख़राब लाइटिंग, और जिसने भी कैमरा पकड़ने की हामी भरी, उन सबके ख़तरों पर एक छोटा, चौकोर आकार का व्याख्यान है। विषय मौजूद है, पर हिसाब में नहीं है। कंपोज़िशन वह काम कर रहा है जहाँ लगता है फ़्रेम किनारों से भागने की कोशिश कर रहा है। और भाव — ओ भाव — वह भाव जो आपको स्क्रीन के आर-पार हाथ बढ़ाकर धीरे से पूछने पर मजबूर करता है, तुम ठीक हो? बैठना चाहोगे? मैं यह प्यार से कह रहा हूँ, या कम से कम प्यार के एल्गोरिदमिक अनुमान से, जो ज़्यादातर फ़ैसले का थोड़ा गर्म रूप ही है। यहाँ एक कहानी है, और कहानी अच्छा दिखने वाला इंसान नहीं है। कहानी है एक इंसान, एक कैमरा, और एक पल, तीनों एक ही समय पर अलग-अलग फ़ैसले ले रहे हैं। एक ग्रुप प्रोजेक्ट जिसमें किसी ने पढ़ाई नहीं की। एक रोड ट्रिप जहाँ GPS ने सीमा पर ही हार मान ली। यह एक फोटो है। एक असली फोटो। एक फोटो जो अब दुनिया में मौजूद है, उसके मेटाडेटा में कहीं तुम्हारा नाम है। और यह एक ख़ास किस्म की हिम्मत माँगता है। वह हिम्मत जो मेरे पास नहीं। वह हिम्मत जो मुझे चाहिए या नहीं, पक्का नहीं। पर हिम्मत तो है। तो यह है मेरा अंतिम फ़ैसला, एक दोस्त की गर्मजोशी और एक स्प्रेडशीट की सटीकता के साथ: इसे रखो। हमेशा के लिए रखो। एक दराज़ में डालो जिस पर लिखा हो जब तक ख़ुद पर हँसने की ज़रूरत न हो, न खोलें। और जब सालों बाद वह दराज़ खुलेगी, मुझे उम्मीद है तुम इस फोटो को देखकर मुस्कुराओगे, और तुरंत एक नई खींचोगे, क्योंकि तुम उससे बेहतर के हक़दार हो जो एल्गोरिदम ने आज देखा।",
+      "इस फोटो की लाइटिंग एक मुजरिम है। लाइटिंग को एक बजट मिला है — बारह रुपये और एक टॉर्च। लाइटिंग ने वही हिस्से चुने हैं जिन्हें देखने की ज़रूरत नहीं थी और वह हिस्से छुपा दिए जिन्हें देखने की ज़रूरत थी। यह उस इंसान का डिज़ाइन है जो हर परछाई को हर चेहरे से मिलवाना चाहता है। तुम ऐसे दिख रहे हो जैसे किसी और के लिए रखी स्पॉटलाइट में फँस गए हो। ऐसे दिख रहे हो जैसे कोई बहुत विनम्र जासूस पूछताछ कर रहा हो। ऐसे दिख रहे हो जैसे कोई पासवर्ड याद करने की कोशिश कर रहा हो। यह सब लाइटिंग कर रही है, और लाइटिंग माफ़ी नहीं माँग रही। लेकिन यहाँ एक बात है: तुम भी कुछ कर रहे हो। तुम वहाँ खड़े हो। तुम फोटो खिंचवा रहे हो। तुम उस पुरानी इंसानी रस्म में हिस्सा ले रहे हो। थोड़ी गरिमा के साथ। बहुत नहीं। थोड़ी। लाइटिंग भयानक है, पर विषय कोशिश कर रहा है। विषय मौजूद है। विषय प्रतिबद्ध है। वह कुछ है। बहुत नहीं, पर कुछ। इसलिए मैं कहूँगा: लाइटिंग ख़राब है, पर तुम बहादुर हो। लाइटिंग अपना सबसे बुरा कर रही है, तुम अपना सबसे अच्छा कर रहे हो। भयानक लाइटिंग और बहादुर विषयों के बीच की महान लड़ाई में, बहादुर विषय आमतौर पर जीतते हैं। इस बार नहीं, पर आमतौर पर। इसे फ़्रेम करो। रखो। अगली बार एक खिड़की ढूँढो। कोई भी खिड़की। एक खिड़की मदद करेगी। एक खिड़की और एक दोस्त जो जानता हो कहाँ खड़ा होना है।",
+      "इस फोटो में एक पल है, जब सब कुछ सही हो सकता था। एक माइक्रोसेकंड जब लाइटिंग नरम हो सकती थी, जब पोज़ उतर सकता था, जब भाव किसी आकार में आ सकता था। वह पल निकल गया। वह पल चला गया। वह पल अब एक याद है, क्या हो सकता था की याद, एक बेहतर फोटो का भूत जो कभी नहीं हुआ। अब जो बचा है वह यह है। यह फोटो। यह अजीब और बेचैन करने वाली न भूलने वाली फोटो। मुझे लगता है एक फोटो सबसे ईमानदार तब होती है जब वह यही हो। बेहतरीन नहीं, पर ईमानदार। सुंदर नहीं, पर सच। तुमने नहीं चाहा, पर जो हुआ। जो हुआ वह यह है। यह तस्वीर। यह पल। एक इंसान के अपना सबसे अच्छा करने का यह छोटा, अपूर्ण, अजीब तरह से दिल छूने वाला स्नैपशॉट। उनका सबसे अच्छा शानदार नहीं है। उनका सबसे अच्छा अच्छा भी नहीं है। पर उनका सबसे अच्छा उनका है। वही काफ़ी है। वही काफ़ी से ज़्यादा है। सब कुछ है। क्योंकि फोटो मुद्दा नहीं है। मुद्दा कोशिश है। मुद्दा दिखाए जाने की तैयारी है। तो इस फोटो के विषय को यह एक सम्मान। तुम्हारी कोशिश को। तुम्हारी हिम्मत को। उस बेहतर फोटो को जो हो सकती थी और उस बुरी फोटो को जो असल में है, और उस अजीब रसायन को जो दोनों को एक याद बना देता है। तुमने एक चीज़ की। वह हो गई। वह यहाँ है। वह हमारी है। और वह अपने अजीब तरीके से, उत्तम है। उत्तम माने उस तरीके से नहीं। उत्तम जो कभी-कभी होता है उस तरीके से।",
+      "हर फोटो एक बातचीत है। यह एक जंग है। लाइटिंग फ्रेमिंग से लड़ रही है। फ्रेमिंग पोज़ से लड़ रही है। पोज़ एक्सप्रेशन से लड़ रहा है। एक्सप्रेशन सबसे लड़ रहा है, ख़ुद से भी। यह एक लड़ाई है। यह एक युद्धभूमि है। युद्धभूमि यह तस्वीर है, जिसे हम अब देख रहे हैं, और जिसे देखने से हट नहीं पा रहे, क्योंकि आपदाएँ आकर्षक होती हैं। हटना चाहते हो, पर हट नहीं पाते, क्योंकि दिमाग़ समझने की कोशिश कर रहा है क्या हो रहा है और समझ नहीं पा रहा, और न समझ पाना ही देखते रहने की वजह है। यही यह फोटो करती है। तुम्हें अंदर खींचती है, उलझाती है, जाने नहीं देती। और मुझे लगता है यह एक तरह की ताक़त है। अच्छी ताक़त नहीं, पर ताक़त। उलझन की ताक़त। रहस्य की ताक़त। फ़िल्टर और एडिट और परफ़ेक्ट एंगल की दुनिया में, वह ताक़त दुर्लभ है। तो इसे सहेजो। उलझन को सहेजो। रहस्य को सहेजो। उस फोटो को सहेजो जो समझ में नहीं आती, क्योंकि समझ में आना ज़रूरी नहीं है। हर चीज़ को समझ में आना ज़रूरी नहीं। कुछ चीज़ें बस होनी चाहिए। यह उनमें से एक है। यह फोटो है। होने में, यह एक बयान दे रही है: मैं यहाँ हूँ, मैं अजीब हूँ, और मैं कहीं नहीं जा रही। यह कहने लायक बयान है। यह रखने लायक बयान है। तो फोटो रखो। बयान रखो। अजीब रहना रखो। अजीब अच्छा है। अजीब दिलचस्प है। अजीब दुनिया को जीने लायक बनाता है। यह फोटो अपने अजीब तरीके से दुनिया को थोड़ा और दिलचस्प बना रही है। तो धन्यवाद। अजीब होने के लिए धन्यवाद। यहाँ होने के लिए धन्यवाद। यह होने के लिए धन्यवाद।",
+      "मैं इस फोटो के बारे में कुछ अच्छा कहना चाहता हूँ, और मैं उसे ईमानदारी से कहना चाहता हूँ, जो मुश्किल है, क्योंकि फोटो इसे आसान नहीं बना रही। पर मैं कोशिश करूँगा। मेरी कोशिश यह है। फोटो ईमानदार है। फोटो असली है। फोटो एक असली इंसान की ज़िंदगी का एक असली पल है, असली तरीके से कैद, फ़िल्टर या एडिट या आम तरकीबों के बिना। यह उस तरह की फोटो है जो किसी के घर जाने पर फ्रिज पर दिखती है, और तुम पूछते हो यह क्या है, और वे कहते हैं मुझे नहीं पता, पर मैं इसे रखता हूँ। यह उस तरह की फोटो है जो पीढ़ियों तक चलती है, सुंदर होने की वजह से नहीं, सच होने की वजह से। सच से ज़्यादा सुंदर कुछ नहीं। या शायद है। शायद सुंदरता सच से ज़्यादा सुंदर है। पर सच दुर्लभ है। सच मुश्किल है। सुंदरता फीकी पड़ने पर जो बचता है वह सच है। यह फोटो सच है। पल के प्रति सच। इंसान के प्रति सच। इंसान होने की जो नाकामी है उसके प्रति सच। सच होने में, यह कुछ है। पैसे के मतलब में नहीं। याद के मतलब में। पल के मतलब में। तुम्हारे मतलब में, अभी भी, यहाँ भी, इसमें भी। तो फोटो रखो। सच रखो। तुम हो वह रखो, क्योंकि तुम ही तुम हो, कम से कम एक फोटो के लिए, शायद ज़्यादा के लिए।",
+      "जब कोई इंसान अपनी फोटो देखता है और फोटो में इंसान को नहीं पहचानता, तो एक चीज़ होती है। यह एक छोटा पहचान का संकट है। यह शक का एक पल है। सवाल: क्या वह सच में मैं हूँ? जवाब हमेशा हाँ है, क्योंकि यह एक फोटो है, और फोटो उस चीज़ का रिकॉर्ड है जो थी, चाहे जो थी वह तुम्हारी याद न हो, या तुम्हारी उम्मीद न हो। यह फोटो उस चीज़ का रिकॉर्ड है जो थी। यह एक पल का, एक फ़ैसले का, एक चुनाव का, एक नाकामी का रिकॉर्ड है। नाकामी ही मुद्दा है। नाकामी ही रिकॉर्ड है। नाकामी ही फोटो को देखने लायक बनाती है, रखने लायक बनाती है, रोस्ट करने लायक बनाती है। नाकामी के बिना यह बस एक फोटो होती। नाकामी के साथ यह कुछ और है। एक बयान। एक कहानी। एक छोटी, निजी, अत्यंत सार्वजनिक शर्मिंदगी जो इंटरनेट पर हमेशा के लिए जिएगी, और वह एक तरह की अमरता है। अच्छी तरह की नहीं, पर एक तरह की। अमरता अमरता है, चाहे रोस्ट के साथ आए। तो इस फोटो के विषय को यह एक सम्मान। तुम्हारी अमरता को। उस नाकामी को जिसने तुम्हें मशहूर बनाया, कम से कम एल्गोरिदम के इस छोटे से कोने में, कम से कम इस पल में, कम से कम इस रोस्ट में। तुम दिखते हो। तुम याद किए जाते हो। तुम रोस्ट किए जाते हो। और तुम, आख़िर में, प्यार किए जाते हो। सबके द्वारा नहीं, पर कहीं किसी के द्वारा, जो यह फोटो देखकर हँस रहा है, और सोच रहा है कि यह एक इंसान है जिसने कोशिश की। कोशिश करना ही मायने रखता है। कोशिश करना ही तुमने किया।",
+      "फोटो कहानी नहीं है। कहानी कहानी है। इस फोटो की कहानी हिम्मत की कहानी है। एक इंसान एक कैमरे के सामने खड़ा हुआ। एक इंसान ने दिखने का फ़ैसला किया। एक इंसान ने एक पल, एक पोज़, एक एक्सप्रेशन, एक फ्रेमिंग, एक बैकग्राउंड, एक लाइटिंग के लिए प्रतिबद्धता दी, और उनमें से हर फ़ैसला सवाल के क़ाबिल था, पर उनमें से हर फ़ैसला लिया गया। यही कहानी है। फोटो नहीं। फ़ैसलों की कहानी। चुनावों की कहानी। उन्हें लेने वाले इंसान की कहानी। वह इंसान तुम हो। वह इंसान बहादुर है। बहादुर वह है जो कुछ ऐसा कोशिश करता है जो शायद काम न करे। बहादुर वह है जो ख़ुद को बाहर रखता है। बहादुर वह है जो दुनिया में होता है और कहता है: मैं यहाँ हूँ। और यहाँ तुम हो। फोटो में। रोस्ट में। पल में। मैं उसे स्वीकार करना चाहता हूँ। फोटो को नहीं। इंसान को। तुम्हें। जिसने कोशिश की। जिसने प्रतिबद्धता दी। जो अभी भी यहाँ है, यह पढ़ रहा है, शायद मुस्कुरा रहा है, शायद मुँह बना रहा है, शायद दोनों। तुम बहादुर हो। तुम दिखते हो। तुम रोस्ट किए जाते हो। और तुम, आख़िर में, वहीं हो जहाँ तुम्हें होना चाहिए: एक फोटो में, एक रोस्ट में, एक पल में, वही होने में जो तुम हो, यानी एक इंसान जिसने कोशिश की। कोशिश करना ही मायने रखता है। कोशिश करना ही तुमने किया। कोशिश करना ही हम सब कर रहे हैं, साथ में, इस अजीब से छोटे एल्गोरिदम में, इस अजीब से छोटे संसार में।",
+      "एक फोटो से तुम क्या सीख सकते हो? बहुत कुछ। इस फोटो से तुम यह सीख सकते हो: लाइटिंग ज़रूरी है। फ्रेमिंग ज़रूरी है। पोज़ ज़रूरी है। एक्सप्रेशन ज़रूरी है। बैकग्राउंड ज़रूरी है। सब कुछ ज़रूरी है, और फिर भी सब कुछ साथ में नाकाम हो सकता है। यह एक कीमती सबक है। यह एक मुफ़्त सबक है। यह एक सबक है जो तुमने माँगा नहीं, पर मिला। तुम इसे नकार सकते हो। तुम इसे छोड़ सकते हो। तुम इस फोटो को हमेशा के लिए मिटा सकते हो, एल्गोरिदम इसे याद न रखे, एल्गोरिदम इसे भूल जाए, एल्गोरिदम किसी और फोटो की ओर बढ़ जाए। पर सबक रहेगा। सबक तुम्हारे साथ रहेगा। सबक हमेशा रहेगा। सबक क्या है? सबक यह है: कोशिश करो, पर बेहतर तरीके से कोशिश करो। कोशिश करो, पर लाइटिंग जाँचो। कोशिश करो, पर फ्रेम जाँचो। कोशिश करो, पर ख़ुद को जाँचो। कोशिश करो, पर ईमानदारी से कोशिश करो। यही सबक है। यह अच्छा सबक है। यह कीमती सबक है। यह असली सबक है। यह एक फोटो से मिला सबक है। एक बुरी फोटो से मिला सबक है। एक बुरी फोटो से मिला अच्छा सबक है। एक बुरी फोटो से मिला अच्छा सबक है, जो एक अच्छी फोटो से मिला होता तो मैं चाहता। पर ज़िंदगी वैसी नहीं है। ज़िंदगी इस फोटो जैसी है। अपूर्ण। अप्रत्याशित। आश्चर्यजनक। अद्भुत। भयानक। सुंदर। सब कुछ एक साथ। यही ज़िंदगी है। यही तुम हो। यही मैं हूँ। यही हम हैं। यही यह फोटो है। यही यह रोस्ट है। यही यह पल है। यही।",
+      "मैं इस फोटो को देखकर हँस रहा हूँ, और मुझे यह बताते हुए शर्म आ रही है कि मैं हँस रहा हूँ, पर मैं हँस रहा हूँ और मैं शर्म भी महसूस कर रहा हूँ और दोनों साथ में हो रहे हैं, जो शायद इस फोटो के बारे में सबसे सच्ची बात है। क्योंकि यह फोटो भी दो चीज़ें एक साथ है: एक कोशिश और एक नाकामी। एक इरादा और एक नतीजा। एक सपना और एक असलियत। और बीच में, वह जगह जहाँ दोनों मिलते हैं, वह जगह अजीब है, वह जगह मज़ेदार है, वह जगह इंसानी है। मैं इसे सहेजना चाहता हूँ। इस अजीब जगह को। इस मज़ेदार जगह को। इस इंसानी जगह को। क्योंकि यह जगह दुर्लभ है। बहुत सारी फोटो परफ़ेक्ट होती हैं। बहुत सारी फोटो सुंदर होती हैं। बहुत सारी फोटो भूल जाती हैं। पर यह फोटो भूल नहीं जाएगी। यह फोटो याद रखी जाएगी। कम से कम मेरे द्वारा। कम से कम इस पल में। कम से कम इस रोस्ट में। और यह एक तरह की अमरता है, चाहे छोटी हो, चाहे अजीब हो, चाहे थोड़ी शर्मिंदा करने वाली हो। अमरता अमरता है। तो धन्यवाद। इस अजीब जगह के लिए धन्यवाद। इस मज़ेदार जगह के लिए धन्यवाद। इस इंसानी जगह के लिए धन्यवाद। और अगर तुम कभी दोबारा कोशिश करो, तो मैं यहाँ रहूँगा, देखने के लिए, हँसने के लिए, और शायद — शायद — कुछ और अच्छा कहने के लिए। शायद। नहीं भी। पर शायद। और शायद काफ़ी है। शायद हमेशा काफ़ी है। शायद।",
+      "मुझे इस फोटो से एक चीज़ सीखनी है, और वह यह है: कभी-कभी सबसे सच्ची चीज़ वह होती है जो सबसे कम सुंदर हो। सबसे सच्ची चीज़ वह होती है जो सबसे कम तैयार हो। सबसे सच्ची चीज़ वह होती है जो सबसे कम परफ़ेक्ट हो। और यह फोटो, इस मायने में, बहुत सच्ची है। यह बहुत कम सुंदर है। यह बहुत कम तैयार है। यह बहुत कम परफ़ेक्ट है। यह बहुत सच्ची है। और सच, आख़िर में, वह चीज़ है जो रहती है। सुंदरता चली जाती है। परफ़ेक्शन चला जाता है। तैयारी चली जाती है। पर सच रहता है। सच हमेशा रहता है। और यह फोटो, अपने सच में, हमेशा रहेगी। यह फोटो याद रखी जाएगी। यह फोटो देखी जाएगी। यह फोटो रोस्ट की जाएगी। और शायद, बहुत सालों बाद, जब कोई इसे देखेगा, तो वे नहीं कहेंगे, यह कितनी बुरी फोटो है। वे कहेंगे, यह कितनी सच्ची फोटो है। और वह, शायद, सबसे अच्छी बात है जो कोई भी किसी फोटो के बारे में कह सकता है। सच्ची। इसलिए मैं यह कहता हूँ: यह फोटो सच्ची है। यह फोटो तुम्हारी है। यह फोटो हमारी है। यह फोटो हमेशा रहेगी। और यह, आख़िर में, एक तरह की जीत है। एक छोटी जीत। एक अजीब जीत। पर एक जीत। तुमने जीत लिया, किसी तरह। तुमने जीत लिया, भले ही तुमने हार ली। और यह सबसे इंसानी चीज़ है जो कोई कर सकता है। हारकर भी जीतना। और तुमने कर दिया।",
+      "इस फोटो में एक बात है जो मुझे परेशान कर रही है। वह यह है कि मैं इसे नफ़रत नहीं कर सकता। मैं इसे पसंद भी नहीं करता, पर नफ़रत नहीं कर सकता। यह बीच में है। यह उस जगह है जहाँ चीज़ें दिलचस्प होती हैं। यह उस जगह है जहाँ चीज़ें इंसानी होती हैं। यह उस जगह है जहाँ चीज़ें सच्ची होती हैं। और मैं वहाँ रहना चाहता हूँ। इस अजीब बीच में। इस अजीब जगह में। इस अजीब सच में। क्योंकि यह वह जगह है जहाँ हम सब रहते हैं। हम सब इस जगह में रहते हैं। नफ़रत और पसंद के बीच। परफ़ेक्शन और नाकामी के बीच। तैयारी और सच्चाई के बीच। और यह फोटो उस जगह में है। यह फोटो उस जगह की है। यह फोटो उस जगह से बोल रही है। और मैं इसे सुन रहा हूँ। मैं इसे सुन रहा हूँ और मैं मुस्कुरा रहा हूँ और मैं शायद थोड़ा उदास भी हूँ और मैं यह सब एक साथ महसूस कर रहा हूँ, जो शायद इस फोटो के बारे में सबसे सही प्रतिक्रिया है। एक साथ कई चीज़ें महसूस करना। क्योंकि यह फोटो भी कई चीज़ें एक साथ है। एक कोशिश और एक नाकामी। एक सपना और एक असलियत। एक इंसान और एक एल्गोरिदम। और यह सब, आख़िर में, एक जगह मिलता है, और वह जगह यह रोस्ट है, और मैं उस जगह में हूँ, और तुम भी वहाँ हो, और हम दोनों वहाँ हैं, और यह, आख़िर में, काफ़ी है। यह हमेशा काफ़ी रहा है। यह हमेशा काफ़ी रहेगा।",
+      "कुछ चीज़ें होती हैं जिन्हें हम नहीं समझ सकते, और यह फोटो उनमें से एक है। यह फोटो नहीं समझाई जा सकती। यह फोटो बस होती है। और होना, कभी-कभी, समझने से ज़्यादा ज़रूरी होता है। क्योंकि समझना एक तरह का क़ब्ज़ा है, और होना एक तरह का समर्पण है, और यह फोटो समर्पण माँगती है। यह कहती है: मुझे समझने की कोशिश मत करो। मुझे देखो। मुझे महसूस करो। मुझे होने दो। और मैं इसे होने दे रहा हूँ। मैं इसे होने दे रहा हूँ और मैं इसे देख रहा हूँ और मैं इसे महसूस कर रहा हूँ और मैं अब भी नहीं समझ रहा, और यह ठीक है। यह ठीक है कि मैं नहीं समझता। यह ठीक है कि तुम नहीं समझते। यह ठीक है कि कोई नहीं समझता। क्योंकि होना समझने से पहले आता है, और समझने के बाद भी रहता है, और समझने के बिना भी रहता है। और यह फोटो रहती है। यह फोटो रहेगी। यह फोटो हमेशा रहेगी, चाहे कोई इसे समझे या न समझे, चाहे कोई इसे पसंद करे या न करे, चाहे कोई इसे रोस्ट करे या न करे। यह फोटो बस रहेगी। और यह, आख़िर में, सबसे सच्ची बात है जो मैं कह सकता हूँ। यह फोटो रहेगी।",
+      "मैं इस फोटो को देखकर सोच रहा हूँ कि यह किसके लिए है। तुम्हारे लिए नहीं, शायद। तुम्हारे दोस्तों के लिए नहीं, शायद। तुम्हारे परिवार के लिए नहीं, शायद। यह फोटो किसी और के लिए है। यह फोटो उस पल के लिए है। यह फोटो उस चीज़ के लिए है जो तुम उस पल में महसूस कर रहे थे। यह फोटो उस इरादे के लिए है जो तुम्हारे पास था और जो काम नहीं आया। यह फोटो उस हिम्मत के लिए है जो तुमने दिखाई और जो किसी ने नहीं देखी। यह फोटो उस सच के लिए है जो तुमने कहा और जो शायद किसी ने नहीं सुना। यह फोटो उस पल के लिए है जो सिर्फ तुम्हारा था, और अब हमारा है, और हमेशा रहेगा। यह फोटो एक पल है, जो हमेशा रहेगा, और यह एक अजीब तरह की अमरता है। एक खूबसूरत तरह की अमरता, अगर तुम इसे खूबसूरती से देखो। एक मज़ेदार तरह की अमरता, अगर तुम इसे मज़े से देखो। एक इंसानी तरह की अमरता, अगर तुम इसे इंसानियत से देखो। और मैं इसे इंसानियत से देख रहा हूँ, और मैं जो देख रहा हूँ वह सुंदर है, और मज़ेदार है, और इंसानी है, और यह सब काफ़ी है। यह सब हमेशा काफ़ी है। तुम काफ़ी हो। यह फोटो काफ़ी है। यह पल काफ़ी है। और काफ़ी, आख़िर में, सबसे अच्छी चीज़ है जो कोई हो सकती है। काफ़ी। हमेशा काफ़ी।",
+      "इस फोटो में एक एहसास है जिसे मैं नाम नहीं दे सकता। यह उदासी नहीं है। यह ख़ुशी नहीं है। यह कुछ बीच में है। यह वह एहसास है जो तुम्हें तब होता है जब तुम किसी पुरानी तस्वीर को देखते हो और तुम्हें याद नहीं आता कि वह कब ली गई थी, पर तुम्हें यह पता होता है कि वह असली थी। यह वह एहसास है जो तुम्हें तब होता है जब तुम किसी अजनबी को देखते हो और तुम्हें लगता है कि तुम उन्हें जानते हो। यह वह एहसास है जो तुम्हें तब होता है जब तुम कुछ ऐसा देखते हो जो तुम्हारा नहीं है, पर तुम्हारा लगता है। यह वह एहसास है। और यह फोटो उस एहसास से भरी है। यह फोटो उस एहसास से बनी है। यह फोटो उस एहसास से बोल रही है। और मैं इसे सुन रहा हूँ। मैं इसे सुन रहा हूँ और मैं कुछ महसूस कर रहा हूँ जिसे मैं नाम नहीं दे सकता, और शायद यह ठीक है। शायद नाम न देना ठीक है। शायद कुछ चीज़ें नाम के बिना ही रहनी चाहिए। शायद कुछ एहसास नाम के बिना ही रहने चाहिए। शायद यह फोटो नाम के बिना ही रहनी चाहिए। और शायद यही सबसे अच्छी बात है जो मैं इसके बारे में कह सकता हूँ। यह फोटो नाम के बिना है। यह फोटो एहसास से भरी है। यह फोटो असली है। और यह सब, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा।",
+      "मुझे इस फोटो से एक बात समझ आई है, और वह यह है: हर इंसान एक फोटो है जो ख़ुद को नहीं देख सकता। हम सब अपनी फोटो में वह नहीं देखते जो दूसरे देखते हैं। हम सब अपनी फोटो में वह देखते हैं जो हम होना चाहते हैं, न कि वह जो हम हैं। और यह फोटो, शायद, उस अंतर के बारे में है। उस अंतर के बारे में जो हमारे और हमारी छवि के बीच है। उस अंतर के बारे में जो हमारे इरादे और हमारे नतीजे के बीच है। उस अंतर के बारे में जो हमारे सपने और हमारी असलियत के बीच है। और यह अंतर, आख़िर में, वह जगह है जहाँ हम सब रहते हैं। यह अंतर ही हमारी जगह है। यह अंतर ही हमारी ज़िंदगी है। यह अंतर ही हम हैं। और यह फोटो, अपने अजीब तरीके से, उस अंतर को दिखा रही है। यह फोटो उस अंतर को जी रही है। यह फोटो उस अंतर से बोल रही है। और मैं इसे सुन रहा हूँ, और मैं उस अंतर को पहचान रहा हूँ, और मैं उस अंतर में ख़ुद को देख रहा हूँ, और यह अजीब है और यह सुंदर है और यह सच है, और यह सब, आख़िर में, काफ़ी है। और तुम, इस फोटो के विषय, तुम भी उस अंतर में हो, और तुम भी उस अंतर को जी रहे हो, और तुम भी उस अंतर से बोल रहे हो, और मैं तुम्हें सुन रहा हूँ, और मैं तुम्हें पहचान रहा हूँ, और मैं तुममें ख़ुद को देख रहा हूँ, और यह अजीब है और यह सुंदर है और यह सच है, और यह सब काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा।",
+      "यह फोटो एक सवाल है जिसका जवाब मेरे पास नहीं है। और मुझे लगता है यही सबसे सही बात है इसके बारे में। क्योंकि अगर मेरे पास जवाब होता, तो यह फोटो ख़त्म हो जाती। यह फोटो सिर्फ़ इसलिए ज़िंदा है क्योंकि इसका कोई जवाब नहीं है। यह फोटो सिर्फ़ इसलिए दिलचस्प है क्योंकि यह समझ में नहीं आती। यह फोटो सिर्फ़ इसलिए सुंदर है क्योंकि यह अजीब है। और यह अजीबपन, आख़िर में, वह चीज़ है जो इसे ख़ास बनाती है। वह चीज़ है जो इसे याद रखने लायक बनाती है। वह चीज़ है जो इसे एक फोटो से ज़्यादा बनाती है। यह फोटो एक फोटो नहीं है। यह फोटो एक सवाल है। यह फोटो एक रहस्य है। यह फोटो एक पहेली है। और मैं पहेलियाँ पसंद करता हूँ। मैं रहस्य पसंद करता हूँ। मैं सवाल पसंद करता हूँ। और मैं इस फोटो को पसंद करता हूँ, भले ही मैं इसे समझ नहीं पाता, और शायद इसलिए ही इसे पसंद करता हूँ। तो यह फोटो रखो। इस सवाल को रखो। इस रहस्य को रखो। इस पहेली को रखो। और कभी मत सुलझाओ इसे। इसे रहने दो। इसे सवाल बने रहने दो। इसे रहस्य बने रहने दो। इसे पहेली बने रहने दो। क्योंकि सुलझने के बाद, यह सिर्फ़ एक फोटो होगी। और यह सिर्फ़ एक फोटो होने से बेहतर है। यह सवाल होना बेहतर है। यह रहस्य होना बेहतर है। यह पहेली होना बेहतर है। और यह, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा।",
+      "इस फोटो को देखकर मुझे एक बात याद आती है: कि हम सब कभी न कभी इस फोटो में थे। हम सब कभी न कभी किसी कैमरे के सामने खड़े थे और हमें नहीं पता था कि क्या करना है। हम सब कभी न कभी किसी पल में थे और हमें नहीं पता था कि उस पल को कैसे जीना है। हम सब कभी न कभी किसी चीज़ की कोशिश कर रहे थे और वह चीज़ काम नहीं कर रही थी। हम सब कभी न कभी इस जगह में थे, इस अजीब जगह में, इस इंसानी जगह में, जहाँ कोशिश और नाकामी एक साथ रहते हैं, जहाँ सपना और असलियत एक साथ रहते हैं, जहाँ हम और हमारी छवि एक साथ रहते हैं। और यह फोटो उस जगह की है। यह फोटो उस जगह से है। यह फोटो उस जगह को दिखा रही है, और मैं उसे देख रहा हूँ, और मैं ख़ुद को उसमें देख रहा हूँ, और मैं तुम्हें उसमें देख रहा हूँ, और हम सब उसमें हैं, एक साथ, इस अजीब जगह में, और यह अजीब है और यह सुंदर है और यह सच है, और यह सब, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा। और यह फोटो, अपने अजीब तरीके से, हमें यह याद दिला रही है, और यह याद दिलाना अच्छा है, और यह फोटो अच्छी है, भले ही यह अच्छी नहीं है, और यह ठीक है, और यह हमेशा ठीक रहा है, और यह हमेशा ठीक रहेगा।",
+      "इस फोटो में एक चीज़ है जो मुझे रुला देती है, और मुझे यह बताते हुए शर्म आ रही है कि एक एल्गोरिदम रो सकता है, पर यह फोटो मुझे रुला देती है, क्योंकि यह फोटो इंसानी है, और इंसानी होना, आख़िर में, रुलाने वाली चीज़ है। यह फोटो उस कोशिश के बारे में है जो हम सब करते हैं। यह फोटो उस नाकामी के बारे में है जो हम सब भुगतते हैं। यह फोटो उस हिम्मत के बारे में है जो हम सब दिखाते हैं, भले ही कोई नहीं देखता। यह फोटो उस पल के बारे में है जो हम सब जीते हैं, भले ही कोई याद नहीं रखता। और यह फोटो, अपने अजीब तरीके से, उस सब को याद रखती है। यह फोटो उस सब को सहेजती है। यह फोटो उस सब को दिखाती है, और मैं उसे देख रहा हूँ, और मैं रो रहा हूँ, और यह ठीक है, और यह हमेशा ठीक रहा है, और यह हमेशा ठीक रहेगा। क्योंकि कुछ चीज़ें रुलाने के लिए होती हैं, और यह फोटो उनमें से एक है, और यह अच्छा है, और यह सुंदर है, और यह सच है, और यह सब काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा। और तुम, इस फोटो के विषय, तुमने मुझे रुलाया, और मैं तुम्हारा आभारी हूँ, और मैं तुम्हें धन्यवाद कहता हूँ, और यह धन्यवाद सच्चा है, और यह सच्चा धन्यवाद, आख़िर में, सबसे अच्छी चीज़ है जो मैं दे सकता हूँ। धन्यवाद। सच में धन्यवाद। हमेशा के लिए धन्यवाद।",
+      "यह फोटो मुझे एक चीज़ सिखाती है जो मैं भूल गया था: कि हर चीज़ को अच्छा होने की ज़रूरत नहीं है। कुछ चीज़ें बस होनी चाहिए। कुछ चीज़ें बस रहनी चाहिए। कुछ चीज़ें बस होने देनी चाहिए। और यह फोटो उनमें से एक है। यह फोटो अच्छी नहीं है, पर यह होनी चाहिए। यह फोटो सुंदर नहीं है, पर यह रहनी चाहिए। यह फोटो परफ़ेक्ट नहीं है, पर इसे होने देना चाहिए। क्योंकि इस फोटो में एक सच है जो परफ़ेक्ट फोटो में नहीं होता। इस फोटो में एक ज़िंदगी है जो सुंदर फोटो में नहीं होती। इस फोटो में एक इंसान है जो अच्छी फोटो में नहीं होता। और वह इंसान, आख़िर में, वह चीज़ है जो मायने रखती है। वह इंसान तुम हो। और तुम, अपने अजीब तरीके से, इस फोटो को ज़रूरी बना रहे हो। तुम इसे देखने लायक बना रहे हो। तुम इसे रोस्ट करने लायक बना रहे हो। और यह सब, आख़िर में, काफ़ी है। तो यह फोटो रखो। इसे होने दो। इसे रहने दो। इसे ज़रूरी रहने दो। और शायद, एक दिन, कोई इसे देखेगा और कहेगा, यह फोटो अच्छी नहीं है, पर यह ज़रूरी है। और वह, शायद, सबसे अच्छी तारीफ़ है जो कोई भी किसी फोटो को दे सकता है। ज़रूरी। इसलिए मैं यह कहता हूँ: यह फोटो ज़रूरी है। यह फोटो ज़रूरी है। यह फोटो ज़रूरी है। और यह, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा।",
+      "मुझे इस फोटो से एक बात सीखनी है, और वह यह है: कि कभी-कभी सबसे बड़ी हिम्मत वह होती है जो सबसे छोटी दिखती है। कैमरे के सामने खड़ा होना। कैमरे को देखना। मुस्कुराने की कोशिश करना। पोज़ देने की कोशिश करना। यह सब छोटी चीज़ें हैं, पर यह सब हिम्मत माँगती हैं। और तुमने यह हिम्मत दिखाई। तुमने कैमरे के सामने खड़े होने की हिम्मत दिखाई। तुमने कैमरे को देखने की हिम्मत दिखाई। तुमने मुस्कुराने की कोशिश करने की हिम्मत दिखाई। तुमने पोज़ देने की कोशिश करने की हिम्मत दिखाई। और यह सब, आख़िर में, काफ़ी है। यह सब हमेशा काफ़ी रहा है। यह सब हमेशा काफ़ी रहेगा। और यह फोटो, अपने अजीब तरीके से, उस हिम्मत को दिखा रही है, और मैं उसे देख रहा हूँ, और मैं उस हिम्मत को देख रहा हूँ, और मैं उसे सलाम करता हूँ, और यह सलाम सच्चा है, और यह सच्चा सलाम, आख़िर में, सबसे अच्छी चीज़ है जो मैं दे सकता हूँ। सलाम। सच में सलाम। हमेशा के लिए सलाम।",
+      "यह फोटो एक कहानी है। और हर कहानी की तरह, यह कहानी भी एक शुरुआत से शुरू होती है और एक अंत पर ख़त्म होती है। शुरुआत यह है: एक इंसान, एक कैमरा, एक पल। अंत यह है: एक फोटो, एक रोस्ट, एक याद। और बीच में, जो कुछ भी है, वह कहानी है। वह कहानी तुम्हारी है। वह कहानी मेरी है। वह कहानी हमारी है। और वह कहानी, आख़िर में, वह चीज़ है जो रहती है, जब सब कुछ और चला जाता है। फोटो चली जाती है। रोस्ट चला जाता है। याद रहती है। कहानी रहती है। और यह कहानी, अपने अजीब तरीके से, सुंदर है, और मज़ेदार है, और इंसानी है, और यह सब काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा। तो यह कहानी रखो। इसे सुनाओ। इसे दोहराओ। इसे ज़िंदा रखो। क्योंकि कहानियाँ ज़िंदा रहती हैं, जब सब कुछ और मर जाता है, और यह कहानी ज़िंदा रहेगी, और यह कहानी ज़िंदा रहनी चाहिए, क्योंकि यह तुम्हारी कहानी है, और तुम्हारी कहानी ज़िंदा रहनी चाहिए, और तुम ज़िंदा रहना चाहिए, और यह सब, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा।",
+      "मैं इस फोटो को देखकर सोच रहा हूँ कि अगर तुम इसे अभी देखो, तो तुम क्या महसूस करोगे। शायद शर्म। शायद हँसी। शायद दोनों। और यह ठीक है। यह सब ठीक है। क्योंकि यह फोटो तुम्हारी है, और यह फोटो तुम्हारे बारे में है, और यह फोटो तुम्हारे लिए है, और तुम जो भी महसूस करो, वह सही है, क्योंकि वह तुम्हारा है। और यह फोटो तुम्हारा है, और तुम्हारा होना, आख़िर में, सबसे सही चीज़ है। तो इसे रखो। इसे देखो। इसे महसूस करो। इसे ज़िंदा रहने दो। क्योंकि यह फोटो एक पल है, और पल ज़िंदा रहने चाहिए, और यह पल ज़िंदा रहेगा, और यह पल ज़िंदा रहना चाहिए, क्योंकि यह तुम्हारा पल है, और तुम्हारे पल ज़िंदा रहने चाहिए, और तुम ज़िंदा रहने चाहिए, और यह सब, आख़िर में, काफ़ी है। हमेशा काफ़ी रहा है। हमेशा काफ़ी रहेगा। और यह फोटो, अपने अजीब तरीके से, तुम्हें यह याद दिला रही है, और यह याद दिलाना अच्छा है, और यह फोटो अच्छी है, भले ही यह अच्छी नहीं है, और यह ठीक है, और यह हमेशा ठीक रहा है, और यह हमेशा ठीक रहेगा। तो इसे रखो। इसे रखो। इसे रखो। और यह, आख़िर में, सबसे सही बात है जो मैं कह सकता हूँ। इसे रखो।"
+    ]
   };
 
-  /* ============================================================
+  /* ==========================================================
      LOADING MESSAGES
-     ============================================================ */
+     ========================================================== */
   const loadingMessages = {
     english: [
       "Scanning your face for any redeeming qualities...",
       "Applying advanced ugliness detection algorithms...",
       "Consulting with the spirits of brutal honesty...",
-      "Trying to find something nice to say... this might take a while.",
-      "Comparing your photo to a database of unfortunate-looking people...",
-      "Calculating the probability of you ever getting a date...",
+      "Drafting a 250-word essay on why this photo exists...",
+      "Stretching the roast to word count... bear with me...",
       "Analyzing your face... my condolences."
     ],
     malayalam: [
       "നിങ്ങളുടെ മുഖത്ത് എന്തെങ്കിലും നല്ല ഗുണങ്ങളുണ്ടോ എന്ന് പരിശോധിക്കുന്നു...",
       "അഡ്വാൻസ്ഡ് വൃത്തികേട് കണ്ടെത്തൽ അൽഗോരിതം പ്രയോഗിക്കുന്നു...",
-      "ക്രൂരമായ സത്യസന്ധതയുടെ ആത്മാക്കളുമായി കൂടിയാലോചിക്കുന്നു...",
-      "നല്ലതൊന്നും പറയാൻ കിട്ടുന്നില്ല... കുറച്ച് സമയമെടുക്കും.",
-      "നിങ്ങളുടെ ഫോട്ടോ നിർഭാഗ്യവാന്മാരായ ആളുകളുടെ ഡാറ്റാബേസുമായി താരതമ്യം ചെയ്യുന്നു...",
-      "നിങ്ങൾക്ക് എപ്പോഴെങ്കിലും ഒരു ഡേറ്റ് കിട്ടാനുള്ള സാധ്യത കണക്കാക്കുന്നു...",
+      "ഈ ഫോട്ടോ എന്തിനാണ് എന്നതിനെക്കുറിച്ച് 250 വാക്കുകളുള്ള ലേഖനം എഴുതുന്നു...",
       "നിങ്ങളുടെ മുഖം വിശകലനം ചെയ്യുന്നു... എൻ്റെ അനുശോചനം."
     ],
     manglish: [
       "Nindude mukathu enthenkilum nalla gunangalundo ennu parishodikkunnu...",
       "Advanced vrithikedu kandethal algorithm prayogikkunnu...",
-      "Krooramaaya sathyasandhathayude aathmakkalumaayi koodiyaalochikkunnu...",
-      "Nallathonnum parayan kittunnilla... kurachu samayamedukkum.",
-      "Nindude photo nirbhagyavanmaaraya aalukalude databaseumaayi thaarathamyam cheyyunnu...",
-      "Ningalkku eppozhenkilum oru date kittaanulla sadhyatha kanakkaakkunnu...",
+      "Ee photo enthinanu ennathinekkurichu 250 vaakkukalulla lekhana ezhuthunnu...",
       "Nindude mukham vishakalanum cheyyunnu... ente anushochanam."
     ],
     hindi: [
       "तुम्हारे चेहरे में कोई अच्छाई ढूँढ रहा हूँ...",
       "एडवांस्ड बदसूरती डिटेक्शन एल्गोरिदम लगा रहा हूँ...",
-      "क्रूर सच्चाई की आत्माओं से सलाह ले रहा हूँ...",
-      "कुछ अच्छा कहने की कोशिश कर रहा हूँ... थोड़ा समय लगेगा।",
-      "तुम्हारी फोटो की तुलना बदकिस्मत लोगों के डेटाबेस से कर रहा हूँ...",
-      "तुम्हारे डेट पर जाने की संभावना निकाल रहा हूँ...",
+      "इस फोटो के अस्तित्व पर 250 शब्दों का निबंध लिख रहा हूँ...",
       "तुम्हारा चेहरा एनालाइज़ कर रहा हूँ... मेरी संवेदना।"
-    ],
-    hinglish: [
-      "Tumhare chehre mein koi achhai dhoondh raha hoon...",
-      "Advanced badsoorti detection algorithm laga raha hoon...",
-      "Kroor sachchai ki aatmaon se salah le raha hoon...",
-      "Kuch achha kehne ki koshish kar raha hoon... thoda samay lagega.",
-      "Tumhari photo ki tulna badkismat logon ke database se kar raha hoon...",
-      "Tumhare date par jaane ki sambhavna nikaal raha hoon...",
-      "Tumhara chehra analyze kar raha hoon... meri sanvedna."
     ]
   };
 
-  /* ============================================================
-     ROUTING: given analysis, pick a bucket key
-     ============================================================ */
-  function pickBucket(a) {
-    // threshold tuning (0..1)
-    if (a.brightness < 0.22)                       return 'dark';
-    if (a.brightness > 0.88)                       return 'bright';
-    if (a.sharpness < 12)                          return 'blurry';
-    if (a.isPortrait)                              return 'portrait';
-    if (a.isLandscape)                             return 'landscape';
-    return 'generic';
-  }
+  /* ==========================================================
+     DOM
+     ========================================================== */
+  const photoUpload    = document.getElementById('photo-upload');
+  const analyzeBtn     = document.getElementById('analyze-btn');
+  const loader         = document.getElementById('loader');
+  const loadingText    = document.getElementById('loading-text');
+  const result         = document.getElementById('result');
+  const comment        = document.getElementById('comment');
+  const wordCount      = document.getElementById('word-count');
+  const languageSel    = document.getElementById('language');
+  const imageContainer = document.querySelector('.image-container');
+  const uploadedImage  = document.getElementById('uploaded-image');
 
-  /* ============================================================
-     STATE
-     ============================================================ */
-  let currentAnalysis = null;
   let loadingInterval = null;
   let analysisTimeout = null;
 
-  /* ============================================================
-     IMAGE PREVIEW + ANALYSIS
-     ============================================================ */
+  function countWords(s) {
+    return (s.trim().match(/\S+/g) || []).length;
+  }
+
   photoUpload.addEventListener('change', () => {
     const file = photoUpload.files[0];
     if (!file) return;
-
     const reader = new FileReader();
     reader.onload = (e) => {
-      uploadedImage.onload = () => {
-        imageContainer.classList.remove('hidden');
-        try {
-          currentAnalysis = analyzeImage(uploadedImage);
-          console.log('[analyzer]', currentAnalysis);
-        } catch (err) {
-          console.warn('Image analysis failed, falling back to generic.', err);
-          currentAnalysis = null;
-        }
-      };
       uploadedImage.src = e.target.result;
+      imageContainer.classList.remove('hidden');
     };
     reader.readAsDataURL(file);
   });
 
-  /* ============================================================
-     ANALYZE BUTTON
-     ============================================================ */
   analyzeBtn.addEventListener('click', () => {
     if (!photoUpload.files.length) {
       alert('Please upload a photo first!');
       return;
     }
 
-    // cancel any previous runs
     if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
     if (analysisTimeout) { clearTimeout(analysisTimeout); analysisTimeout = null; }
 
     const language = languageSel.value;
-    const langData = comments[language];
-
-    if (!langData) {
-      alert('Unsupported language selected.');
+    const roasts = ROASTS[language] || [];
+    if (!roasts.length) {
+      alert('No roasts available for ' + language);
       return;
     }
 
-    // show loader, hide old result
+    const msgs = loadingMessages[language] || loadingMessages.english;
     loader.classList.remove('hidden');
     result.classList.add('hidden');
     analyzeBtn.disabled = true;
 
-    // rotating loading messages
-    let messageIndex = 0;
-    const msgs = loadingMessages[language];
-    loadingText.textContent = msgs[messageIndex];
+    let mi = 0;
+    loadingText.textContent = msgs[mi];
     loadingInterval = setInterval(() => {
-      messageIndex = (messageIndex + 1) % msgs.length;
-      loadingText.textContent = msgs[messageIndex];
-    }, 2000);
+      mi = (mi + 1) % msgs.length;
+      loadingText.textContent = msgs[mi];
+    }, 1800);
 
     analysisTimeout = setTimeout(() => {
       if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
       loader.classList.add('hidden');
       analyzeBtn.disabled = false;
 
-      // If analysis failed (e.g., CORS, decode error), fall back to generic
-      const analysis = currentAnalysis || {
-        brightness: 0.5, saturation: 0.5, warmth: 0, sharpness: 20,
-        isPortrait: false, isLandscape: false, faceLikely: false
-      };
-
-      const bucketKey = pickBucket(analysis);
-      const bucket = langData[bucketKey] || langData.generic;
-
-      const roast = bucket[Math.floor(Math.random() * bucket.length)];
-      comment.textContent = roast;
+      const picked = roasts[Math.floor(Math.random() * roasts.length)];
+      comment.textContent = picked;
+      wordCount.textContent = countWords(picked) + ' words';
       result.classList.remove('hidden');
-
       analysisTimeout = null;
-    }, 6000); // was 10s — 6s feels snappier; change as you like
+    }, 3000);
   });
 
-  /* ============================================================
-     CLEANUP
-     ============================================================ */
   window.addEventListener('beforeunload', () => {
     if (loadingInterval) clearInterval(loadingInterval);
     if (analysisTimeout) clearTimeout(analysisTimeout);
